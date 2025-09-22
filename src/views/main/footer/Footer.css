@@ -1,0 +1,66 @@
+.block {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    background-color: rgba(0, 47, 61, 1);
+
+    width: 100%;
+    height: 16.459vw;
+}
+
+.footer {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    width: 76.25vw;
+}
+
+.footer .text {
+    color: rgba(204, 248, 255, 0.65);
+
+    width: 42.083vw;
+    font-weight: 400;
+    font-size: 0.833vw;
+    line-height: 150%;
+    letter-spacing: -1%;
+}
+
+.logo-messengers {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+    margin-top: 1.75vw;
+}
+
+/* Соц. сети */
+.messengers {
+    display: flex;
+    width: max-content;
+
+    height: 22.50%;
+    gap: 0.417vw;
+}
+
+/* Иконки */
+.messengers i {
+    display: flex;
+    color: white;
+
+    font-size: 1.667vw;
+}
+
+.footer-links {
+    display: flex;
+    color: rgba(241, 253, 255, 1);
+
+    font-weight: 600;
+    font-size: 0.833vw;
+    line-height: 125%;
+    letter-spacing: 0%;
+    gap: 1.667vw;
+
+}

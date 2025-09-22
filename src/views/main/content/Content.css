@@ -1,0 +1,258 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+}
+
+.content > div:last-child {
+    margin-bottom: 12vw;
+}
+
+.main-image {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    background-color: black;
+
+    margin-top: 4.688vw;
+    width: 100%;
+    height: 27.083vw;
+}
+
+/*Контент внутри изображения*/
+
+.block-price-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 16%;
+    width: 76.25vw;
+}
+
+/*Левая часть*/
+
+.block-price {
+    width: 12.5vw;
+}
+
+.block-discount-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.discount {
+    width: max-content;
+    background-color: rgba(255, 111, 149, 1);
+    color: black;
+
+    border-radius: 1.042vw;
+    font-size: 0.833vw;
+    font-weight: 700;
+    padding: 0.15vw 0.8vw;
+}
+
+.price {
+    color:white;
+    font-family: "Manrope", sans-serif;
+
+    font-size: 1.667vw;
+    font-weight: 700;
+}
+
+.old-price {
+    color:rgba(204, 248, 255, 0.65);
+    text-decoration: line-through;
+
+    font-size: 1.667vw;
+    font-weight: 400;
+}
+
+.time-discount {
+    color: rgba(204, 248, 255, 0.65);
+
+    font-size: 0.833vw;
+}
+
+/*Правая часть*/
+
+.block-name {
+    text-align: right;
+
+    width: 24.583vw;
+}
+
+.title {
+    color: white;
+
+    font-size: 1.25vw;
+    font-weight: 700;
+}
+
+.description {
+    color: rgba(255, 255, 255, 0.8);
+
+    font-size: 0.833vw;
+    font-weight: 400;
+}
+
+
+/*Витрина*/
+
+.showcase-images {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+
+    margin-top: 1.2vw;
+    width: 76.25vw;
+    height: 3.542vw;
+}
+
+.image-in-showcase {
+    background-color: black;
+
+    border-radius: 0.625vw;
+    width: 7.24vw;
+    height: 100%;
+}
+
+.title-category {
+    color: white;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+
+    width: 76.25vw;
+    margin-top: 3vw;
+    margin-bottom: 1.5vw;
+    font-weight: 700;
+    font-size: 1.667vw;
+    line-height: 125%;
+    letter-spacing: 0%;
+}
+
+/*Специальные предложения*/
+
+.special-offers {
+    display: flex;
+    justify-content: space-between;
+
+    width: 76.25vw;
+}
+
+.block-in-special-offers {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-color: rgba(0, 47, 61, 1);
+
+    border-radius: 0.833vw;
+    height: 17.5vw;
+    width: 24.583vw;
+}
+
+.image-special-offers {
+    background-color: black;
+
+    border-radius: 0.833vw 0.833vw 0px 0px;
+    width: 100%;
+    height: 12.5vw;
+}
+
+.name-game {
+    color: white;
+
+    margin: 1vw 0.5vw 0.5vw 1vw;
+    font-weight: 700;
+    font-size: 1.042vw;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
+.price-game {
+    color: rgba(241, 253, 255, 0.8);
+
+    margin: 0px 1vw;
+    font-weight: 400;
+    font-size: 1.042vw;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
+/* Рекомендованные */
+
+.block-in-recommended {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-color: rgba(0, 47, 61, 1);
+
+    border-radius: 0.833vw;
+    height: 27.083vw;
+    width: 18.125vw;
+}
+
+.image-recommended {
+    background-color: black;
+
+    border-radius: 0.833vw 0.833vw 0px 0px;
+    width: 100%;
+    height: 20.833vw;
+}
+
+/* Списки игр */
+.lists-games {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+
+    margin-top: 3vw;
+    width: 76.25vw;
+}
+
+.title-list-game {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+
+    font-weight: 700;
+    font-size: 1.25vw;
+    line-height: 110%;
+    letter-spacing: 0%;
+}
+
+.list-game {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    flex-direction: column;
+
+    width: 24.583vw;
+    height: 56.771vw;
+}
+
+.block-list-game {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 17.5vw;
+}
+
+/* Стрелка */
+
+.bi-chevron-right {
+    cursor: pointer;
+    color: white;
+
+    font-size: 0.8vw;
+}
+
+.bi-chevron-right:hover {
+  color: rgba(73, 255, 222, 1);
+}

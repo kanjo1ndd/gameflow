@@ -1,0 +1,148 @@
+.head {
+    width: 100%;
+    height: 4.688vw;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    z-index: 1;
+
+    background: rgba(0, 47, 61, 1);
+}
+
+.head-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 76.25vw;
+}
+
+.head-top nav {
+    display: flex;
+    position: relative;
+
+    height: 100%;
+}
+
+.nav {
+    list-style-type: none;
+    align-items: center;
+
+    gap: 1.823vw;
+}
+
+.li {
+    /* text */
+    cursor: pointer;
+    transition: filter 0.2s, color 0.2s;
+    font-family: "Manrope", sans-serif;
+    color: white;
+
+    font-weight: 600;
+    font-size: 1.042vw;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
+.li:hover {
+    filter: brightness(0.85);
+}
+
+.li.active {
+    color: rgba(73, 255, 222, 1);
+}
+
+/*Нижняя часть с поиском*/
+
+.head-bottom {
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+
+    width: 76.25vw;
+    top: 130%;
+}
+
+.input-category {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(4, 96, 117, 1);
+
+    width: 91.803%;
+    height: 2.708vw;
+    border-radius: 1.042vw;
+}
+
+.input-header {
+    background-color: rgba(0, 47, 61, 0.7);
+    border: none;
+    outline: none;
+
+    font-size: 0.833vw;
+    font-family: "Manrope", sans-serif;
+    margin-left: 0.25vw;
+    height: 2.292vw;
+    width: 43.899%;
+    border-radius: 0.8vw;
+}
+
+.head-bottom input {
+    padding-left: 0.75vw;
+    color: rgba(143, 178, 185, 1);
+}
+
+.head-bottom input::placeholder {
+    color: rgba(143, 178, 185, 1);
+}
+
+.catalog-news {
+    display: flex;
+    color: white;
+
+    gap: 1.3vw;
+    margin-right: 1.3vw;
+    font-size: 0.833vw;
+    font-weight: 700;
+    font-family: "Manrope", sans-serif;
+
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.pointer:hover {
+    filter: brightness(0.85);
+}
+
+.pointer.active {
+    color: rgba(73, 255, 222, 1);
+}
+
+.search {
+    display: flex;
+    position: absolute;
+    color: white;
+
+    right: 57%;
+    font-size: 1vw;  
+}
+
+/*Кнопочки*/
+
+.head-bottom button {
+    border: none;
+    outline: none;
+    background-color: rgba(4, 96, 117, 1);
+    color: white;
+
+    width: 2.708vw;
+    border-radius: 1.042vw;
+    font-size: 1.1vw;
+}
+
+.head-bottom button:hover {
+    filter: brightness(0.7);
+}
