@@ -1,0 +1,189 @@
+.content-sign-in {
+    display: flex;
+    position: relative;
+
+    width: 100;
+}
+
+.background-image {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    background-image: url('/image-reg.png');
+    background-size: cover;
+    background-position: center;
+
+    margin-top: 4.688vw;
+    width: 100%;
+    height: 50.365vw;
+}
+
+.block-sign-in {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(0, 47, 61, 1);
+
+    border-radius: 1.042vw;
+    margin-top: 7.5vw;
+    width: 37.5vw;
+    height: 24.792vw;
+}
+
+.block-authorization {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: max-content;
+
+    width: 33.333vw;
+    margin: 0 0 2vw 2vw;
+}
+
+.authorization-text {
+    display: flex;
+    justify-content: center;
+    color: white;
+
+    margin-bottom: 2vw;
+    font-weight: 700;
+    font-size: 1.25vw;
+    line-height: 110%;
+    letter-spacing: 0%;
+}
+
+.form-authozation {
+    color: white;
+
+    margin-bottom: 0.35vw;
+    font-weight: 700;
+    font-size: 0.833vw;
+    line-height: 125%;
+    letter-spacing: -1%;
+}
+
+.input-authozation {
+    background-color: rgba(0, 20, 31, 0.4);
+    border: 1px solid rgba(4, 96, 117, 1);
+    outline: none;
+
+    margin-bottom: 1vw;
+    font-size: 0.833vw;
+    border-radius: 1.146vw;
+}
+
+.block-authorization input {
+    color: rgba(204, 248, 255, 0.65);
+    padding: 0.5vw;
+    padding-left: 1vw;
+}
+
+.block-authorization input::placeholder {
+    color: rgba(204, 248, 255, 0.65);
+
+}
+
+.remember-dont-password {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+.remember {
+    color: rgba(241, 253, 255, 0.8);
+
+    font-weight: 400;
+    font-size: 0.833vw;
+    line-height: 125%;
+    letter-spacing: -1%;
+}
+
+.dont-rememberr {
+    color: white;
+    cursor: pointer;
+
+    font-weight: 600;
+    font-size: 0.833vw;
+    line-height: 125%;
+    letter-spacing: 0%;
+}
+
+.dont-rememberr:hover {
+    color: rgba(73, 255, 222, 1);
+}
+
+.button-signup {
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+}
+
+.button-continue {
+    background-color: rgba(36, 229, 194, 1);
+    color: black;
+    outline: none;
+    border: none;
+    width: max-content;
+
+    border-radius: 1.042vw;
+    padding: 0.7vw 2.3vw;
+    font-weight: 600;
+    font-size: 1.042vw;
+    line-height: 120%;
+    letter-spacing: 0%;
+
+}
+
+.button-continue:hover {
+    filter: brightness(1.1);
+}
+
+.none-account {
+    display: flex;
+    color: rgba(204, 248, 255, 0.65);
+
+    gap: 0.2vw;
+    margin-top: 0.5vw;
+    font-weight: 400;
+    font-size: 0.729vw;
+    line-height: 115%;
+    letter-spacing: -1%;
+}
+
+.continue-sign-up {
+    cursor: pointer;
+
+    color: rgba(36, 229, 194, 1);
+}
+
+.continue-sign-up:hover {
+    filter: brightness(1.25);
+}
+
+
+/* Для валидации */
+
+.form-errors {
+    display: flex;
+
+    margin-bottom: 0.5vw;
+}
+
+.form-errors span {
+    display: flex;
+
+    gap: 0.5vw;
+    color: rgba(255, 165, 153, 1);
+    font-size: 0.729vw;
+}
+
+.input-error {
+    border: 1px solid rgba(255, 165, 153, 1) !important;
+    border-radius: 1.146vw !important;
+}
+
+.input-authozation.input-error {
+    margin-bottom: 0.5vw;
+}

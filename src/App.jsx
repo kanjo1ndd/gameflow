@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import { AppContext } from './AppContext'
 import { useState } from 'react'
 import Store from './views/main/Store'
+import SignIn from './views/registration/SignIn'
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
       <AppContext.Provider value={{request, token, setToken}}>
       <Routes>
         <Route path="/" element={<Store />} />
+        <Route path="/SignIn" element={<SignIn />} />
       </Routes>
     </AppContext.Provider>
    )

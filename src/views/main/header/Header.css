@@ -52,6 +52,23 @@
     color: rgba(73, 255, 222, 1);
 }
 
+.button-sign-in {
+    background-color: rgba(4, 96, 117, 1);
+    color: white;
+    border: none;
+    outline: none;
+
+    padding: 0.5vw 1vw;
+    font-weight: 600;
+    line-height: 125%;
+    font-size: 0.833vw;
+    border-radius: 1.042vw;
+}
+
+.button-sign-in:hover {
+    filter: brightness(0.85);
+}
+
 /*Нижняя часть с поиском*/
 
 .head-bottom {
@@ -133,6 +150,10 @@
 /*Кнопочки*/
 
 .head-bottom button {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
     border: none;
     outline: none;
     background-color: rgba(4, 96, 117, 1);
