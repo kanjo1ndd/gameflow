@@ -15,3 +15,5 @@ If you are developing a production application, we recommend using TypeScript wi
 Доп. контент:
 
 npm install react-router-dom
+
+npm install react-select react-select-country-list

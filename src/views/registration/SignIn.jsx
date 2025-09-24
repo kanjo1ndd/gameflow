@@ -45,25 +45,25 @@ export default function SignIn() {
         <div className='content-sign-in'>
             <div className='background-image'>
                 <div className='block-sign-in'>
+                    <div className='authorization-text'>Авторизуйтесь, щоб продовжити</div>
                     <div className='block-authorization'>
-                        <div className='authorization-text'>Авторизуйтесь, щоб продовжити</div>
                         <div className='form-authozation'>Логін або e-mail</div>
                         <input name="login" placeholder='Введіть ваш логін або e-mail...' onChange={(e) => setLogin(e.target.value)} 
                             className={`input-authozation ${errors.login ? 'input-error' : ''}`} />
                         <div className='form-errors'>
-                            {errors.login && <span><i class="bi bi-info-circle"></i> {errors.login}</span>}
+                            {errors.login && <span><i className="bi bi-info-circle"></i> {errors.login}</span>}
                         </div>
                         <div className='form-authozation'>Пароль</div>
                         <input name='password' type="password" value={password} onChange={(e) => setPassword(e.target.value)}
                             className={`input-authozation ${errors.password ? 'input-error' : ''}`} placeholder='Введіть ваш пароль...' />
                         <div className='form-errors'>
-                            {errors.password && <span><i class="bi bi-info-circle"></i> {errors.password}</span>}
+                            {errors.password && <span><i className="bi bi-info-circle"></i> {errors.password}</span>}
                         </div>
                         <div className='remember-dont-password'><div className='remember'>Запам'ятати мене</div><div className='dont-rememberr'>Не пам’ятаю пароль</div></div>
                     </div>
                     <div className='button-signup'>
                         <button onClick={ onSubmit } className='button-continue'>Продовжити</button>
-                        <div className='none-account'>Не маєте аккаунту? <div className='continue-sign-up'>Зареєструйтесь</div></div>
+                        <div className='none-account'>Не маєте аккаунту? <div className='continue-sign-up' onClick={() => navigate('/SignUp')}>Зареєструйтесь</div></div>
                     </div>
                 </div>
             </div>
