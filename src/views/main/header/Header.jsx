@@ -4,47 +4,27 @@ import { useEffect, useState, useContext } from "react";
 import { AppContext } from '../../../AppContext';
 
 export default function Header() {
-
+    
     const navigate = useNavigate();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const location = useLocation();
-    const {token, setToken} = useContext(AppContext);
-    const [showDropdown, setShowDropdown] = useState(false);
 
-    // Категории
-    const [categories, setCategory] = useState([]);
-    const { request } = useContext(AppContext);
+    const [userData, setUserData] = useState({});
+    const { request, token } = useContext(AppContext);
 
     useEffect(() => {
-        request("/api/shop/allCategories")
-            .then(data => setCategory(data))
-            .catch(console.error);
-    }, []);
-    // Категории
-
-    // Игры в поиске
-        const [searchTerm, setSearchTerm] = useState('');
-        const [searchResults, setSearchResults] = useState([]);
-
-        useEffect(() => {
-        const delayDebounce = setTimeout(() => {
-            if (!searchTerm.trim()) {
-                setSearchResults([]);
-                return;
-            }
-
-            request("/api/shop/allProducts")
-                .then(products => {
-                    const filtered = products.filter(p =>
-                        p.name.toLowerCase().includes(searchTerm.toLowerCase())
-                    );
-                    setSearchResults(filtered.slice(0, 3));
-                })
-                .catch(console.error);
-            }, 300); 
-
-            return () => clearTimeout(delayDebounce);
-        }, [searchTerm]);
-    // Игры в поиске
+        if(token == null) {
+            setUserData({});
+        }
+        else {
+            request("/api/user/profile")
+            .then(setUserData)
+            .catch(err => {
+                console.error(err);
+                setUserData({});
+            });
+        }
+    }, [token]);
 
     return <>
         <div className='head'>
@@ -67,7 +47,32 @@ export default function Header() {
                 {token == null ? <>
                     <button className='button-sign-in' onClick={() => navigate('/SignIn')}>Увійти</button>
                 </> : <>
-                    <button title={token} onClick={() => {setToken(null); navigate('/');}}>Sign out</button>
+                    <div className='right-part-head'>
+                        <button><i className='bi bi-gear'></i></button>
+                        <button><i className='bi bi-bell'></i></button>
+                        <div className='avatar-head'
+                            onClick={() => setIsMenuOpen((prev) => !prev)} >
+                                <img className='profile-img-head' src={userData.avatarUrl && userData.avatarUrl !== 'https://localhost:7202/Admin/Image/'
+                                    ? userData.avatarUrl : '/unknownUser.jpg'}/>
+                        </div>
+                        {isMenuOpen && (
+                            <div className="avatar-menu">
+                                <ul>
+                                    <li className='nickname'>{userData.userName ?? 'Nickname'}</li>
+                                    <li><span>Пошук користувачів</span></li>
+                                    <li><span>Мої друзі</span></li>
+                                    <li><span>Мої значки</span></li>
+                                    <li><span>Мої скріншоти</span></li>
+                                    <li><span>Моє бажане</span></li>
+                                    <li><span>Мої обговорення</span></li>
+                                    <li><span>Мої відео</span></li>
+                                    <li><span>Мої гайди</span></li>
+                                    <li><span>Мої рецензії</span></li>
+                                    <li className='exit' title={token} onClick={() => {setToken(null); navigate('/');}}>Вийти з акаунту</li>
+                                </ul>
+                            </div>
+                        )}
+                    </div>
                 </>}
             </div>
 

@@ -195,3 +195,10 @@
     border: 0.069vw solid rgba(255, 165, 153, 1) !important;
 }
 /* ////////////////////////////////////////////////////////// */
+
+/* Иконка даты */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    padding: 0px 0.5vw;
+    cursor: pointer;
+}

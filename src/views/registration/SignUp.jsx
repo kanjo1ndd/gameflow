@@ -43,26 +43,26 @@ export default function SignUp() {
         }).then((res) => {
             console.log(res);
             setIsSuccess(true);
-            navigate('/');
+            navigate('/SignIn');
         }).catch(console.error);
     }
 
     const validate = () => {
         const newErrors = {};
-        if (!login.trim()) newErrors.login = "(Login is required)";
-        if (!name.trim()) newErrors.name = "(Name is required)";
+        if (!login.trim()) newErrors.login = "Не коректний логін";
+        if (!name.trim()) newErrors.name = "Не коректний нік";
         if (!password.trim() || password.length < 6) 
-            newErrors.password = "(Password must be at least 6 characters)";
+            newErrors.password = "Пароль не має бути меньше 6-ти символів";
         if (password !== confirmPassword)
-            newErrors.confirmPassword = "(Passwords must match)";
-        if (!confirmPassword.trim()) newErrors.confirmPassword = "(Password is required)";
+            newErrors.confirmPassword = "Пароль не сходиться";
+        if (!confirmPassword.trim()) newErrors.confirmPassword = "Пароль не коректний";
         if (!email.trim() || !/\S+@\S+\.\S+/.test(email))
-            newErrors.email = "(Invalid email)";
+            newErrors.email = "Не коректна пошта";
         if (!phone.trim() || !/^\d+$/.test(phone))
-            newErrors.phone = "(Only digits are allowed)";
-        if (!phone.trim()) newErrors.phone = ("(Phone is required)");
-        if (!country) newErrors.country = "(Country is required)";
-        if (!birthDate.trim()) newErrors.birthDate = "(Date of birth is required)";
+            newErrors.phone = "Повинні бути лише цифри";
+        if (!phone.trim()) newErrors.phone = ("Не коректний номер");
+        if (!country) newErrors.country = "Не коректна країна";
+        if (!birthDate.trim()) newErrors.birthDate = "Не коректна дата народження";
         // if (!agree) newErrors.agree = "(You must agree to the terms)";
         return newErrors;
     };

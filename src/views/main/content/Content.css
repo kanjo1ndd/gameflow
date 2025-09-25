@@ -246,13 +246,71 @@
 
 /* Стрелка */
 
-.bi-chevron-right {
+.title-category .bi-chevron-right {
     cursor: pointer;
     color: white;
 
     font-size: 0.8vw;
 }
 
-.bi-chevron-right:hover {
+.title-category .bi-chevron-right:hover {
   color: rgba(73, 255, 222, 1);
 }
+
+/* .chevron-left-block {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+
+    left: 9%;
+    height: 100%;
+}
+
+.chevron-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: rgba(241, 253, 255, 1);
+    color: black;
+
+    border-radius: 2.5vw;
+    font-size: 0.8vw;
+    left: 9%;
+    width: 1.25vw;
+    height: 1.25vw;
+}
+
+.chevron-left:hover {
+    background-color: rgba(73, 255, 222, 1);
+}
+
+.chevron-right-block {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+
+    right: 9%;
+    height: 17.5vw;
+}
+
+.chevron-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: rgba(241, 253, 255, 1);
+    color: black;
+
+    border-radius: 2.5vw;
+    font-size: 0.8vw;
+    right: 9%;
+    width: 1.25vw;
+    height: 1.25vw;
+}
+
+.chevron-right:hover {
+    background-color: rgba(73, 255, 222, 1);
+} */

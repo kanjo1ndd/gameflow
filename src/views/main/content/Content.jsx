@@ -4,6 +4,9 @@ export default function Content() {
     return <>
         <div className='content'>
             <div className='main-image'>
+                {/* <div className='chevron-left-block'>
+                    <div className='chevron-left'><i className="bi bi-chevron-left" /></div>
+                </div> */}
                 <div className='block-price-name'>
                     <div className='block-price'>
                         <div className='block-discount-price'>
@@ -15,7 +18,7 @@ export default function Content() {
                         <div className='title'>Avatar: Frontiers of Pandora</div> 
                         
                         <div className='description'>Avatar: Frontiers of Pandora™ — це пригодницька гра від першої особи, 
-                        де події розгортаються на західному кордоні. </div>
+                            де події розгортаються на західному кордоні. </div>
                     </div>
                 </div>
             </div>
@@ -42,6 +45,9 @@ export default function Content() {
 export function SpecialOffers() {
     return <>
         <div className='special-offers'>
+            {/* <div className='chevron-left-block'>
+                <div className='chevron-left'><i className="bi bi-chevron-left" /></div>
+            </div> */}
             {Array.from({ length: 3 }).map((_, i) => (
                 <div key={i} className='block-in-special-offers'>
                     <div className='image-special-offers' />
@@ -49,6 +55,9 @@ export function SpecialOffers() {
                     <div className='price-game'>9999₴</div>
                 </div>
             ))}
+            {/* <div className='chevron-right-block'>
+                <div className='chevron-right'><i className="bi bi-chevron-right" /></div>
+            </div> */}
         </div>
     </>;
 }
@@ -56,6 +65,9 @@ export function SpecialOffers() {
 export function Recommended() {
     return <>
         <div className='special-offers'>
+            {/* <div className='chevron-left-block'>
+                <div className='chevron-left'><i className="bi bi-chevron-left" /></div>
+            </div> */}
             {Array.from({ length: 4 }).map((_, i) => (
                 <div key={i} className='block-in-recommended'>
                     <div className='image-recommended' />

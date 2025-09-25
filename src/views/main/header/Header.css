@@ -159,6 +159,7 @@
     background-color: rgba(4, 96, 117, 1);
     color: white;
 
+    padding: 0;
     width: 2.708vw;
     border-radius: 1.042vw;
     font-size: 1.1vw;
@@ -166,4 +167,108 @@
 
 .head-bottom button:hover {
     filter: brightness(0.7);
+}
+
+.right-part-head {
+    display: flex;
+    position: relative;
+
+    gap: 0.5vw;
+}
+
+.right-part-head button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    background-color: rgba(55, 195, 255, 0.12);
+    color: white;
+
+    padding: 0;
+    height: 2.708vw;
+    width: 2.708vw;
+    border-radius: 1.042vw;
+    font-size: 1.1vw;
+}
+
+.right-part-head button:hover {
+    filter: brightness(1.25);
+}
+
+/* Менюшка под аватаркой */
+
+.avatar-head {
+    display: flex;
+    position: relative;
+    background-color: black;
+    cursor: pointer;
+
+    border-radius: 1.5vw;
+    width: 2.708vw;
+}
+
+.profile-img-head {
+    border-radius: 1.5vw;
+    width: 2.708vw;
+    height: 2.708vw;
+}
+
+.avatar-menu {
+    position: absolute;
+    background-color: rgba(0, 66, 82, 1);
+    border: 1px solid rgba(4, 96, 117, 1);
+    color: rgba(241, 253, 255, 0.8);
+    width: max-content;
+
+    font-size: 0.833vw;
+    font-weight: 400;
+    line-height: 125%;
+    top: 135%;
+    right: 2%;
+    border-radius: 0.417vw;
+    z-index: 1;
+}
+
+.avatar-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.avatar-menu li {
+    padding: 0.425vw 1.25vw;
+}
+
+.avatar-menu li:first-child {
+    margin-top: 0.425vw;
+}
+
+.avatar-menu li:last-child {
+    margin-bottom: 0.425vw;
+}
+
+.avatar-menu li span:hover {
+    color: rgba(73, 255, 222, 1);
+}
+
+.avatar-menu li span {
+    cursor: pointer;
+}
+
+.nickname {
+    cursor: pointer;
+
+    font-weight: 700;
+    line-height: 125%;
+}
+
+.exit {
+    color: rgba(255, 165, 153, 1);
+    cursor: pointer;
+}
+
+.exit:hover,
+.nickname:hover {
+    filter: brightness(1.10);
 }
