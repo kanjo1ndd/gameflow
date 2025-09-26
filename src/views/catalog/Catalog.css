@@ -1,0 +1,24 @@
+.content-catalog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 100vh;
+    width: 100%;
+}
+
+.content-catalog-block {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+
+    margin-top: 4.688vw;
+}
+
+/* .content-catalog-block div:first-child {
+    margin-top: 3.5vw;
+} */
+
+/* .content-catalog-block div:last-child {
+    margin-bottom: 4vw;
+} */

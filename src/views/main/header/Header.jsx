@@ -32,7 +32,7 @@ export default function Header() {
                 <div>LOGO</div>
                 <nav>
                     <ul className='nav'>
-                        <li className={`li ${location.pathname === '/' ? 'active' : ''}`} 
+                        <li className={`li ${location.pathname === '/' || location.pathname === '/Catalog' ? 'active' : ''}`} 
                             onClick={() => navigate('/')}>
                             Крамниця
                         </li>
@@ -82,7 +82,8 @@ export default function Header() {
                         <input type="text" placeholder="Пошук у Крамниці..." className='input-header'/>
                         <i className="bi bi-search search"></i>
                         <div className='catalog-news'>
-                            <div className='pointer'>Каталог</div>
+                            <div className={`pointer ${ location.pathname === '/Catalog' ? 'active' : '' }`}
+                                onClick={() => navigate('/Catalog')}>Каталог</div>
                             <div className='pointer'>Новини</div>
                         </div>
                     </div>

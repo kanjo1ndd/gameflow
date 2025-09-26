@@ -5,6 +5,7 @@ import { useState } from 'react'
 import Store from './views/main/Store'
 import SignIn from './views/registration/SignIn'
 import SignUp from './views/registration/SignUp'
+import Catalog from './views/catalog/Catalog'
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
         <Route path="/" element={<Store />} />
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/Catalog" element={<Catalog />} />
       </Routes>
     </AppContext.Provider>
    )

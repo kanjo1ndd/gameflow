@@ -246,18 +246,20 @@
 
 /* Стрелка */
 
-.title-category .bi-chevron-right {
+.title-category .bi-chevron-right,
+.right {
     cursor: pointer;
     color: white;
 
     font-size: 0.8vw;
 }
 
-.title-category .bi-chevron-right:hover {
-  color: rgba(73, 255, 222, 1);
+.title-category .bi-chevron-right:hover,
+.right:hover {
+    color: rgba(73, 255, 222, 1);
 }
 
-/* .chevron-left-block {
+.chevron-left-block {
     display: flex;
     position: absolute;
     justify-content: center;
@@ -275,14 +277,18 @@
     background-color: rgba(241, 253, 255, 1);
     color: black;
 
+    text-shadow: 0 0 1px currentColor;
     border-radius: 2.5vw;
     font-size: 0.8vw;
     left: 9%;
-    width: 1.25vw;
-    height: 1.25vw;
+    width: 1.875vw;
+    height: 1.875vw;
 }
 
-.chevron-left:hover {
+.chevron-left:hover,
+.chevron-right:hover,
+.chevron-left-special:hover,
+.chevron-right-special:hover {
     background-color: rgba(73, 255, 222, 1);
 }
 
@@ -293,7 +299,7 @@
     align-items: center;
 
     right: 9%;
-    height: 17.5vw;
+    height: 100%;
 }
 
 .chevron-right {
@@ -304,6 +310,59 @@
     background-color: rgba(241, 253, 255, 1);
     color: black;
 
+    text-shadow: 0 0 1px currentColor;
+    border-radius: 2.5vw;
+    font-size: 0.8vw;
+    right: 9%;
+    width: 1.875vw;
+    height: 1.875vw;
+}
+
+.chevron-left-special-block {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+
+    left: 9%;
+    height: 17.5vw;
+}
+
+.chevron-left-special {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: rgba(241, 253, 255, 1);
+    color: black;
+
+    border-radius: 2.5vw;
+    text-shadow: 0 0 1px currentColor;
+    font-size: 0.8vw;
+    left: 9%;
+    width: 1.25vw;
+    height: 1.25vw;
+}
+
+.chevron-right-special-block {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+
+    right: 9%;
+    height: 17.5vw;
+}
+
+.chevron-right-special {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: rgba(241, 253, 255, 1);
+    color: black;
+
+    text-shadow: 0 0 1px currentColor;
     border-radius: 2.5vw;
     font-size: 0.8vw;
     right: 9%;
@@ -311,6 +370,22 @@
     height: 1.25vw;
 }
 
-.chevron-right:hover {
-    background-color: rgba(73, 255, 222, 1);
-} */
+.chevron-left-recommended-block {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+
+    left: 9%;
+    height: 27.083vw;
+}
+
+.chevron-right-recommended-block {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+
+    right: 9%;
+    height: 27.083vw;
+}
