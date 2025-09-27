@@ -20,6 +20,8 @@
     gap: 0.2vw;
 }
 
+/* Фильтр */
+
 .filter-block {
     display: flex;
     position: relative;
@@ -59,12 +61,29 @@
     filter: brightness(1.1);
 }
 
+.block-search-tags {
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.block-search-tags .bi-x-lg {
+    display: flex;
+    position: absolute;
+    color: white;
+    cursor: pointer;
+
+    left: 90%;
+    font-size: 0.9vw;
+}
+
 .search-tags {
     outline: none;
     border: 1px solid rgba(4, 96, 117, 1);
     background-color: rgba(0, 20, 31, 0.4);
     color: rgba(143, 178, 185, 1);
 
+    width: 100%;
     height: 2.292vw;
     padding: 0.75vw;
     font-weight: 400;
@@ -79,8 +98,94 @@
 }
 
 .filter-genre {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    color: white;
     background-color: rgba(0, 20, 31, 0.4);
 
-    height: 2.083vw;
+    
+    font-weight: 700;
+    font-size: 0.833vw;
+    line-height: 120%;
+    letter-spacing: 0%;
     border-radius: 0.833vw;
+}
+
+.genre-header {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0px 0.75vw;
+    min-height: 2.083vw;
+    width: 100%;
+}
+
+.genre-list {
+    overflow: hidden;
+    margin-top: 0.625vw;
+    padding-left: 0.75vw;
+}
+
+.genre-list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.genre-list label {
+    color: rgba(241, 253, 255, 0.8);
+
+    font-weight: 400;
+    font-size: 0.833vw;
+    line-height: 125%;
+    letter-spacing: -1%;
+    padding: 0.417vw 0;
+}
+
+.genre-list label:last-child {
+    margin-bottom: 0.5vw;
+}
+
+.bi-chevron-down,
+.bi-chevron-up {
+    text-shadow: 0 0 1px currentColor;
+}
+
+/* Чекбоксы */
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.9vw;
+    gap: 0.5vw;
+    color: white;
+}
+
+.checkbox input {
+    display: none;
+}
+
+.checkmark {
+    width: 1.042vw;
+    height: 1.042vw;
+    border: 1px solid rgba(36, 229, 194, 1);
+    border-radius: 50%;
+    position: relative;
+    display: inline-block;
+}
+
+.checkbox input:checked + .checkmark::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.6vw;
+    height: 0.6vw;
+    background: rgba(36, 229, 194, 1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
 }

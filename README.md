@@ -17,3 +17,5 @@ If you are developing a production application, we recommend using TypeScript wi
 npm install react-router-dom
 
 npm install react-select react-select-country-list
+
+npm install framer-motion
