@@ -6,10 +6,6 @@
     width: 100%;
 }
 
-.content > div:last-child {
-    margin-bottom: 12vw;
-}
-
 .main-image {
     display: flex;
     position: relative;

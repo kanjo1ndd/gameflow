@@ -17,7 +17,77 @@
 
     font-weight: 400;
     font-size: 0.833vw;
-    gap: 0.2vw;
+    gap: 0.75vw;
+}
+
+.list-sorting-text {
+    display: flex;
+    cursor: pointer;
+    color: white;
+
+    gap: 0.5vw;
+}
+
+.list-sorting-text:hover {
+    color: rgba(36, 229, 194, 1);
+}
+
+.list-sorting-text.active {
+    color: rgba(36, 229, 194, 1);
+}
+
+.sorting-menu {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    background-color: rgba(0, 66, 82, 1);
+    border: 1px solid rgba(4, 96, 117, 1);
+
+    padding: 0.5vw 0.5vw;
+    border-radius: 0.417vw;
+    left: 7%;
+    top: 130%;
+    z-index: 1;
+}
+
+.sorting-option {
+    cursor: pointer;
+    color: white;
+
+    border-radius: 1.042vw;
+    padding: 0.5vw 0.75vw;
+    font-weight: 400;
+    font-size: 0.833vw;
+    line-height: 125%;
+    letter-spacing: -1%;
+}
+
+.sorting-option.active {
+    background-color: rgba(55, 195, 255, 0.25);
+}
+
+.sorting-option:hover {
+    filter: brightness(0.8);
+}
+
+.bi-grid {
+    cursor: pointer;
+    color: white;
+    font-size: 1vw;
+}
+
+.bi-grid.active {
+    color: rgba(73, 255, 222, 1);
+}
+
+.bi-list-ul {
+    cursor: pointer;
+    color: white;
+    font-size: 1vw;
+}
+
+.bi-list-ul.active {
+    color: rgba(73, 255, 222, 1);
 }
 
 /* Фильтр */

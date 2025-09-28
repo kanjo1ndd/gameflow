@@ -86,21 +86,55 @@ export default function Filter() {
     </>;
 }
 
-export function Sorting() {
+export function Sorting({ viewMode, setViewMode }) {
     
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [selectedSort, setSelectedSort] = useState("За релевантністю");
+
+    const sortOptions = [
+        "За релевантністю",
+        "Спочатку популярні",
+        "Спочатку нові",
+        "За оцінкою",
+        "Від дешевих до дорогих",
+        "Від дорогих до дешевих",
+        "А – Я",
+        "Я – А",
+    ];
+
+    const handleSelect = (option) => {
+        setSelectedSort(option);
+        setIsMenuOpen(false);
+    };
 
     return <>
         <div className='sorting-block'>
             <div className='sorting-text'> Сортування:
-                <div>
-
-                </div>
+                <div className={`list-sorting-text ${isMenuOpen ? "active" : ""}`}
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}> {selectedSort} <i className="bi bi-chevron-down" /></div>
             </div>
-            <div className='sorting-text'> Вид:
-                <div>
 
+            {isMenuOpen && (
+                <div className="sorting-menu">
+                    {sortOptions.map((option) => (
+                        <div
+                            key={option}
+                            className={`sorting-option ${
+                            option === selectedSort ? "active" : ""
+                            }`}
+                            onClick={() => handleSelect(option)}
+                        >
+                            {option}
+                        </div>
+                    ))}
                 </div>
+            )}
+
+            <div className='sorting-text'> Вид:
+                <i className={`bi bi-grid ${viewMode === "column" ? "active" : ""}`} 
+                    onClick={() => setViewMode("column")} />
+                <i className={`bi bi-list-ul ${viewMode === "row" ? "active" : ""}`}
+                    onClick={() => setViewMode("row")} />
             </div>
         </div>
     </>;
