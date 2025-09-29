@@ -1,9 +1,14 @@
 import './Footer.css'
+import { useLocation } from "react-router-dom";
 
 export default function Footer() {
+    const location = useLocation();
+
+    const noMarginPages = ["/SignIn", "/SignUp"];
+    const isMarginPage = !noMarginPages.includes(location.pathname);
 
     return <>
-        <div className='block'>
+        <div className={`block ${isMarginPage ? "with-margin" : ""}`}>
             <div className='footer'>
                 <div className='logo-messengers'>
                     <div>LOGO</div>
