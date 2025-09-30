@@ -66,3 +66,162 @@
     width: 9.375vw;
     height: 4.583vw;
 }
+
+.category-game-page {
+    display: flex;
+    position: relative;
+
+    margin-top: 1vw;
+    gap: 1vw;
+}
+
+.text-category-game-page {
+    background-color: rgba(55, 195, 255, 0.25);
+    color: rgba(204, 248, 255, 0.65);
+    height: max-content;
+
+    padding: 0.25vw 0.75vw;
+    border-radius: 1.042vw;
+    font-weight: 700;
+    font-size: 0.729vw;
+    line-height: 114.99999999999999%;
+    letter-spacing: -1%;
+}
+
+.text-category-game-page:hover {
+    color: white;
+}
+
+.category-game-page .bi-chevron-down {
+    color: white;
+}
+
+.pre-description {
+    color: rgba(241, 253, 255, 0.8);
+
+    margin-top: 1vw;
+    width: 56.875vw;
+    font-weight: 400;
+    font-size: 1.042vw;
+    line-height: 140%;
+    letter-spacing: -1%;
+}
+
+.chevron-down {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    color: white;
+
+    margin-top: 0.5vw;
+    margin-bottom: 1vw;
+    font-size: 1.25vw;
+    width: 56.875vw;
+}
+
+/* Комплекти */
+
+.set-game-page {
+    background-color: rgba(0, 47, 61, 1);
+
+    padding: 1.042vw;
+    margin-bottom: 0.4vw;
+    border-radius: 1.042vw;
+    width: 56.875vw;
+}
+
+.name-set-game-page {
+    color: white;
+
+    margin-bottom: 1.042vw;
+    font-weight: 700;
+    font-size: 1.25vw;
+    line-height: 110.00000000000001%;
+    letter-spacing: 0%;
+}
+
+.block-set-game-page {
+    background-color: rgba(0, 66, 82, 1);
+    color: rgba(241, 253, 255, 0.8);
+
+    padding: 0.75vw 1vw;
+    border-radius: 1.042vw;
+    width: 100%;
+    font-weight: 400;
+    font-size: 1.042vw;
+    line-height: 140%;
+    letter-spacing: -1%;
+}
+
+.contents-set-game-page {
+    padding-left: 0.75vw;
+}
+
+.contents-text {
+    color: rgba(204, 248, 255, 0.65);
+}
+
+.price-button-game-page {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 1vw;
+    margin-top: 1vw;
+    width: 100%;
+}
+
+.price-game-page {
+    color: white;
+
+    font-weight: 700;
+    font-size: 1.042vw;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
+.button-basket {
+    outline: none;
+    border: none;
+    background-color: rgba(36, 229, 194, 1);
+    color: black;
+
+    padding: 0.65vw 1.5vw;
+    border-radius: 1.042vw;
+    font-weight: 600;
+    font-size: 1.042vw;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
+.button-basket:hover {
+    filter: brightness(1.1);
+}
+
+/* dlc */
+
+.dlc-set-game-page {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+
+    gap: 0.5vw;
+    width: 56.875vw;
+}
+
+.block-dlc-game-page {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    background-color: rgba(0, 47, 61, 1);
+    color: white;
+
+    padding: 1.042vw;
+    border-radius: 1.042vw;
+    width: 100%;
+    font-weight: 700;
+    font-size: 1.042vw;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
