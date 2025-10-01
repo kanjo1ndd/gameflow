@@ -7,6 +7,22 @@
     width: 100%;
 }
 
+.left-block-right-menu {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+
+    width: 76.25vw;
+}
+
+.left-block-game-page {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+
+    width: 56.875vw;
+}
+
 .header-block-game {
     display: flex;
     position: relative;
@@ -221,6 +237,118 @@
     border-radius: 1.042vw;
     width: 100%;
     font-weight: 700;
+    font-size: 1.042vw;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
+.text-dls {
+    display: flex;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+
+    gap: 0.5vw;
+    font-weight: 600;
+    font-size: 0.833vw;
+    line-height: 125%;
+    letter-spacing: 0%;
+}
+
+.text-dls:hover {
+    filter: brightness(0.9);
+}
+
+/* Комментарии */
+
+.button-name-game-page {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    text-align: center;
+
+    margin-top: 2.5vw;
+    margin-bottom: 1vw;
+    width: 56.875vw;
+}
+
+.name-game-pages {
+    color: white;
+
+    font-weight: 700;
+    font-size: 1.667vw;
+    line-height: 125%;
+    letter-spacing: 0%;
+}
+
+.button-comment {
+    outline: none;
+    border: none;
+    background-color: rgba(36, 229, 194, 1);
+    color: black;
+
+    padding: 0.5vw 1.25vw;
+    border-radius: 1.042vw;
+    font-weight: 600;
+    font-size: 0.833vw;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
+.block-sort-game-page {
+    display: flex;
+    position: relative;
+}
+
+/* менюшка справа */
+
+.block-menu-game-page {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+
+.right-image-game-menu {
+    background-color: black;
+
+    border-radius: 1.042vw;
+    height: 7.552vw;
+    width: 18.125vw;
+}
+
+.rating-game-menu {
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+
+    margin-top: 3vw;
+    margin-bottom: 1.25vw;
+    font-weight: 700;
+    font-size: 1.25vw;
+    line-height: 110.00000000000001%;
+    letter-spacing: 0%;
+}
+
+.price-game-menu {
+    color: white;
+
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    font-weight: 700;
+    font-size: 1.667vw;
+    line-height: 125%;
+    letter-spacing: 0%;
+}
+
+.button-buy-game-menu {
+    outline: none;
+    border: none;
+    color: black;
+    background-color: rgba(36, 229, 194, 1);
+
+    padding: 0.5vw;
+    border-radius: 1.042vw;
+    font-weight: 600;
     font-size: 1.042vw;
     line-height: 120%;
     letter-spacing: 0%;
