@@ -42,6 +42,17 @@
     letter-spacing: 0%;
 }
 
+.text-block-game.active {
+    color: rgba(36, 229, 194, 1);
+
+    padding-bottom: 0.4vw;
+    border-bottom: 0.204vw solid #49ffde;
+}
+
+.text-block-game.active:hover {
+    color: rgba(36, 229, 194, 1);
+}
+
 .text-block-game:hover {
     color: white;
 }
@@ -211,7 +222,8 @@
     letter-spacing: 0%;
 }
 
-.button-basket:hover {
+.button-basket:hover,
+.button-comment:hover {
     filter: brightness(1.1);
 }
 
@@ -304,7 +316,9 @@
 
 .block-menu-game-page {
     display: flex;
-    position: relative;
+    top: -10%;
+    position: sticky;
+    align-self: flex-start;
     flex-direction: column;
 }
 
@@ -346,10 +360,184 @@
     color: black;
     background-color: rgba(36, 229, 194, 1);
 
-    padding: 0.5vw;
+    padding: 0.65vw;
     border-radius: 1.042vw;
     font-weight: 600;
     font-size: 1.042vw;
     line-height: 120%;
     letter-spacing: 0%;
+    margin-bottom: 0.5vw;
+}
+
+.button-buy-game-menu:hover {
+    filter: brightness(1.1);
+}
+
+.buttons-game-menu {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+.button-add-cart-game-menu {
+    outline: none;
+    border: none;
+    color: white;
+    background-color: rgba(4, 96, 117, 1);
+
+    width: 15vw;
+    padding: 0.65vw;
+    border-radius: 1.042vw;
+    font-weight: 600;
+    font-size: 1.042vw;
+    line-height: 120%;
+    letter-spacing: 0%;
+    margin-bottom: 0.5vw;
+}
+
+.button-add-cart-game-menu:hover,
+.button-favorites-game-menu:hover {
+    filter: brightness(0.8);
+}
+
+.button-favorites-game-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: none;
+    color: white;
+    background-color: rgba(4, 96, 117, 1);
+
+    padding: 0;
+    width: 2.5vw;
+    border-radius: 1.042vw;
+    font-size: 1.1vw;
+    margin-bottom: 0.5vw;
+}
+
+.block-repost-report {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+
+    padding: 0.5vw 0.8vw;
+}
+
+.repost-game-menu {
+    display: flex;
+    cursor: pointer;
+    color: rgba(36, 229, 194, 1);
+
+    gap: 0.5vw;
+    font-weight: 600;
+    font-size: 1.042vw;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
+.report-game-menu {
+    display: flex;
+    cursor: pointer;
+    color: rgba(255, 165, 153, 1);
+
+    gap: 0.5vw;
+    font-weight: 600;
+    font-size: 1.042vw;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
+.repost-game-menu:hover,
+.report-game-menu:hover {
+    filter: brightness(1.1);
+}
+
+.block-info-game-menu {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+
+    gap: 1vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+}
+
+.info-game-menu {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    color: white;
+
+    font-weight: 700;
+    font-size: 0.833vw;
+    line-height: 125%;
+    letter-spacing: 0%;
+}
+
+.text-info-game-menu {
+    color: rgba(241, 253, 255, 0.8);
+
+    font-weight: 400;
+    font-size: 0.833vw;
+    line-height: 150%;
+    letter-spacing: -1%;
+}
+
+.block-want-this-game {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    color: white;
+    background-color: rgba(0, 47, 61, 1);
+
+    width: 18.125vw;
+    padding: 1.25vw;
+    margin-bottom: 1vw;
+    font-weight: 700;
+    border-radius: 1.042vw;
+    font-size: 1.042vw;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
+.text-number-friends {
+    display: flex;
+    position: relative;
+
+    margin-bottom: 1vw;
+}
+
+.number-friends {
+    font-weight: 300;
+    margin-left: 0.5vw;
+}
+
+.block-with-friends {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+
+    gap: 0.5vw
+}
+
+.block-friend {
+    display: flex;
+    position: relative;
+    align-items: center;
+    width: max-content;
+    background-color: rgba(0, 66, 82, 1);
+
+    padding-right: 1vw;
+    border-radius: 1.042vw;
+    font-size: 0.833vw;
+}
+
+.image-friend {
+    background-color: black;
+    width: 1.875vw;
+    height: 1.875vw;
+
+    margin-right: 0.75vw;
+    border-radius: 50%;
 }

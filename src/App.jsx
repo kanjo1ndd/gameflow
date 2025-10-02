@@ -7,6 +7,7 @@ import SignIn from './views/registration/SignIn'
 import SignUp from './views/registration/SignUp'
 import Catalog from './views/catalog/Catalog'
 import PageGame from './views/pageGame/PageGame'
+import Characteristics from './views/pageGame/Characteristics'
 
 
 
@@ -50,6 +51,7 @@ function App() {
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/Catalog" element={<Catalog />} />
         <Route path="/Game" element={<PageGame />} />
+        <Route path="/Game/Characteristics" element={<Characteristics />} />
       </Routes>
     </AppContext.Provider>
    )

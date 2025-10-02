@@ -1,6 +1,7 @@
 import Footer from "../main/footer/Footer";
 import Header from "../main/header/Header";
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import './PageGame.css'
 import '../filters/Filters.css'
 
@@ -130,12 +131,7 @@ export default function PageGame() {
                         <div></div>
                     </div>
                 </div>
-                <div className="block-menu-game-page">
-                    <div className="rating-game-menu">5.0</div>
-                    <div className="right-image-game-menu" />
-                    <div className="price-game-menu">1 099₴</div>
-                    <button className="button-buy-game-menu">Купити</button>
-                </div>
+                <MenuGamePage />
             </div>
         </div>
         <Footer />
@@ -143,11 +139,64 @@ export default function PageGame() {
 }
 
 export function HeaderPageGame() {
+
+    const location = useLocation();
+    const navigate = useNavigate();
+
     return <>
         <div className="header-block-game">
-            <div className="text-block-game">Про гру</div>
-            <div className="text-block-game">Характеристики</div>
+            <div 
+                className={`text-block-game ${location.pathname === "/Game" ? "active" : ""}`}
+                onClick={() => navigate("/Game")}>
+                    Про гру
+            </div>
+            <div 
+                className={`text-block-game ${location.pathname === "/Game/Characteristics" ? "active" : ""}`}
+                onClick={() => navigate("/Game/Characteristics")}>
+                    Характеристики
+            </div>
             <div className="text-block-game">Спільнота</div>
+        </div>
+    </>
+}
+
+export function MenuGamePage() {
+    return <>
+        <div className="block-menu-game-page">
+            <div className="rating-game-menu">5.0</div>
+            <div className="right-image-game-menu" />
+            <div className="price-game-menu">1 099₴</div>
+            <button className="button-buy-game-menu">Купити</button>
+            <div className="buttons-game-menu">
+                <button className="button-add-cart-game-menu">Додати у кошик</button>
+                <button className="button-favorites-game-menu"><i className='bi bi-suit-heart' /></button>
+            </div>
+            <div className="block-repost-report">
+                <div className="repost-game-menu"><i className="bi bi-upload" />Репост</div>
+                <div className="report-game-menu"><i className="bi bi-exclamation-square" />Поскаржитись</div>
+            </div>
+            <div className="block-info-game-menu">
+                <div className="info-game-menu">Дата виходу<div className="text-info-game-menu">10.12.2020</div></div>
+                <div className="info-game-menu">Розробник<div className="text-info-game-menu">CD PROJEKT RED</div></div>
+                <div className="info-game-menu">Видавець<div className="text-info-game-menu">Zubarik Inc</div></div>
+                <div className="info-game-menu">Платформи<div><i className="bi bi-windows" /> <i className="bi bi-apple" /></div></div>
+            </div>
+            <div className="block-want-this-game">
+                <div className="text-number-friends">Друзів бажають цю гру:<div className="number-friends">3</div></div>
+                <div className="block-with-friends">
+                    {Array.from({ length: 3 }).map((_, i) => (
+                        <div key={i} className="block-friend"><div className="image-friend"/>Nick</div>
+                    ))}
+                </div>
+            </div>
+            <div className="block-want-this-game">
+                <div className="text-number-friends">Друзів мають цю гру:<div className="number-friends">5</div></div>
+                <div className="block-with-friends">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                        <div key={i} className="block-friend"><div className="image-friend"/>Nick</div>
+                    ))}
+                </div>
+            </div>
         </div>
     </>;
 }

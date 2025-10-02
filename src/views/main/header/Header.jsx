@@ -87,8 +87,8 @@ export default function Header() {
                             <div className='pointer'>Новини</div>
                         </div>
                     </div>
-                    <button><i className='bi bi-suit-heart'></i></button>
-                    <button><i className='bi bi-cart3'></i></button>
+                    <button><i className='bi bi-suit-heart' /></button>
+                    <button><i className='bi bi-cart3' /></button>
                 </div>
             )}
 
