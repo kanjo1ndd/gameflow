@@ -59,7 +59,14 @@ export default function SignIn() {
                         <div className='form-errors'>
                             {errors.password && <span><i className="bi bi-info-circle"></i> {errors.password}</span>}
                         </div>
-                        <div className='remember-dont-password'><div className='remember'>Запам'ятати мене</div><div className='dont-rememberr'>Не пам’ятаю пароль</div></div>
+                        <div className='remember-dont-password'>
+                            <div className='remember'>
+                                <label className="custom-checkboxs">
+                                    <input type="checkbox" />
+                                    <span className="checkmarks"></span>
+                                </label>
+                                Запам'ятати мене</div><div className='dont-rememberr'>Не пам’ятаю пароль</div>
+                        </div>
                     </div>
                     <div className='button-signup'>
                         <button onClick={ onSubmit } className='button-continue'>Продовжити</button>

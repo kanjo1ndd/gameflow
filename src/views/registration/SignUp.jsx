@@ -149,6 +149,10 @@ export default function SignUp() {
                             </div>
                         </div>
                         <div className='agree'>
+                            <label className="custom-checkboxs">
+                                <input type="checkbox" />
+                                <span className="checkmarks"></span>
+                            </label>
                             Я погоджуюсь з <div className='terms-of-use'>Умовами використання</div>
                         </div>
                         <div className='button-signup'>

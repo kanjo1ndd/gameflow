@@ -163,7 +163,7 @@ export function HeaderPageGame() {
 export function MenuGamePage() {
     return <>
         <div className="block-menu-game-page">
-            <div className="rating-game-menu">5.0</div>
+            <div className="rating-game-menu">5.0 <RatingStars /></div>
             <div className="right-image-game-menu" />
             <div className="price-game-menu">1 099₴</div>
             <button className="button-buy-game-menu">Купити</button>
@@ -199,4 +199,19 @@ export function MenuGamePage() {
             </div>
         </div>
     </>;
+}
+
+export function RatingStars({ rating = 5 }) {
+    return (
+        <div className="rating-block">
+            <div className="stars">
+                {Array.from({ length: 5 }).map((_, i) => (
+                    <i
+                        key={i}
+                        className={`bi bi-star-fill ${i < Math.round(rating) ? "active" : ""}`}
+                    />
+                ))}
+            </div>
+        </div>
+    );
 }
