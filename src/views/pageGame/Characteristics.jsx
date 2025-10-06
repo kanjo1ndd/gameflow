@@ -1,17 +1,33 @@
 import Footer from '../main/footer/Footer';
 import Header from '../main/header/Header'
-import './Characteristics.css'
+import { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { AppContext } from "../../AppContext";
 import { HeaderPageGame, MenuGamePage } from './PageGame';
+import './Characteristics.css'
 import './PageGame.css'
 
 export default function Characteristics() {
+
+    const { id } = useParams();
+    const [product, setProduct] = useState([]);
+    const { request } = useContext(AppContext);
+
+    useEffect (() => {
+        request("/api/shop/product/" + id)
+        .then(data => setProduct(data))
+        .catch(j => console.error(j));
+    }, [id]);
+
+    if (!product) return <div>Loading...</div>;
+
     return <>
         <Header />
         <div className="content-page-game">
             <HeaderPageGame />
             <div className="left-block-right-menu">
                 <div className="left-block-game-page">
-                    <div className="name-game-page">Name</div>
+                    <div className="name-game-page">{product.name}</div>
                     <div className='block-platform'>
                         <div className='text-platform'><i className='bi bi-windows'/>Windows</div> <i className='bi bi-chevron-down' />
                     </div>
@@ -20,7 +36,7 @@ export default function Characteristics() {
                         <RecommendedRequirements />
                     </div>
                 </div>
-                <MenuGamePage />
+                <MenuGamePage product={product}/>
             </div>
         </div>
         <Footer />

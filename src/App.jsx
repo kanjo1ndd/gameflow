@@ -50,8 +50,8 @@ function App() {
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/Catalog" element={<Catalog />} />
-        <Route path="/Game" element={<PageGame />} />
-        <Route path="/Game/Characteristics" element={<Characteristics />} />
+        <Route path="/Game/:id" element={<PageGame />} />
+        <Route path="/Game/:id/Characteristics" element={<Characteristics />} />
       </Routes>
     </AppContext.Provider>
    )

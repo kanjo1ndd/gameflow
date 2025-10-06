@@ -1,11 +1,23 @@
 import Footer from "../main/footer/Footer";
 import Header from "../main/header/Header";
-import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { AppContext } from "../../AppContext";
 import './PageGame.css'
 import '../filters/Filters.css'
 
 export default function PageGame() {
+    const { id } = useParams();
+    const [product, setProduct] = useState([]);
+    const { request } = useContext(AppContext);
+
+    useEffect (() => {
+        request("/api/shop/product/" + id)
+        .then(data => setProduct(data))
+        .catch(j => console.error(j));
+    }, [id]);
+
+    if (!product) return <div>Loading...</div>;
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [selectedSort, setSelectedSort] = useState("Спочатку популярні");
@@ -30,7 +42,7 @@ export default function PageGame() {
             <HeaderPageGame />
             <div className="left-block-right-menu">
                 <div className="left-block-game-page">
-                    <div className="name-game-page">Name</div>
+                    <div className="name-game-page">{product.name}</div>
                     <div className="main-image-page-game" />
                     <div className="showcase-game-page">
                         {Array.from({ length: 6 }).map((_, i) => (
@@ -48,16 +60,16 @@ export default function PageGame() {
                         </div>
                     </div>
                     <div className="pre-description">
-                        Cyberpunk 2077 — пригодницький бойовик і рольова гра з відкритим світом. Дія відбувається у темному майбутньому Найт-Сіті, небезпечного мегаполіса, одержимого владою, гламуром і ненаситною модифікацією тіла.
+                        {product.description}
                     </div>
                     <div className="chevron-down">
                         <i className="bi bi-chevron-down"/>
                     </div>
                     <div className="name-game-page">Комплекти</div>
                     <div className="set-game-page">
-                        <div className="name-set-game-page">Name game</div>
+                        <div className="name-set-game-page">{product.name}</div>
                         <div className="block-set-game-page">
-                            Cyberpunk 2077 — пригодницький рольовий екшн у відкритому світі мегаполісу Найт-Сіті, де у ролі кіберпанкового найманця ви боротиметеся за виживання. Гра вдосконалена і має новий безкоштовний вміст. Налаштуйте персонажа й ігровий стиль, виконуючи завдання, нарощуючи репутацію і відкриваючи апгрейди. Будуючи взаємини і здійснюючи вибір, ви формуєте сюжет і світ навколо. Тут народжуються легенди. Якою буде ваша?                  
+                            {product.description}                 
                             <div className="contents-text">Вміст:</div>
                             <nav className="contents-set-game-page">
                                 <li>Cyperpunk</li>
@@ -72,7 +84,7 @@ export default function PageGame() {
                         </div>
                     </div>
                     <div className="set-game-page">
-                        <div className="name-set-game-page">Name game</div>
+                        <div className="name-set-game-page">{product.name}</div>
                         <div className="block-set-game-page">
                             <div className="contents-text">Вміст:</div>
                             <nav className="contents-set-game-page">
@@ -131,7 +143,7 @@ export default function PageGame() {
                         <div></div>
                     </div>
                 </div>
-                <MenuGamePage />
+                <MenuGamePage product={product} />
             </div>
         </div>
         <Footer />
@@ -139,20 +151,20 @@ export default function PageGame() {
 }
 
 export function HeaderPageGame() {
-
+    const { id } = useParams();
     const location = useLocation();
     const navigate = useNavigate();
 
     return <>
         <div className="header-block-game">
             <div 
-                className={`text-block-game ${location.pathname === "/Game" ? "active" : ""}`}
-                onClick={() => navigate("/Game")}>
+                className={`text-block-game ${location.pathname === `/Game/${id}` ? "active" : ""}`}
+                onClick={() => navigate(`/Game/${id}`)}>
                     Про гру
             </div>
             <div 
-                className={`text-block-game ${location.pathname === "/Game/Characteristics" ? "active" : ""}`}
-                onClick={() => navigate("/Game/Characteristics")}>
+                className={`text-block-game ${location.pathname === `/Game/${id}/Characteristics` ? "active" : ""}`}
+                onClick={() => navigate(`/Game/${id}/Characteristics`)}>
                     Характеристики
             </div>
             <div className="text-block-game">Спільнота</div>
@@ -160,12 +172,12 @@ export function HeaderPageGame() {
     </>
 }
 
-export function MenuGamePage() {
+export function MenuGamePage({ product }) {
     return <>
         <div className="block-menu-game-page">
             <div className="rating-game-menu">5.0 <RatingStars /></div>
             <div className="right-image-game-menu" />
-            <div className="price-game-menu">1 099₴</div>
+            <div className="price-game-menu">{product.price}₴</div>
             <button className="button-buy-game-menu">Купити</button>
             <div className="buttons-game-menu">
                 <button className="button-add-cart-game-menu">Додати у кошик</button>
@@ -176,9 +188,9 @@ export function MenuGamePage() {
                 <div className="report-game-menu"><i className="bi bi-exclamation-square" />Поскаржитись</div>
             </div>
             <div className="block-info-game-menu">
-                <div className="info-game-menu">Дата виходу<div className="text-info-game-menu">10.12.2020</div></div>
-                <div className="info-game-menu">Розробник<div className="text-info-game-menu">CD PROJEKT RED</div></div>
-                <div className="info-game-menu">Видавець<div className="text-info-game-menu">Zubarik Inc</div></div>
+                <div className="info-game-menu">Дата виходу<div className="text-info-game-menu">{product.releaseDate?.slice(0, 10)}</div></div>
+                <div className="info-game-menu">Розробник<div className="text-info-game-menu">{product.developer}</div></div>
+                <div className="info-game-menu">Видавець<div className="text-info-game-menu">{product.publisher}</div></div>
                 <div className="info-game-menu">Платформи<div><i className="bi bi-windows" /> <i className="bi bi-apple" /></div></div>
             </div>
             <div className="block-want-this-game">

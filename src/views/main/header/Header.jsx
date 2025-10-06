@@ -10,7 +10,7 @@ export default function Header() {
     const location = useLocation();
 
     const [userData, setUserData] = useState({});
-    const { request, token } = useContext(AppContext);
+    const { request, token, setToken } = useContext(AppContext);
 
     useEffect(() => {
         if(token == null) {
