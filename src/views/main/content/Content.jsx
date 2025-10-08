@@ -1,6 +1,18 @@
 import './Content.css'
+import { useEffect, useState, useContext } from "react";
+import { AppContext } from "../../../AppContext.jsx";
 
 export default function Content() {
+
+    const [products, setProduct] = useState([]);
+    const { request } = useContext(AppContext);
+
+    useEffect (() => {
+        request("/api/shop/topRatedProducts")
+        .then(data => setProduct(data))
+        .catch(j => console.error(j));
+    }, []);
+
     return <>
         <div className='content'>
             <div className='main-image'>
@@ -31,7 +43,7 @@ export default function Content() {
                 ))}
             </div>
             <div className='title-category'>Особливі пропозиції <i className="bi bi-chevron-right right" /></div>
-            <SpecialOffers />
+            <SpecialOffers products={products}/>
             <div className='title-category'>Рекомендовані вам <i className="bi bi-chevron-right" /></div>
             <Recommended />
             <div className='title-category'>До 100₴ <i className="bi bi-chevron-right" /></div>
@@ -45,17 +57,17 @@ export default function Content() {
     </>;
 }
 
-export function SpecialOffers() {
+export function SpecialOffers({ products }) {
     return <>
         <div className='special-offers'>
             <div className='chevron-left-special-block'>
                 <div className='chevron-left-special'><i className="bi bi-chevron-left" /></div>
             </div>
-            {Array.from({ length: 3 }).map((_, i) => (
+            {products.map((product, i) => (
                 <div key={i} className='block-in-special-offers'>
-                    <div className='image-special-offers' />
-                    <div className='name-game'>Name</div>
-                    <div className='price-game'>9999₴</div>
+                    <img className='image-special-offers' src={product.imagesCsv}/>
+                    <div className='name-game'>{product.name}</div>
+                    <div className='price-game'>{product.price}₴</div>
                 </div>
             ))}
             <div className='chevron-right-special-block'>
