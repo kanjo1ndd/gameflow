@@ -1,6 +1,7 @@
 import './Content.css'
 import { useEffect, useState, useContext } from "react";
 import { AppContext } from "../../../AppContext.jsx";
+import { useNavigate } from "react-router-dom";
 
 export default function Content() {
 
@@ -58,13 +59,17 @@ export default function Content() {
 }
 
 export function SpecialOffers({ products }) {
+
+    const navigate = useNavigate();
+
     return <>
         <div className='special-offers'>
             <div className='chevron-left-special-block'>
                 <div className='chevron-left-special'><i className="bi bi-chevron-left" /></div>
             </div>
             {products.map((product, i) => (
-                <div key={i} className='block-in-special-offers'>
+                <div key={i} className='block-in-special-offers'
+                    onClick={() => navigate(`/Game/${product.id}`)}>
                     <img className='image-special-offers' src={product.imagesCsv}/>
                     <div className='name-game'>{product.name}</div>
                     <div className='price-game'>{product.price}₴</div>

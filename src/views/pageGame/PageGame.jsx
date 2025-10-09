@@ -173,6 +173,9 @@ export function HeaderPageGame() {
 }
 
 export function MenuGamePage({ product }) {
+
+    const [isFavorite, setIsFavorite] = useState(false);
+
     return <>
         <div className="block-menu-game-page">
             <div className="rating-game-menu">5.0 <RatingStars /></div>
@@ -181,7 +184,11 @@ export function MenuGamePage({ product }) {
             <button className="button-buy-game-menu">Купити</button>
             <div className="buttons-game-menu">
                 <button className="button-add-cart-game-menu">Додати у кошик</button>
-                <button className="button-favorites-game-menu"><i className='bi bi-suit-heart' /></button>
+                <button className="button-favorites-game-menu"
+                    onClick={() => setIsFavorite(prev => !prev)}>
+                    <i className={isFavorite ? "bi bi-suit-heart-fill" : "bi bi-suit-heart"}
+                        style={{ color: isFavorite ? "#ee73b0fd" : "#fff", transition: "color 0.3s" }} />
+                </button>
             </div>
             <div className="block-repost-report">
                 <div className="repost-game-menu"><i className="bi bi-upload" />Репост</div>

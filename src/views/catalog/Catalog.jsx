@@ -1,13 +1,24 @@
 import Filter, { Sorting } from '../filters/Filters';
 import Footer from '../main/footer/Footer';
 import Header from '../main/header/Header';
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AppContext } from '../../AppContext';
+import { useNavigate } from "react-router-dom";
 import './Catalog.css'
 import '../main/content/Content.css'
 
 export default function Catalog() {
 
     const [viewMode, setViewMode] = useState("row");
+
+    const [products, setProduct] = useState([]);
+    const { request } = useContext(AppContext);
+
+    useEffect (() => {
+        request("/api/shop/allProducts")
+        .then(data => setProduct(data))
+        .catch(j => console.error(j));
+    }, []);
 
     return <>
         <Header />
@@ -18,7 +29,7 @@ export default function Catalog() {
                     <div>
                         <Filter />
                     </div>
-                    {viewMode === "row" ? <ViewColumn /> : <ViewRow />}
+                    {viewMode === "row" ? <ViewColumn products={products} /> : <ViewRow products={products} />}
                 </div>
             </div>
         </div>
@@ -26,41 +37,47 @@ export default function Catalog() {
     </>;
 }
 
-export function ViewRow() {
+export function ViewRow({ products }) {
     return <>
         <div className='block-views-row'>
-            {Array(9).fill(null).map((_, index) => (
-                <BlockViewRow key={index} />
+            {products.map((product, index) => (
+                <BlockViewRow key={index} product={product} />
             ))}
         </div>
     </>;
 }
 
-export function BlockViewRow() {
+export function BlockViewRow({ product }) {
+
+    const navigate = useNavigate();
+
     return <>
-        <div className='block-view-row'>
-            <div className='image-block-view-row' />
-            <div className='name-game'>Name</div>
-            <div className='price-game'>9999₴</div>
+        <div className='block-view-row' onClick={() => navigate(`/Game/${product.id}`)}>
+            <img className='image-block-view-row' src={product.imagesCsv} />
+            <div className='name-game'>{product.name}</div>
+            <div className='price-game'>{product.price}₴</div>
         </div>
     </>;
 }
 
-export function ViewColumn() {
+export function ViewColumn({ products }) {
     return <>
         <div className='block-views-column'>
-            {Array(16).fill(null).map((_, index) => (
-                <BlockViewColumn key={index} />
+            {products.map((product, index) => (
+                <BlockViewColumn key={index} product={product} />
             ))}
         </div>
     </>;
 }
 
-export function BlockViewColumn() {
+export function BlockViewColumn({ product }) {
+
+    const navigate = useNavigate();
+
     return <>
-        <div className='block-view-column'>
-            <div className='image-block-view-column' />
-            <div className='name-price-view-column'>Name <div>999₴</div></div>
+        <div className='block-view-column' onClick={() => navigate(`/Game/${product.id}`)}>
+            <img className='image-block-view-column' src={product.imagesCsv} />
+            <div className='name-price-view-column'>{product.name} <div>{product.price}₴</div></div>
         </div>
     </>;
 }

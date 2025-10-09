@@ -46,7 +46,7 @@ export default function Filter() {
             <div className='block-search-tags'>
                 <input className='search-tags' placeholder='Пошук тегів' value={searchText}
                     onChange={(e) => setSearchText(e.target.value)} />
-                <i class="bi bi-x-lg" onClick={() => setSearchText("")} />
+                <i className="bi bi-x-lg" onClick={() => setSearchText("")} />
             </div>
             {filters.map((filter) => (
                 <div className="filter-genre" key={filter.title}>

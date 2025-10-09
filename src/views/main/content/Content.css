@@ -144,6 +144,7 @@
     display: flex;
     position: relative;
     flex-direction: column;
+    cursor: pointer;
     background-color: rgba(0, 47, 61, 1);
 
     border-radius: 0.833vw;
