@@ -8,6 +8,7 @@ import SignUp from './views/registration/SignUp'
 import Catalog from './views/catalog/Catalog'
 import PageGame from './views/pageGame/PageGame'
 import Characteristics from './views/pageGame/Characteristics'
+import Profile from './views/profile/Profile'
 
 
 
@@ -50,6 +51,7 @@ function App() {
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/Catalog" element={<Catalog />} />
+        <Route path="/Profile" element={<Profile />} />
         <Route path="/Game/:id" element={<PageGame />} />
         <Route path="/Game/:id/Characteristics" element={<Characteristics />} />
       </Routes>
