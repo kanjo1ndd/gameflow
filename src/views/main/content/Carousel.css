@@ -1,0 +1,94 @@
+.carousel-container  {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.slides-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    height: 100%;
+    /* Default transform, override with a class if needed */
+    transform: translateX(0%);
+}
+
+/* If you need a different transform when len === 10, use a modifier class in your HTML/JS */
+.slides-container.len-10 {
+    transform: translateX(-20%);
+}
+.carousel {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80%;
+    transition: all 0.5s ease;
+}
+.list-games> .carousel-container > .carousel>.button-carousel {
+    display: none;
+}
+.button-carousel {
+    background-color: rgb(197, 216, 222);
+    border: none;
+    color: rgb(5, 50, 47);
+    font-size: .5vw;
+    cursor: pointer;
+    height: 1.5vw;
+    width: 1.5vw;
+    padding: 0.5vw .5vw;
+    margin: 1vw 1vw;
+    border-radius: 2vw;
+}
+.button-carousel:hover {
+    background-color: rgb(73, 255, 222);
+    color: rgb(0, 47, 61);
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+.button-carousel:active {
+    transform: scale(0.9);
+    transition: all 0.1s ease;
+}
+.button-indicators {
+    display: none;
+    /* display: flex;
+    justify-content: center;
+    margin-top: 2vw;
+    height: 2vw; */
+}
+
+.button-indicators .button-indicator {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 0.7vw;
+    width: 0.7vw;
+    margin: 0 0.2vw;
+}
+
+.indicator.active {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.carousel-container-vertical  {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.slides-container-vertical {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    height: 100%;
+    gap:1vw;
+    transform: translateY(0%);
+}

@@ -1,0 +1,225 @@
+
+
+
+.carousel-container-banner  {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.slides-container-banner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-banner {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.button-indicators-banner {
+    display: none;
+    /* display: flex;
+    justify-content: center;
+    margin-top: 2vw;
+    height: 2vw;
+    gap: 0.5vw; */
+}
+.button-indicators-banner .button-indicator-banner {
+     background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 0.7vw;
+    width: 0.7vw;
+    margin: 0 0.2vw;
+   
+}
+.button-indicators-banner .button-indicator-banner.active {
+    background-color: rgb(29, 110, 154);
+}
+
+.button-left-carousel-banner {
+    background-color: rgb(197, 216, 222);
+    border: none;
+    color: rgb(5, 50, 47);
+    font-size: .5vw;
+    cursor: pointer;
+    height: 2vw;
+    width: 2vw;
+    padding: 0.5vw .5vw;
+    border-radius: 2vw;
+
+    position: absolute;
+    left: 7.5vw;
+    z-index: 1;
+}
+.button-right-carousel-banner {
+    background-color: rgb(197, 216, 222);
+    border: none;
+    color: rgb(5, 50, 47);
+    font-size: .5vw;
+    cursor: pointer;
+    height: 2vw;
+    width: 2vw;
+    padding: 0.5vw .5vw;
+    border-radius: 2vw;
+
+    position: absolute;
+    right: 7.5vw;
+    z-index: 1;
+}
+
+.button-left-carousel-banner:hover,
+.button-right-carousel-banner:hover {
+    background-color: rgb(73, 255, 222);
+    color: rgb(0, 47, 61);
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+.button-carousel-banner:active {
+    transform: scale(0.9);
+    transition: all 0.1s ease;
+}
+.slides-container-banner > div {
+    min-width: 100%;
+    height: 100%;
+    /* background-color: lightgray; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.carousel-container-images {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 0.2vw;
+    width: 100%;
+    height: 100%;
+}
+.carousel-images{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+
+    gap: 0.2vw;
+    width: 100%;
+    height: 100%;
+    background-color: chartreuse;
+}
+
+.button-images-carouseles {
+    display: flex;
+    position: relative;
+    justify-content: center;
+
+    margin-top: 1vw;
+    gap: 0.2vw;
+    width: 77.25vw;
+    height: 3.5vw;
+   
+}
+
+
+.button-image-carousel {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 0.2vw;
+    width: 7.6vw;
+    height: 3vw;
+}
+.button-image-banner:hover {
+    background-color: rgba(73, 255, 222, 1);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+    height: 3vw;
+    width: 7.3vw;
+}
+
+
+.title-category .bi-chevron-right,
+.right {
+    cursor: pointer;
+    color: white;
+
+    font-size: 0.8vw;
+}
+
+.title-category .bi-chevron-right:hover,
+.right:hover {
+    color: rgba(73, 255, 222, 1);
+}
+
+.chevron-left-block {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+
+    left: 9%;
+    height: 100%;
+}
+
+.chevron-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: rgba(241, 253, 255, 1);
+    color: black;
+
+    text-shadow: 0 0 1px currentColor;
+    border-radius: 2.5vw;
+    font-size: 0.8vw;
+    left: 9%;
+    width: 1.875vw;
+    height: 1.875vw;
+}
+
+.chevron-left:hover,
+.chevron-right:hover,
+.chevron-left-special:hover,
+.chevron-right-special:hover {
+    background-color: rgba(73, 255, 222, 1);
+}
+
+.chevron-right-block {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+
+    right: 9%;
+    height: 100%;
+}
+
+.chevron-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: rgba(241, 253, 255, 1);
+    color: black;
+
+    text-shadow: 0 0 1px currentColor;
+    border-radius: 2.5vw;
+    font-size: 0.8vw;
+    right: 9%;
+    width: 1.875vw;
+    height: 1.875vw;
+}
+
