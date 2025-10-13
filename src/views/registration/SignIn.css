@@ -87,11 +87,15 @@
     display: flex;
     position: relative;
     justify-content: space-between;
+    align-items: center;
 }
 
 .remember {
+    display: flex;
+    align-items: center;
     color: rgba(241, 253, 255, 0.8);
 
+    gap: 0.5vw;
     font-weight: 400;
     font-size: 0.833vw;
     line-height: 125%;
@@ -179,10 +183,60 @@
 }
 
 .input-error {
-    border: 1px solid rgba(255, 165, 153, 1) !important;
+    border: 0.1vw solid rgba(255, 165, 153, 1) !important;
     border-radius: 1.146vw !important;
 }
 
 .input-authozation.input-error {
     margin-bottom: 0.5vw;
+}
+
+/* checkbox */
+
+.custom-checkboxs {
+    position: relative;
+    display: inline-block;
+    width: 1.25vw;
+    height: 1.25vw;
+}
+
+.custom-checkboxs input {
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.checkmarks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1.25vw;
+    height: 1.25vw;
+    border: 0.1vw solid #00ffc8;
+    border-radius: 0.4vw;
+    background-color: #00343d;
+    transition: 0.2s;
+}
+
+.custom-checkboxs input:checked + .checkmarks {
+    background-color: #00343d;
+    border-color: #00ffc8;
+}
+
+.checkmarks::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 0.4vw;
+    width: 0.45vw;
+    height: 0.9vw;
+    border: solid #00ffc8;
+    border-width: 0 0.2vw 0.2vw 0;
+    transform: rotate(45deg);
+}
+
+.custom-checkboxs input:checked + .checkmarks::after {
+    display: block;
 }

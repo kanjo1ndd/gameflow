@@ -1,0 +1,77 @@
+.blocks-characteristics {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+.block-platform {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    text-align: center;
+    cursor: pointer;
+    background-color: rgba(55, 195, 255, 0.12);
+    border: 1px solid rgba(4, 96, 117, 1);
+    color: white;
+
+    width: 26.667vw;
+    margin-top: 0.5vw;
+    margin-bottom: 2vw;
+    border-radius: 1.024vw;
+    padding: 0.5vw 1.5vw;
+    font-weight: 700;
+    font-size: 1.024vw;
+    line-height: 120%;
+    letter-spacing: 0%;
+
+}
+
+.block-platform .bi-chevron-down {
+    font-size: 0.8vw;
+}
+
+.text-platform {
+    display: flex;
+
+    gap: 0.75vw;
+}
+
+.block-requirements {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    color: white;
+
+    width: 26.667vw;
+    font-weight: 700;
+    font-size: 1.25vw;
+    line-height: 110.00000000000001%;
+    letter-spacing: 0%;
+}
+
+.blocks-requirements {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+
+    margin-top: 1.5vw;
+    gap: 1vw;
+}
+
+.text-requirements {
+    font-weight: 700;
+    font-size: 1.024vw;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
+.text-requirement {
+    color: rgb(255, 255, 255, 0.8);
+
+    font-weight: 400;
+    font-size: 1.024vw;
+    line-height: 140%;
+    letter-spacing: -1%;
+}

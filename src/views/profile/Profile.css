@@ -1,0 +1,38 @@
+.content-profile {
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+
+    width: 100%;
+}
+
+.head-image-profile {
+    background-color: black;
+
+    height: 12.5vw;
+    width: 76.25vw;
+    margin-top: 4.688vw;
+    border-radius: 0 0 0.417vw 0.417vw;
+}
+
+.left-block-right-menu-profile {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+
+    width: 76.25vw;
+}
+
+.block-info-profile {
+    display: flex;
+}
+
+.image-profile {
+    position: absolute;
+    left: 1%;
+    top: -5vw;
+    width: 10.417vw;
+    height: 10.417vw;
+    border-radius: 50%;
+}

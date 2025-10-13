@@ -11,7 +11,7 @@ export default function Header() {
     const location = useLocation();
 
     const [userData, setUserData] = useState({});
-    const { request, token } = useContext(AppContext);
+    const { request, token, setToken } = useContext(AppContext);
 
     useEffect(() => {
         if(token == null) {
@@ -61,7 +61,7 @@ export default function Header() {
                         {isMenuOpen && (
                             <div className="avatar-menu">
                                 <ul>
-                                    <li className='nickname'>{userData.userName ?? 'Nickname'}</li>
+                                    <li className='nickname' onClick={() => navigate('/Profile')}>{userData.userName ?? 'Nickname'}</li>
                                     <li><span>Пошук користувачів</span></li>
                                     <li><span>Мої друзі</span></li>
                                     <li><span>Мої значки</span></li>
@@ -79,7 +79,7 @@ export default function Header() {
                 </>}
             </div>
 
-            {location.pathname !== '/SignIn' && location.pathname !== '/SignUp' && (
+            {location.pathname !== '/SignIn' && location.pathname !== '/SignUp' && location.pathname !== '/Profile' && (
                 <div className="head-bottom">
                     <div className='input-category'>
                         <input type="text" placeholder="Пошук у Крамниці..." className='input-header'/>

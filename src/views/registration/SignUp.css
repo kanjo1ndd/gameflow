@@ -69,10 +69,11 @@
 
 .agree {
     display: flex;
+    align-items: center;
     color: rgba(255, 255, 255, 0.8);
 
     margin-bottom: 4vw;
-    gap: 0.2vw;
+    gap: 0.5vw;
     font-weight: 400;
     font-size: 0.833vw;
     line-height: 125%;
