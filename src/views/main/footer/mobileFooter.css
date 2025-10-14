@@ -1,0 +1,81 @@
+@media(max-width: 390px) {
+    .block  {
+    width: 100%;
+    height: 519px;
+    display: flex;
+    justify-content: center;
+    background: rgba(0, 47, 61, 1);
+    }
+    .footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 95%;
+        margin-top: 4vw;
+        margin-bottom: 10vw;
+    }
+    .text-mobile{
+        display: flex;
+        text-align: center;
+        color: rgba(204, 248, 255, 0.65);
+        margin-top: 2vw;
+        font-size: 3.3vw;
+    }
+    .text-mobile-2{
+        display: flex;
+        text-align: center;
+        color: rgba(204, 248, 255, 0.65);
+        margin-top: 2vw;
+        font-size: 3.3vw;
+    }
+    .text{
+        display: none;
+    }
+    .social-networks {
+    display: flex;
+    width: 5vw;
+    height: 5vw;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin-right: 2vw;
+}
+
+
+
+   .logo-messengers {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 1.75vw;
+    }
+    .logo-min{
+    display: none;
+    }
+    .logo-min-mobile{
+    display: flex;
+    min-height: 3.5vw;
+    height: 3.5vw;
+    }
+
+    .messengers {
+        min-height: 3.5vw;
+    }
+    .footer-links-mobile{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-links{
+        display: none;
+    }
+    .link-mobile{
+        color: rgba(241, 253, 255, 1);
+        font-weight: 600;
+        font-size: 5vw;
+        text-decoration: none;
+        margin-top: 5vw;
+    }
+
+}

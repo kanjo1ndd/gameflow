@@ -35,28 +35,48 @@
 .logo-messengers {
     display: flex;
     justify-content: space-between;
-
     width: 100%;
     margin-top: 1.75vw;
+}
+.text-mobile{
+    display: none;
+}   
+
+.logo-min{
+    display: flex;
+    width: 1.25vw;
+    height: 1.25vw;
+    margin-left: 0.5vw;
+}
+.logo-min-mobile{
+    display: none;
+    width: 3.5vw;
+    height: 3.5vw;
+    margin-left: 0.5vw;
 }
 
 /* Соц. сети */
 .messengers {
     display: flex;
     width: max-content;
-
     height: 22.50%;
     gap: 0.417vw;
 }
-
-/* Иконки */
-.messengers i {
-    display: flex;
-    color: white;
-
-    font-size: 1.667vw;
+.text-mobile-2{
+    display: none;
 }
 
+/* Иконки */
+.social-networks {
+    display: flex;
+    width: 1.5vw;
+    height: 1.5vw;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin-right: 0.5vw;
+}
 .footer-links {
     display: flex;
     color: rgba(241, 253, 255, 1);
@@ -67,4 +87,18 @@
     letter-spacing: 0%;
     gap: 1.667vw;
 
+}
+
+.footer-links-mobile {
+    display: none;
+    color: rgba(241, 253, 255, 1);
+
+    font-weight: 600;
+    font-size: 3.3vw;
+    line-height: 125%;
+    letter-spacing: 0%;
+    gap: 3.3vw;
+    margin-top: 2vw;
+    text-align: center;
+    flex-direction: column;
 }

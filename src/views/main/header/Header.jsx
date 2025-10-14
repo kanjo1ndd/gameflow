@@ -1,4 +1,5 @@
 import './Header.css'
+import './mobileHeader.css'
 import { useNavigate, useLocation} from 'react-router-dom'
 import { useEffect, useState, useContext } from "react";
 import { AppContext } from '../../../AppContext';
@@ -29,7 +30,7 @@ export default function Header() {
     return <>
         <div className='head'>
             <div className='head-top'>
-                <div>LOGO</div>
+                <div className='logo'><img className='logo-image' src="/logo.png" alt="Logo" /></div>
                 <nav>
                     <ul className='nav'>
                         <li className={`li ${location.pathname === '/' || location.pathname === '/Catalog' ? 'active' : ''}`} 
@@ -44,6 +45,8 @@ export default function Header() {
                         </li>
                     </ul> 
                 </nav>
+                <div className='burger-menu'><img src="/mdi_menu.png" alt="Menu" /></div>
+
                 {token == null ? <>
                     <button className='button-sign-in' onClick={() => navigate('/SignIn')}>Увійти</button>
                 </> : <>
@@ -80,15 +83,16 @@ export default function Header() {
                 <div className="head-bottom">
                     <div className='input-category'>
                         <input type="text" placeholder="Пошук у Крамниці..." className='input-header'/>
-                        <i className="bi bi-search search"></i>
+                        <img className='search' src="/mdi_search.png" alt="" />
                         <div className='catalog-news'>
+                            <img  className='chevron' src="/mdi_chevron-down.png" alt="" />
                             <div className={`pointer ${ location.pathname === '/Catalog' ? 'active' : '' }`}
                                 onClick={() => navigate('/Catalog')}>Каталог</div>
                             <div className='pointer'>Новини</div>
                         </div>
                     </div>
-                    <button><i className='bi bi-suit-heart' /></button>
-                    <button><i className='bi bi-cart3' /></button>
+                    <button ><img className='heart' src="/mdi_heart-outline.png" alt="" /></button>
+                    <button ><img className='cart' src="/mdi_cart-outline.png" alt="" /></button>
                 </div>
             )}
 

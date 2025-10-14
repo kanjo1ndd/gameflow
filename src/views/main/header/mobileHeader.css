@@ -1,0 +1,165 @@
+@media(max-width: 390px) {
+    .head {
+    width: 100%;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    z-index: 1;
+    background: rgba(0, 47, 61, 1);
+    }
+
+    .head-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    }
+
+    .logo{
+        display: flex;
+        width: 20vw;
+        margin-left: 0.5vw;
+    }
+    .burger-menu {
+        display: flex;
+        width: 6vw;
+        margin-right: 0.5vw;
+    }
+     
+    .nav {
+        display: none;
+    }
+    .button-sign-in {
+        display: none;
+    }
+
+    /*Нижняя часть с поиском*/
+    .head-bottom {
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+
+    width: 90vw;
+    top: 76px;
+    height: 11vw;
+    }
+
+    .input-category {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(4, 96, 117, 1);
+
+    width: 67%;
+    height: 11vw;
+    border-radius: 5vw;
+    }
+
+    .input-header {
+        background-color: rgba(0, 47, 61, 0.7);
+        border: none;
+        outline: none;
+
+        font-size: 0.833vw;
+        font-family: "Manrope", sans-serif;
+        margin-left: 1.25vw;
+        height: 9vw;
+        width: 9vw;
+        border-radius: 5vw;
+    }
+
+
+    .head-bottom input::placeholder {
+       color: rgba(0, 47, 61, 0.7);
+    }
+
+    .catalog-news {
+        display: flex;
+        color: white;
+
+        gap: 1.3vw;
+        margin-right: 1.3vw;
+        font-size: 0.833vw;
+        font-weight: 700;
+        font-family: "Manrope", sans-serif;
+
+    }
+
+    .pointer {
+        display: none;
+    }
+
+    .pointer:hover {
+        filter: brightness(2.85);
+    }
+
+    .pointer.active {
+        color: rgba(73, 255, 222, 1);
+    }
+
+    .search {
+    display: flex;
+    position: absolute;
+    right: 86%;
+    height: 5vw;
+}
+    .heart{
+        height: 5vw;
+    }
+    .cart{
+        height: 5vw;
+    }
+    .chevron{
+        display: flex;
+    }
+    /*Кнопочки*/
+
+    .head-bottom button {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        outline: none;
+        background-color: rgba(4, 96, 117, 1);
+        color: white;
+
+        padding: 0;
+        width: 12vw;
+        border-radius: 12.042vw;
+        font-size: 1.1vw;
+    }
+
+    .head-bottom button:hover {
+        filter: brightness(0.7);
+    }
+
+    .right-part-head {
+        display: flex;
+        position: relative;
+
+        gap: 0.5vw;
+    }
+
+    .right-part-head button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        outline: none;
+        background-color: rgba(55, 195, 255, 0.12);
+        color: white;
+
+        padding: 0;
+        height: 5.708vw;
+        width: 5.708vw;
+        border-radius: 1.042vw;
+        font-size: 1.1vw;
+    }
+
+    .right-part-head button:hover {
+        filter: brightness(1.25);
+    }
+}

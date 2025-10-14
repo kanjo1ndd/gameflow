@@ -16,12 +16,26 @@
 
     width: 76.25vw;
 }
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: 5.25vw;
+}
+.logo-image{
+    width: 100%;
+    height: auto;
+}
 
 .head-top nav {
     display: flex;
     position: relative;
 
     height: 100%;
+}
+.burger-menu {
+    display: none;
 }
 
 .nav {
@@ -141,11 +155,22 @@
 .search {
     display: flex;
     position: absolute;
-    color: white;
-
     right: 57%;
-    font-size: 1vw;  
+    height: 1.3vw;
 }
+.heart{
+     height: 1.3vw;
+}
+.cart{
+    height: 1.3vw;
+}
+.chevron{
+    display: none;
+}
+.heart:hover, .cart:hover {
+    filter: brightness(0.85);
+}
+
 
 /*Кнопочки*/
 
@@ -161,8 +186,10 @@
 
     padding: 0;
     width: 2.708vw;
-    border-radius: 1.042vw;
+    border-radius: 3.042vw;
     font-size: 1.1vw;
+    border-left: 1vw;
+    
 }
 
 .head-bottom button:hover {
