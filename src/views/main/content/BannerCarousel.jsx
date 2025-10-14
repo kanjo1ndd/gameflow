@@ -28,20 +28,9 @@ const BannerCarousel = ({ game, len }) => {
                 </div>
                 <button onClick={handleNext} className='button-right-carousel-banner'><i className="bi bi-chevron-right" /></button>
             </div>
-            <div className="button-indicators-banner">
-                {Array.from({ length: LenCont }).map((_, i) => (
-                <button
-                    key={i}
-                    className={`button-indicator-banner ${i === index ? 'active' : ''}`}
-                    onClick={() => goToSlide(i)}
-                >
-            </button>
-            ))}
         </div>
-    </div>
-      
-    </>
-  );
+      </>
+    );
 };
 export default BannerCarousel;
 

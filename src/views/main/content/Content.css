@@ -2,38 +2,39 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    
     width: 100%;
 }
-.banner{
+
+.banner {
     display: flex;
     position: relative;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 27.688vw;
-    background-color: rgb(190, 159, 92);
     box-sizing: border-box;
 
+    width: 100%;
+    height: 27.688vw;
     margin-top: 4.688vw;
+}
+
+.image-in-main-banner {
+    display: flex;
+    position: relative;
+    justify-content: center;
+
+    z-index: 0;
+    width: 100%;
+    height: 130%;
 }
 
 .main-image {
     display: flex;
     position: relative;
     justify-content: center;
-    background-color: black;
 
     width: 100%;
-    height: 100%;
-}
-.image-in-main-banner {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    z-index: 0;
-
-    width: 100%;
-    height: 130%;
+    height: 27.083vw;
 }
 
 /*Контент внутри изображения*/
@@ -41,10 +42,10 @@
 .block-price-name {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     position: absolute;
-    z-index: 1;
 
-    margin-top: 18%;
+    margin-top: 16%;
     width: 76.25vw;
 }
 
@@ -172,7 +173,7 @@
     position: relative;
     overflow: hidden;
     width: 85.25vw;
-    height: 22.5vw;
+    height: 17.5vw;
 }
 
 
@@ -185,8 +186,8 @@
     background-color: rgba(0, 47, 61, 1);
 
 
-   border-radius: 0.833vw;
-    height:100%;
+    border-radius: 0.833vw;
+    height: 12.5vw;
     width: 32%;
     margin: 0 0.5vw;
 }

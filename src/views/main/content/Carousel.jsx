@@ -21,12 +21,11 @@ const Carousel = ({ game, len }) => {
       setIndex(slideIndex);
     }
 
-    const timer=setInterval(() => {
-      handleNext();
-    }
-    , 12000);
-
     useEffect(() => {
+      const timer = setInterval(() => {
+      handleNext();
+      }, 12000);
+
       return () => clearInterval(timer);
     }, [index]);
 
@@ -66,11 +65,12 @@ export function CarouselVertical({ game, len }) {
       const newIndex = index + 1;
       setIndex(newIndex >= LenCont ? 0 : newIndex);
     };
-    const timer=setInterval(() => {
-      handleNext();
-    }, 3000);
-
+    
     useEffect(() => {
+      const timer = setInterval(() => {
+      handleNext();
+      }, 5000);
+
       return () => clearInterval(timer);
     }, [index]);
 

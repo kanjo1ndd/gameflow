@@ -43,16 +43,19 @@
     margin: 1vw 1vw;
     border-radius: 2vw;
 }
+
 .button-carousel:hover {
     background-color: rgb(73, 255, 222);
     color: rgb(0, 47, 61);
     transform: scale(1.1);
     transition: all 0.3s ease;
 }
+
 .button-carousel:active {
     transform: scale(0.9);
     transition: all 0.1s ease;
 }
+
 .button-indicators {
     display: none;
     /* display: flex;
@@ -89,6 +92,6 @@
     transition: transform 0.5s ease-in-out;
     width: 100%;
     height: 100%;
-    gap:1vw;
+    gap: 1vw;
     transform: translateY(0%);
 }

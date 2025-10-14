@@ -1,12 +1,12 @@
 .head {
-    width: 100%;
-    height: 4.688vw;
     display: flex;
     justify-content: center;
     position: fixed;
-    z-index: 1;
-
     background: rgba(0, 47, 61, 1);
+
+    width: 100%;
+    height: 4.688vw;
+    z-index: 10;
 }
 
 .head-top {
@@ -16,14 +16,15 @@
 
     width: 76.25vw;
 }
-.logo{
+.logo {
     display: flex;
     align-items: center;
     justify-content: center;
     height: auto;
+
     width: 5.25vw;
 }
-.logo-image{
+.logo-image {
     width: 100%;
     height: auto;
 }
@@ -161,12 +162,15 @@
 .heart{
      height: 1.3vw;
 }
+
 .cart{
     height: 1.3vw;
 }
+
 .chevron{
     display: none;
 }
+
 .heart:hover, .cart:hover {
     filter: brightness(0.85);
 }
@@ -186,7 +190,7 @@
 
     padding: 0;
     width: 2.708vw;
-    border-radius: 3.042vw;
+    border-radius: 1.042vw;
     font-size: 1.1vw;
     border-left: 1vw;
     

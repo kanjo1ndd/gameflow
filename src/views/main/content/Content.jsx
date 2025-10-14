@@ -2,9 +2,6 @@ import './Content.css'
 import './mobileContent.css'
 import Carousel, { CarouselVertical } from './Carousel';
 import BannerCarousel, { BannerActive } from './BannerCarousel';
-
-
-
 import { useEffect, useState, useContext } from "react";
 import { AppContext } from "../../../AppContext.jsx";
 import { useNavigate } from "react-router-dom";
@@ -25,35 +22,6 @@ export default function Content() {
             <MainBanner />
             <div className='title-category-special-offers'>Особливі пропозиції <i className="bi bi-chevron-right right" /></div>
             <SpecialOffers />
-            {/* <div className='main-image'>
-                <div className='chevron-left-block'>
-                    <div className='chevron-left'><i className="bi bi-chevron-left" /></div>
-                </div>
-                <div className='block-price-name'>
-                    <div className='block-price'>
-                        <div className='block-discount-price'>
-                            <div className='discount'>-40%</div> <div className='price'>911₴</div> <div className='old-price'>1519₴</div>
-                        </div>
-                        <div className='time-discount'>Знижка діє до 24.06.2024 10:00</div>
-                    </div>
-                    <div className='block-name'>
-                        <div className='title'>Avatar: Frontiers of Pandora</div> 
-                        
-                        <div className='description'>Avatar: Frontiers of Pandora™ — це пригодницька гра від першої особи, 
-                            де події розгортаються на західному кордоні. </div>
-                    </div>
-                </div>
-                <div className='chevron-right-block'>
-                    <div className='chevron-right'><i className="bi bi-chevron-right" /></div>
-                </div>
-            </div>
-            <div className='showcase-images'>
-                {Array.from({ length: 10 }).map((_, i) => (
-                    <div key={i} className="image-in-showcase" />
-                ))}
-            </div>
-            <div className='title-category'>Особливі пропозиції <i className="bi bi-chevron-right right" /></div>
-            <SpecialOffers products={products}/> */}
             <div className='title-category'>Рекомендовані вам <i className="bi bi-chevron-right" /></div>
             <Recommended />
             <div className='title-category'>До 100₴ <i className="bi bi-chevron-right" /></div>
@@ -66,14 +34,14 @@ export default function Content() {
 export function MainBanner() {
     
     const Sllen = 9;
-    const Imglen=10;
+    const Imglen = 10;
 
     const Slides = Array.from({ length: Sllen }).map((_, index) => {
         return (
             <>
             <div key={index} className='main-image'>
                 <div className='image-in-main-banner'  >
-                    <BannerActive images={Array.from({ length: Imglen }).map((_, i) => `image${i}.jpg`)} lenImg={Imglen} />
+                    <BannerActive images={Array.from({ length: Imglen }).map((_, i) => ``)} lenImg={Imglen} />
                 </div>
                 <div className='block-price-name'>
                     <div className='title-mobile'>Avatar: Frontiers of Pandora</div> 
@@ -81,14 +49,12 @@ export function MainBanner() {
                         <div className='block-discount-price'>
                             <div className='discount'>-40%</div> <div className='price'>911₴</div> <div className='old-price'>1519₴</div>
                         </div>
-                        <div className='time-discount'>Знижка діє до 24.06.2024 10:00
-
-                        </div>
+                        <div className='time-discount'>Знижка діє до 24.06.2024 10:00</div>
                     </div>
                     <div className='block-name'>
                         <div className='title'>Avatar: Frontiers of Pandora</div> 
                             
-                        <div className='description'>Avatar: Frontiers of Pandora™ —це пригодницька гра від першої особи, 
+                        <div className='description'>Avatar: Frontiers of Pandora™ — це пригодницька гра від першої особи, 
                             де події розгортаються на західному кордоні. </div>
                     </div>
                 </div>
@@ -116,42 +82,19 @@ export function SpecialOffers() {
             <>
             <div key={index} className='block-in-special-offers'>
                 <div className='image-special-offers'style={index%2===0 ? { backgroundColor: 'lightblue' } : { backgroundColor: 'lightgreen' }} />
-                <p style={{ color: 'green' }}>{`Special Offer ${index+1}`}</p>
                 <div className='name-game'>Name</div>
                 <div className='price-game'>9999₴</div>
             </div>
             <div key={NextIndex} className='block-in-special-offers'>
                     <div className='image-special-offers' style={NextIndex%2===0 ? { backgroundColor: 'lightblue' } : { backgroundColor: 'lightgreen' }}/>
-                    <p style={{ color: 'green' }}>{`Special Offer ${NextIndex+1}`}</p>
                     <div className='name-game'>Name</div>
                     <div className='price-game'>9999₴</div>
             </div>
             <div key={NextNextIndex} className='block-in-special-offers'>
                     <div className='image-special-offers'style={NextNextIndex%2===0 ? { backgroundColor: 'lightblue' } : { backgroundColor: 'lightgreen' }} />
-                    <p style={{ color: 'green' }}>{`Special Offer ${NextNextIndex+1}`}</p>
                     <div className='name-game'>Name</div>
                     <div className='price-game'>9999₴</div>
             </div>
-{/* export function SpecialOffers({ products }) {
-
-    const navigate = useNavigate();
-
-    return <>
-        <div className='special-offers'>
-            <div className='chevron-left-special-block'>
-                <div className='chevron-left-special'><i className="bi bi-chevron-left" /></div>
-            </div>
-            {products.map((product, i) => (
-                <div key={i} className='block-in-special-offers'
-                    onClick={() => navigate(`/Game/${product.id}`)}>
-                    <img className='image-special-offers' src={product.imagesCsv}/>
-                    <div className='name-game'>{product.name}</div>
-                    <div className='price-game'>{product.price}₴</div>
-                </div>
-            ))}
-            <div className='chevron-right-special-block'>
-                <div className='chevron-right-special'><i className="bi bi-chevron-right" /></div>
-            </div> */}
         </>
         );
     });
