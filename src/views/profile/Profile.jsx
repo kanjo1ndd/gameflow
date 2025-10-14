@@ -28,9 +28,18 @@ export default function Profile() {
         <div className='content-profile'>
             <div className='head-image-profile' />
             <div className='left-block-right-menu-profile'>
-                <div className='block-info-profile'>
-                    <img className='image-profile' src={userData.avatarUrl && userData.avatarUrl !== 'https://localhost:7202/Admin/Image/'
-                        ? userData.avatarUrl : '/unknownUser.jpg'}/>
+                <div className='left-block-profile'>
+                    <div className='block-info-profile'>
+                        <img className='image-profile' src={userData.avatarUrl && userData.avatarUrl !== 'https://localhost:7202/Admin/Image/'
+                            ? userData.avatarUrl : '/unknownUser.jpg'}/>
+                        <div className='block-username'>
+                            {userData.userName}
+                            <div className='text-online'>онлайн</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    
                 </div>
             </div>
         </div>
