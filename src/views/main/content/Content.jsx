@@ -74,8 +74,20 @@ export function SpecialOffers({ products }) {
     
     const navigate = useNavigate();
 
-    const Sllen = products?.length || 0;
-    if (Sllen === 0) return null;
+    const hasProducts = Array.isArray(products) && products.length > 0;
+
+    const fallbackCount = 5;
+
+    const displayedItems = hasProducts
+        ? products
+        : Array.from({ length: fallbackCount }).map((_, i) => ({
+            id: i,
+            name: "Нет данных",
+            price: "990",
+            imagesCsv: null,
+        }));
+
+    const Sllen = displayedItems.length;
 
     const Slides = Array.from({ length: Sllen }).map((_, index) => {
         const NextIndex = (index + 1) % Sllen;
@@ -83,32 +95,23 @@ export function SpecialOffers({ products }) {
 
         return (
         <>
-            <div key={index} className="block-in-special-offers" 
-                onClick={() => navigate(`/Game/${products[index].id}`)}>
-                <img className="image-special-offers" src={products[index].imagesCsv}/>
-                <div className="name-game">{products[index].name}</div>
-                <div className="price-game">
-                    {`${products[index].price}₴`}
-                </div>
-            </div>
-
-            <div key={NextIndex} className="block-in-special-offers"
-                onClick={() => navigate(`/Game/${products[NextIndex].id}`)}>
-                <img className="image-special-offers"src={products[NextIndex].imagesCsv}/>
-                <div className="name-game">{products[NextIndex].name}</div>
-                <div className="price-game">
-                    {`${products[NextIndex].price}₴`}
-                </div>
-            </div>
-
-            <div key={NextNextIndex} className="block-in-special-offers" 
-                onClick={() => navigate(`/Game/${products[NextNextIndex].id}`)}>
-                <img className="image-special-offers" src={products[NextNextIndex].imagesCsv} />
-                <div className="name-game">{products[NextNextIndex].name}</div>
-                <div className="price-game">
-                    {`${products[NextNextIndex].price}₴`}
-                </div>
-            </div>
+            {[index, NextIndex, NextNextIndex].map((i) => {
+                const product = displayedItems[i];
+                return (
+                    <div key={i} className="block-in-special-offers"
+                        onClick={ hasProducts ? () => navigate(`/Game/${product.id}`) : undefined }>
+                    {product.imagesCsv ? (
+                        <img className="image-special-offers" src={product.imagesCsv} alt={product.name}/>
+                    ) : (
+                        <div className="image-special-offers placeholder" />
+                    )}
+                    <div className="name-game">{product.name}</div>
+                    <div className="price-game">
+                        {product.price !== "-" ? `${product.price}₴` : ""}
+                    </div>
+                    </div>
+                );
+            })}
         </>
         );
     });
