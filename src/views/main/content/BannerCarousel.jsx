@@ -58,7 +58,8 @@ export function BannerActive({ images,lenImg }) {
                     className={`button-image-carousel ${i === index ? 'active' : ''}`}
                     onClick={() => goToSlide(i)}
                 >
-                    <img className='button-image-banner' src={images[i]} alt={images[i].title} />
+                  {images[i] ? ( <img className='button-image-banner' src={images[i]} alt={images[i]?.title || 'Banner image'} />
+                    ) : null}
                 </button>
                 ))}
             </div>

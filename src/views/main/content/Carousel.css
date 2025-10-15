@@ -19,6 +19,7 @@
 .slides-container.len-10 {
     transform: translateX(-20%);
 }
+
 .carousel {
     display: flex;
     position: relative;
@@ -28,26 +29,29 @@
     height: 80%;
     transition: all 0.5s ease;
 }
+
 .list-games> .carousel-container > .carousel>.button-carousel {
     display: none;
 }
+
 .button-carousel {
-    background-color: rgb(197, 216, 222);
+    background-color: rgb(255, 255, 255);
     border: none;
     color: rgb(5, 50, 47);
-    font-size: .5vw;
     cursor: pointer;
-    height: 1.5vw;
-    width: 1.5vw;
-    padding: 0.5vw .5vw;
+
+    font-size: 0.55vw;
+    height: 1.25vw;
+    width: 1.35vw;
     margin: 1vw 1vw;
     border-radius: 2vw;
+    padding: 0;
 }
 
 .button-carousel:hover {
     background-color: rgb(73, 255, 222);
     color: rgb(0, 47, 61);
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: all 0.3s ease;
 }
 

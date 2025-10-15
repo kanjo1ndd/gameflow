@@ -21,7 +21,7 @@ export default function Content() {
         <div className='content'>
             <MainBanner />
             <div className='title-category-special-offers'>Особливі пропозиції <i className="bi bi-chevron-right right" /></div>
-            <SpecialOffers />
+            <SpecialOffers products={products} />
             <div className='title-category'>Рекомендовані вам <i className="bi bi-chevron-right" /></div>
             <Recommended />
             <div className='title-category'>До 100₴ <i className="bi bi-chevron-right" /></div>
@@ -70,30 +70,44 @@ export function MainBanner() {
     );
 }
 
-export function SpecialOffers() {
+export function SpecialOffers({ products }) {
     
-    const Sllen = 10;
+    const navigate = useNavigate();
+
+    const Sllen = products?.length || 0;
+    if (Sllen === 0) return null;
 
     const Slides = Array.from({ length: Sllen }).map((_, index) => {
-        let NextIndex= (index >= Sllen - 1) ? 0 : (index + 1);
-        let NextNextIndex= (NextIndex >= Sllen - 1) ? 0 :( NextIndex + 1);
+        const NextIndex = (index + 1) % Sllen;
+        const NextNextIndex = (index + 2) % Sllen;
 
         return (
-            <>
-            <div key={index} className='block-in-special-offers'>
-                <div className='image-special-offers'style={index%2===0 ? { backgroundColor: 'lightblue' } : { backgroundColor: 'lightgreen' }} />
-                <div className='name-game'>Name</div>
-                <div className='price-game'>9999₴</div>
+        <>
+            <div key={index} className="block-in-special-offers" 
+                onClick={() => navigate(`/Game/${products[index].id}`)}>
+                <img className="image-special-offers" src={products[index].imagesCsv}/>
+                <div className="name-game">{products[index].name}</div>
+                <div className="price-game">
+                    {`${products[index].price}₴`}
+                </div>
             </div>
-            <div key={NextIndex} className='block-in-special-offers'>
-                    <div className='image-special-offers' style={NextIndex%2===0 ? { backgroundColor: 'lightblue' } : { backgroundColor: 'lightgreen' }}/>
-                    <div className='name-game'>Name</div>
-                    <div className='price-game'>9999₴</div>
+
+            <div key={NextIndex} className="block-in-special-offers"
+                onClick={() => navigate(`/Game/${products[NextIndex].id}`)}>
+                <img className="image-special-offers"src={products[NextIndex].imagesCsv}/>
+                <div className="name-game">{products[NextIndex].name}</div>
+                <div className="price-game">
+                    {`${products[NextIndex].price}₴`}
+                </div>
             </div>
-            <div key={NextNextIndex} className='block-in-special-offers'>
-                    <div className='image-special-offers'style={NextNextIndex%2===0 ? { backgroundColor: 'lightblue' } : { backgroundColor: 'lightgreen' }} />
-                    <div className='name-game'>Name</div>
-                    <div className='price-game'>9999₴</div>
+
+            <div key={NextNextIndex} className="block-in-special-offers" 
+                onClick={() => navigate(`/Game/${products[NextNextIndex].id}`)}>
+                <img className="image-special-offers" src={products[NextNextIndex].imagesCsv} />
+                <div className="name-game">{products[NextNextIndex].name}</div>
+                <div className="price-game">
+                    {`${products[NextNextIndex].price}₴`}
+                </div>
             </div>
         </>
         );
@@ -119,25 +133,21 @@ export function Recommended() {
             <>
                 <div key={index} className='block-in-recommended'>
                     <div className='image-recommended'style={index%2===0 ? { backgroundColor: 'pink' } : { backgroundColor: 'brown' }} />
-                <p style={{ color: 'red' }}>{`Recommended ${index+1}`}</p>
                     <div className='name-game'>Name</div>
                     <div className='price-game'>9999₴</div>
                 </div>
                 <div key={NextIndex} className='block-in-recommended'>
                     <div className='image-recommended'style={NextIndex%2===0 ? { backgroundColor: 'pink' } : { backgroundColor: 'brown' }} />
-                <p style={{ color: 'red' }}>{`Recommended ${NextIndex+1}`}</p>
                     <div className='name-game'>Name</div>
                     <div className='price-game'>9999₴</div>
                 </div>
                 <div key={Next2Index} className='block-in-recommended'>
                     <div className='image-recommended' style={Next2Index%2===0 ? { backgroundColor: 'pink' } : { backgroundColor: 'brown' }} />
-                <p style={{ color: 'red' }}>{`Recommended ${Next2Index+1}`}</p>
                     <div className='name-game'>Name</div>
                     <div className='price-game'>9999₴</div>
                 </div>
                 <div key={Next3Index} className='block-in-recommended'>
                     <div className='image-recommended' style={Next3Index%2===0 ? { backgroundColor: 'pink' } : { backgroundColor: 'brown' }} />
-                <p style={{ color: 'red' }}>{`Recommended ${Next3Index+1}`}</p>
                     <div className='name-game'>Name</div>
                     <div className='price-game'>9999₴</div>
                 </div>
@@ -166,19 +176,16 @@ export function ListGamesVertical() {
                     <div className='image-list-game' style={{ backgroundColor: (index % 2 === 0) ? 'lightred' : 'lightblue' }} />
                     <div className='name-game'>Name {index}</div>
                     <div className='price-game'>9999₴</div>
-                    <p>game {index}</p>
                 </div>
                 <div key={NextIndex} className='block-list-game'>
                     <div className='image-list-game' style={{ backgroundColor: (NextIndex % 2 === 0) ? 'pink' : 'lightblue' }} />
                     <div className='name-game'>Name {NextIndex}</div>
                     <div className='price-game'>9999₴</div>
-                    <p>game {NextIndex}</p>
                 </div>
                 <div key={Next2Index} className='block-list-game'>
                     <div className='image-list-game' style={{ backgroundColor: (Next2Index % 2 === 0) ? 'pink' : 'blue' }} />
                     <div className='name-game'>Name {Next2Index}</div>
                     <div className='price-game'>9999₴</div>
-                    <p>game {Next2Index}</p>
                 </div>
             </>
         );
@@ -200,17 +207,19 @@ export function BlockListGames() {
 
         return (
             <>
-            <div key={index} className='list-game'>
-                <div className='title-list-game'>Хіти продажу {index} <i className="bi bi-chevron-right right" /></div>
-                <ListGamesVertical />
-            </div>
-            <div key={NextIndex} className='list-game'>
-                <div className='title-list-game' >Хіти продажу {NextIndex} <i className="bi bi-chevron-right right" /></div>
-                <ListGamesVertical />
-            </div>
-            <div key={NextNextIndex} className='list-game'>
-                <div className='title-list-game'>Хіти продажу {NextNextIndex} <i className="bi bi-chevron-right right" /></div>
-                <ListGamesVertical />
+            <div className='block-for-hit'>
+                <div key={index} className='list-game'>
+                    <div className='title-list-game'>Хіти продажу {index} <i className="bi bi-chevron-right right" /></div>
+                    <ListGamesVertical />
+                </div>
+                <div key={NextIndex} className='list-game'>
+                    <div className='title-list-game' >Хіти продажу {NextIndex} <i className="bi bi-chevron-right right" /></div>
+                    <ListGamesVertical />
+                </div>
+                <div key={NextNextIndex} className='list-game'>
+                    <div className='title-list-game'>Хіти продажу {NextNextIndex} <i className="bi bi-chevron-right right" /></div>
+                    <ListGamesVertical />
+                </div>
             </div>
             </>
         );

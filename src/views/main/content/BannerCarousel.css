@@ -22,42 +22,44 @@
 }
 
 .button-left-carousel-banner {
-    background-color: rgb(197, 216, 222);
-    border: none;
-    color: rgb(5, 50, 47);
-    font-size: .5vw;
-    cursor: pointer;
-    height: 2vw;
-    width: 2vw;
-    padding: 0.5vw .5vw;
-    border-radius: 2vw;
-
+    background-color: rgb(255, 255, 255);
     position: absolute;
-    left: 7.5vw;
+    border: none;
+    cursor: pointer;
+    color: rgb(5, 50, 47);
+
+    font-size: 0.75vw;
+    height: 1.75vw;
+    width: 1.75vw;
+    border-radius: 2vw;
+    top: 40%;
+    left: 8vw;
     z-index: 1;
+    padding: 0;
 }
 
 .button-right-carousel-banner {
-    background-color: rgb(197, 216, 222);
+    background-color: rgb(255, 255, 255);
     border: none;
-    color: rgb(5, 50, 47);
-    font-size: .5vw;
     cursor: pointer;
-    height: 2vw;
-    width: 2vw;
-    padding: 0.5vw .5vw;
-    border-radius: 2vw;
-
     position: absolute;
-    right: 7.5vw;
+    color: rgb(5, 50, 47);
+
+    top: 40%;
+    font-size: 0.75vw;
+    height: 1.75vw;
+    width: 1.75vw;
+    border-radius: 2vw;
+    right: 8vw;
     z-index: 1;
+    padding: 0;
 }
 
 .button-left-carousel-banner:hover,
 .button-right-carousel-banner:hover {
     background-color: rgb(73, 255, 222);
     color: rgb(0, 47, 61);
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: all 0.3s ease;
 }
 
@@ -66,22 +68,13 @@
     transition: all 0.1s ease;
 }
 
-.slides-container-banner > div {
-    min-width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .carousel-container-images {
     display: flex;
     position: relative;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    gap: 0.2vw;
+    
     width: 100%;
     height: 100%;
 }
@@ -104,8 +97,7 @@
     justify-content: space-between;
 
     margin-top: 1vw;
-    width: 77.25vw;
-    height: 3.542vw;
+    width: 76.25vw;
 }
 
 .button-image-carousel {
@@ -114,16 +106,17 @@
     cursor: pointer;
     
     padding: 0;
+    margin: 0;
     border-radius: 0.625vw;
+    height: 3.542vw;
     width: 7.24vw;
-    height: 100%;
 }
 
 .button-image-banner:hover {
     background-color: rgba(73, 255, 222, 1);
     transform: scale(1.05);
     transition: all 0.3s ease;
-    height: 3vw;
+    height: 3.542vw;
     width: 7.3vw;
 }
 
@@ -140,63 +133,3 @@
 .right:hover {
     color: rgba(73, 255, 222, 1);
 }
-
-.chevron-left-block {
-    display: flex;
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-
-    left: 9%;
-    height: 100%;
-}
-
-.chevron-left {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    background-color: rgba(241, 253, 255, 1);
-    color: black;
-
-    text-shadow: 0 0 1px currentColor;
-    border-radius: 2.5vw;
-    font-size: 0.8vw;
-    left: 9%;
-    width: 1.875vw;
-    height: 1.875vw;
-}
-
-.chevron-left:hover,
-.chevron-right:hover,
-.chevron-left-special:hover,
-.chevron-right-special:hover {
-    background-color: rgba(73, 255, 222, 1);
-}
-
-.chevron-right-block {
-    display: flex;
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-
-    right: 9%;
-    height: 100%;
-}
-
-.chevron-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    background-color: rgba(241, 253, 255, 1);
-    color: black;
-
-    text-shadow: 0 0 1px currentColor;
-    border-radius: 2.5vw;
-    font-size: 0.8vw;
-    right: 9%;
-    width: 1.875vw;
-    height: 1.875vw;
-}
-

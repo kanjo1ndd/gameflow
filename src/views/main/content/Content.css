@@ -14,7 +14,7 @@
     box-sizing: border-box;
 
     width: 100%;
-    height: 27.688vw;
+    height: 31.625vw;
     margin-top: 4.688vw;
 }
 
@@ -25,7 +25,7 @@
 
     z-index: 0;
     width: 100%;
-    height: 130%;
+    height: 100%;
 }
 
 .main-image {
@@ -34,7 +34,7 @@
     justify-content: center;
 
     width: 100%;
-    height: 27.083vw;
+    height: 31.625vw;
 }
 
 /*Контент внутри изображения*/
@@ -45,7 +45,7 @@
     align-items: center;
     position: absolute;
 
-    margin-top: 16%;
+    margin-top: 19%;
     width: 76.25vw;
 }
 
@@ -145,12 +145,13 @@
     justify-content: space-between;
 
     width: 76.25vw;
-    margin-top: 9vw;
+    margin-top: 3.5vw;
     font-weight: 700;
     font-size: 1.667vw;
     line-height: 125%;
     letter-spacing: 0%;
 }
+
 .title-category {
     color: white;
     display: flex;
@@ -158,13 +159,12 @@
     justify-content: space-between;
 
     width: 76.25vw;
-    margin-top: 3vw;
+    margin-top: 2.5vw;
     font-weight: 700;
     font-size: 1.667vw;
     line-height: 125%;
     letter-spacing: 0%;
 }
-
 
 /*Специальные предложения*/
 
@@ -172,8 +172,8 @@
     display: flex;
     position: relative;
     overflow: hidden;
-    width: 85.25vw;
-    height: 17.5vw;
+
+    width: 83.5vw;
 }
 
 
@@ -181,28 +181,28 @@
     display: flex;
     position: relative;
     flex-direction: column;
+    cursor: pointer;
     overflow: hidden;
-    flex-shrink: 0;
     background-color: rgba(0, 47, 61, 1);
 
-
+    flex-shrink: 0;
     border-radius: 0.833vw;
-    height: 12.5vw;
     width: 32%;
-    margin: 0 0.5vw;
+    margin: 1.5vw 0.5vw;
 }
 
 .image-special-offers {
     background-color: black;
+
     border-radius: 0.833vw 0.833vw 0px 0px;
     width: 100%;
-    height: 17.5vw;
+    height: 12.5vw;
 }
 
 .name-game {
     color: white;
 
-    margin: 1vw 0.5vw 0.5vw 1vw;
+    margin: 1vw 1vw 0.5vw 1vw;
     font-weight: 700;
     font-size: 1.042vw;
     line-height: 120%;
@@ -212,7 +212,7 @@
 .price-game {
     color: rgba(241, 253, 255, 0.8);
 
-    margin: 0px 1vw;
+    margin: 0px 1vw 1vw;
     font-weight: 400;
     font-size: 1.042vw;
     line-height: 120%;
@@ -220,27 +220,28 @@
 }
 
 /* Рекомендованные */
+
 .recommended {
     display: flex;
     position: relative;
     overflow: hidden;
-    width: 85.25vw;
-    height: 32vw;
+
+    width: 83.5vw;
 }
 
 .block-in-recommended {
     display: flex;
     position: relative;
     flex-direction: column;
+    overflow: hidden;
+    box-sizing: border-box;
     background-color: rgba(0, 47, 61, 1);
 
     flex-shrink: 0;
-    overflow: hidden;
     border-radius: 0.833vw;
     height: 100%;
     width: 23.8%;
-    box-sizing: border-box;
-    margin: 0 0.5vw;
+    margin: 1.5vw 0.45vw;
 }
 
 .image-recommended {
@@ -248,27 +249,33 @@
 
     border-radius: 0.833vw 0.833vw 0px 0px;
     width: 100%;
-    height: 25.833vw;
+    height: 20.833vw;
 }
 
 /* Списки игр */
+
+.block-for-hit {
+    display: flex;
+    width: 78.25vw;
+}
+
 .lists-games {
     display: flex;
     position: relative;
     justify-content: space-between;
-   flex-direction: column;
+    flex-direction: column;
 
     margin-top: 3vw;
     width: 76.25vw;
 }
+
 .list-games-vertical {
     display: flex;
     position: relative;
     justify-content: center;
-   flex-direction: column;
-    gap: 3vw;
+    flex-direction: column;
 
-    width: 25.5vw;
+    width: 24.583vw;
     height: 56.771vw;
 }
 
@@ -281,9 +288,9 @@
     font-size: 1.25vw;
     line-height: 110%;
     letter-spacing: 0%;
-    width: 24.3vw;
-
-    margin-bottom: 2vw;
+    width: 24.583vw;
+    margin-bottom: 1.5vw;
+    margin-top: 2vw;
 }
 
 .list-game {
@@ -302,90 +309,16 @@
     position: relative;
     flex-direction: column;
     overflow: hidden;
-    flex-shrink: 0;
     background-color: rgba(0, 47, 61, 1);
-   border-radius: 0.833vw;}
+
+    flex-shrink: 0;
+    border-radius: 0.833vw;
+}
 
 .image-list-game {
     background-color: black;
+
     border-radius: 0.833vw 0.833vw 0px 0px;
     width: 100%;
     height: 13vw;
 }
-
-/* Стрелка */
-
-.title-category .bi-chevron-right,
-.right {
-    cursor: pointer;
-    color: white;
-
-    font-size: 0.8vw;
-}
-
-.title-category .bi-chevron-right:hover,
-.right:hover {
-    color: rgba(73, 255, 222, 1);
-}
-
-.chevron-left-block {
-    display: flex;
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-
-    left: 9%;
-    height: 100%;
-}
-
-.chevron-left {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    background-color: rgba(241, 253, 255, 1);
-    color: black;
-
-    text-shadow: 0 0 1px currentColor;
-    border-radius: 2.5vw;
-    font-size: 0.8vw;
-    left: 9%;
-    width: 1.875vw;
-    height: 1.875vw;
-}
-
-.chevron-left:hover,
-.chevron-right:hover,
-.chevron-left-special:hover,
-.chevron-right-special:hover {
-    background-color: rgba(73, 255, 222, 1);
-}
-
-.chevron-right-block {
-    display: flex;
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-
-    right: 9%;
-    height: 100%;
-}
-
-.chevron-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    background-color: rgba(241, 253, 255, 1);
-    color: black;
-
-    text-shadow: 0 0 1px currentColor;
-    border-radius: 2.5vw;
-    font-size: 0.8vw;
-    right: 9%;
-    width: 1.875vw;
-    height: 1.875vw;
-}
-
-
-
