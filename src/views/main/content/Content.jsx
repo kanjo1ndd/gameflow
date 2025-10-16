@@ -75,7 +75,6 @@ export function SpecialOffers({ products }) {
     const navigate = useNavigate();
 
     const hasProducts = Array.isArray(products) && products.length > 0;
-
     const fallbackCount = 5;
 
     const displayedItems = hasProducts
@@ -85,6 +84,7 @@ export function SpecialOffers({ products }) {
             name: "Нет данных",
             price: "990",
             imagesCsv: null,
+            action: null,
         }));
 
     const Sllen = displayedItems.length;
@@ -97,6 +97,12 @@ export function SpecialOffers({ products }) {
         <>
             {[index, NextIndex, NextNextIndex].map((i) => {
                 const product = displayedItems[i];
+
+                const hasDiscount = product.action && product.action.amount > 0;
+                const discountedPrice = hasDiscount
+                    ? Math.round(product.price - (product.price * product.action.amount) / 100)
+                    : product.price;
+
                 return (
                     <div key={i} className="block-in-special-offers"
                         onClick={ hasProducts ? () => navigate(`/Game/${product.id}`) : undefined }>
@@ -105,10 +111,20 @@ export function SpecialOffers({ products }) {
                     ) : (
                         <div className="image-special-offers placeholder" />
                     )}
-                    <div className="name-game">{product.name}</div>
-                    <div className="price-game">
-                        {product.price !== "-" ? `${product.price}₴` : ""}
-                    </div>
+                        <div className="name-game">{product.name}</div>
+                        <div className="price-game">
+                            {product.price !== "-" && (
+                            hasDiscount ? (
+                                <>
+                                <div className='discount-game'>-{product.action.amount}%</div>
+                                <div>{discountedPrice}₴</div>
+                                <div className="old-price-discount">{product.price}₴</div>
+                                </>
+                            ) : (
+                                <span>{product.price}₴</span>
+                            )
+                            )}
+                        </div>
                     </div>
                 );
             })}

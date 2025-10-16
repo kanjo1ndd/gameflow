@@ -6,6 +6,7 @@ import { AppContext } from '../../AppContext';
 import { useNavigate } from "react-router-dom";
 import './Catalog.css'
 import '../main/content/Content.css'
+import '../main/content/Content.css'
 
 export default function Catalog() {
 
@@ -51,11 +52,29 @@ export function BlockViewRow({ product }) {
 
     const navigate = useNavigate();
 
+    const hasDiscount = product.action && product.action.amount > 0;
+
+    const discountedPrice = hasDiscount
+        ? Math.round(product.price - (product.price * product.action.amount) / 100)
+        : product.price;
+
     return <>
         <div className='block-view-row' onClick={() => navigate(`/Game/${product.id}`)}>
             <img className='image-block-view-row' src={product.imagesCsv} />
             <div className='name-game'>{product.name}</div>
-            <div className='price-game'>{product.price}₴</div>
+            <div className="price-game">
+                {product.price !== "-" && (
+                    hasDiscount ? (
+                        <>
+                        <div className='discount-game'>-{product.action.amount}%</div>
+                        <div>{discountedPrice}₴</div>
+                        <div className="old-price-discount">{product.price}₴</div>
+                        </>
+                    ) : (
+                        <span>{product.price}₴</span>
+                    )
+                )}
+            </div>
         </div>
     </>;
 }
@@ -74,10 +93,30 @@ export function BlockViewColumn({ product }) {
 
     const navigate = useNavigate();
 
+    const hasDiscount = product.action && product.action.amount > 0;
+
+    const discountedPrice = hasDiscount
+        ? Math.round(product.price - (product.price * product.action.amount) / 100)
+        : product.price;
+
     return <>
         <div className='block-view-column' onClick={() => navigate(`/Game/${product.id}`)}>
             <img className='image-block-view-column' src={product.imagesCsv} />
-            <div className='name-price-view-column'>{product.name} <div>{product.price}₴</div></div>
+            <div className='name-price-view-column'>{product.name} 
+                <div className="price-game-column">
+                    {product.price !== "-" && (
+                        hasDiscount ? (
+                            <>
+                            <div className='discount-game'>-{product.action.amount}%</div>
+                            <div>{discountedPrice}₴</div>
+                            <div className="old-price-discount">{product.price}₴</div>
+                            </>
+                        ) : (
+                            <span>{product.price}₴</span>
+                        )
+                    )}
+                </div>
+            </div>
         </div>
     </>;
 }

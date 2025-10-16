@@ -91,3 +91,16 @@
     line-height: 120%;
     letter-spacing: 0%;
 }
+
+.price-game-column {
+    display: flex;
+    position: relative;
+    align-items: center;
+    color: rgba(241, 253, 255, 0.8);
+
+    gap: 0.5vw;
+    font-weight: 400;
+    font-size: 1.042vw;
+    line-height: 120%;
+    letter-spacing: 0%;
+}

@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { AppContext } from "../../AppContext";
 import './PageGame.css'
+import '../main/content/Content.css'
 import '../filters/Filters.css'
 
 export default function PageGame() {
@@ -176,11 +177,29 @@ export function MenuGamePage({ product }) {
 
     const [isFavorite, setIsFavorite] = useState(false);
 
+    const hasDiscount = product.action && product.action.amount > 0;
+
+    const discountedPrice = hasDiscount
+        ? Math.round(product.price - (product.price * product.action.amount) / 100)
+        : product.price;
+
     return <>
         <div className="block-menu-game-page">
             <div className="rating-game-menu">5.0 <RatingStars /></div>
             <div className="right-image-game-menu" />
-            <div className="price-game-menu">{product.price}₴</div>
+            <div className="price-game-menu">
+                {product.price !== "-" && (
+                    hasDiscount ? (
+                        <>
+                        <div className='discount-game-menu'>-{product.action.amount}%</div>
+                        <div>{discountedPrice}₴</div>
+                        <div className="old-price-discount">{product.price}₴</div>
+                        </>
+                    ) : (
+                        <span>{product.price}₴</span>
+                    )
+                )}
+            </div>
             <button className="button-buy-game-menu">Купити</button>
             <div className="buttons-game-menu">
                 <button className="button-add-cart-game-menu">Додати у кошик</button>

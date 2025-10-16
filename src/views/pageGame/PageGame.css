@@ -345,14 +345,30 @@
 }
 
 .price-game-menu {
+    display: flex;
+    position: relative;
+    align-items: center;
     color: white;
 
+    gap: 0.5vw;
     margin-top: 1vw;
     margin-bottom: 1vw;
     font-weight: 700;
     font-size: 1.667vw;
     line-height: 125%;
     letter-spacing: 0%;
+}
+
+.discount-game-menu {
+    color: black;
+    background-color: rgba(255, 111, 149, 1);
+
+    padding: 0.25vw 0.5vw;
+    border-radius: 1.042vw;
+    font-weight: 700;
+    font-size: 1vw;
+    line-height: 114.99999999999999%;
+    letter-spacing: -1%;
 }
 
 .button-buy-game-menu {
