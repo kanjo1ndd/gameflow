@@ -20,12 +20,12 @@ export default function Content() {
     return <>
         <div className='content'>
             <MainBanner />
-            <div className='title-category-special-offers'>Особливі пропозиції <i className="bi bi-chevron-right right" /></div>
+            <div className='title-category'>Особливі пропозиції <i className="bi bi-chevron-right" /></div>
             <SpecialOffers products={products} />
             <div className='title-category'>Рекомендовані вам <i className="bi bi-chevron-right" /></div>
             <Recommended />
             <div className='title-category'>До 100₴ <i className="bi bi-chevron-right" /></div>
-            <Recommended />
+            <RecommendedTo />
             <BlockListGames />
         </div>
     </>;
@@ -176,6 +176,48 @@ export function Recommended() {
 
     return <>
         <div className='recommended'>
+            <Carousel game={RSlides} len={Rlen} />
+        </div>
+    </>;
+}
+
+export function RecommendedTo() {
+    const Rlen = 10;
+
+    
+    const RSlides = Array.from({ length: Rlen }).map((_, index) => {
+
+        let NextIndex= (index >= Rlen - 1) ? 0 : (index + 1);
+        let Next2Index= (NextIndex >= Rlen - 1) ? 0 :( NextIndex + 1);
+        let Next3Index= (Next2Index >= Rlen - 1) ? 0 :( Next2Index + 1);
+        return (
+            <>
+                <div key={index} className='block-in-recommended-to'>
+                    <div className='image-recommended'style={index%2===0 ? { backgroundColor: 'pink' } : { backgroundColor: 'brown' }} />
+                    <div className='name-game'>Name</div>
+                    <div className='price-game'>9999₴</div>
+                </div>
+                <div key={NextIndex} className='block-in-recommended-to'>
+                    <div className='image-recommended'style={NextIndex%2===0 ? { backgroundColor: 'pink' } : { backgroundColor: 'brown' }} />
+                    <div className='name-game'>Name</div>
+                    <div className='price-game'>9999₴</div>
+                </div>
+                <div key={Next2Index} className='block-in-recommended-to'>
+                    <div className='image-recommended' style={Next2Index%2===0 ? { backgroundColor: 'pink' } : { backgroundColor: 'brown' }} />
+                    <div className='name-game'>Name</div>
+                    <div className='price-game'>9999₴</div>
+                </div>
+                <div key={Next3Index} className='block-in-recommended-to'>
+                    <div className='image-recommended' style={Next3Index%2===0 ? { backgroundColor: 'pink' } : { backgroundColor: 'brown' }} />
+                    <div className='name-game'>Name</div>
+                    <div className='price-game'>9999₴</div>
+                </div>
+            </>
+        );
+    });
+
+    return <>
+        <div className='recommended-to'>
             <Carousel game={RSlides} len={Rlen} />
         </div>
     </>;

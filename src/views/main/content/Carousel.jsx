@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Carousel.css';
+import './Content.css';
 
 
 const Carousel = ({ game, len }) => {

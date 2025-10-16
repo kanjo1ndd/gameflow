@@ -60,27 +60,7 @@
     transition: all 0.1s ease;
 }
 
-.button-indicators {
-    display: none;
-    /* display: flex;
-    justify-content: center;
-    margin-top: 2vw;
-    height: 2vw; */
-}
 
-.button-indicators .button-indicator {
-    background-color: rgba(255, 255, 255, 0.5);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    height: 0.7vw;
-    width: 0.7vw;
-    margin: 0 0.2vw;
-}
-
-.indicator.active {
-    background-color: rgba(255, 255, 255, 1);
-}
 
 .carousel-container-vertical  {
     display: flex;
