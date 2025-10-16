@@ -166,7 +166,7 @@
             font-weight: 700;
             font-size: 4vw;
             width: 90%;
-            margin-bottom: 3vw;
+            margin-bottom: 1vw;
         }
         
 
@@ -183,7 +183,7 @@
             justify-content: end;
             width: 100%;
             height: 65vw;
-            padding-left: 10px;
+            padding-left: 4vw;
         }
 
         .block-in-special-offers {
@@ -196,8 +196,8 @@
             background-color: rgba(0, 47, 61, 1);
 
 
-            border-radius: 0.833vw;
-            height:100%;
+            border-radius: 2.564vw;
+            height: 100%;
             width: 73%;
             margin: 0 1vw;
         }
@@ -239,8 +239,7 @@
             justify-content: end;
             width: 100%;
             height: 100vw;
-            padding-left: 16px;
-            margin-right: 5vw;
+            padding-left: 3vw;
         }
 
         .block-in-recommended {
@@ -252,10 +251,10 @@
             background-color: rgba(0, 47, 61, 1);
 
             flex-shrink: 0;
-            border-radius: 1vw;
+            border-radius: 2.564vw;
             height: 100%;
             width: 46%;
-            margin: 1.5vw 2vw;
+            margin: 0vw 1.6vw;
         }
 
         .image-recommended {
@@ -287,10 +286,10 @@
             background-color: rgba(0, 47, 61, 1);
 
             flex-shrink: 0;
-            border-radius: 0.833vw;
+            border-radius: 2.5vw;
             height: 100%;
-            width: 98%;
-            margin: 1.5vw 1vw;
+            width: 93%;
+            margin: 1.5vw 3vw;
         }
 
 
@@ -326,7 +325,7 @@
             justify-content: end;
             width: 200%;
             height: 100%;
-            padding-left: 16px;
+            padding-left: 11vw;
             margin-right: 5vw;
         }
         
@@ -407,4 +406,9 @@
             height: 5vw;
         }
 
+        .discount-game {
+            padding: 0.75vw 2vw;
+            border-radius: 2vw;
+            font-size: 2vw;
+        }
 }
