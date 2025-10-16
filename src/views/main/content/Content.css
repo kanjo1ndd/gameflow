@@ -137,6 +137,29 @@
     width: 7.24vw;
     height: 100%;
 }
+.button-indicators-banner {
+        display: none;
+}
+.button-indicators {
+    display: none;
+    /* display: flex;
+    justify-content: center;
+    margin-top: 2vw;
+    height: 2vw; */
+}
+
+.button-indicators .button-indicator {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    height: 0.5vw;
+    width: 0.5vw;
+    margin: 0 0.2vw;
+}
+
+.indicator.active {
+    background-color: rgba(255, 255, 255, 1);
+}
 
 .title-category-special-offers {
     color: white;
@@ -221,7 +244,7 @@
 
 /* Рекомендованные */
 
-.recommended {
+.recommended{
     display: flex;
     position: relative;
     overflow: hidden;
@@ -244,6 +267,29 @@
     margin: 1.5vw 0.45vw;
 }
 
+.recommended-to {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+
+    width: 83.5vw;
+}
+
+.block-in-recommended-to {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-color: rgba(0, 47, 61, 1);
+
+    flex-shrink: 0;
+    border-radius: 0.833vw;
+    height: 100%;
+    width: 23.8%;
+    margin: 1.5vw 0.45vw;
+}
+
 .image-recommended {
     background-color: black;
 
@@ -251,6 +297,7 @@
     width: 100%;
     height: 20.833vw;
 }
+
 
 /* Списки игр */
 
