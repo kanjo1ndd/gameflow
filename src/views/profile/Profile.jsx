@@ -33,16 +33,66 @@ export default function Profile() {
                         <img className='image-profile' src={userData.avatarUrl && userData.avatarUrl !== 'https://localhost:7202/Admin/Image/'
                             ? userData.avatarUrl : '/unknownUser.jpg'}/>
                         <div className='block-username'>
-                            {userData.userName}
+                            {userData.userName ?? 'Nickname'}
                             <div className='text-online'>онлайн</div>
                         </div>
+                        <button className='button-edit-profile'><i class="bi bi-pencil" /> Редагувати профіль</button>
+                    </div>
+                    <div className='description-profile'>
+                        У пошуках нових пригод! Кожен новий рівень – це можливість пережити незабутні моменти та здобути новий досвід.
                     </div>
                 </div>
-                <div>
-                    
-                </div>
+                <MenuProfile />
             </div>
         </div>
         <Footer />
     </>;
+}
+
+export function MenuProfile() {
+
+    const menuItems = [
+        { id: 1, title: "Головна", count: null },
+        { id: 2, title: "Значки", count: 100 },
+        { id: 3, title: "Ігри", count: 100 },
+        { id: 4, title: "Бажане", count: 100 },
+        { id: 5, title: "Обговорення", count: 100 },
+        { id: 6, title: "Скріншоти", count: 100 },
+        { id: 7, title: "Відео", count: 100 },
+        { id: 8, title: "Гайди", count: 100 },
+        { id: 9, title: "Рецензії", count: 100 },
+    ];
+
+    const [activeId, setActiveId] = useState(1)
+
+    return <>
+        <div>
+            <div className='right-menu-block'>
+                <div className='level-profile'>Рівень
+                    <svg class="hex" viewBox="0 0 100 100">
+                        <polygon points="50,3 97,27 97,73 50,97 3,73 3,27"
+                            fill="none"
+                            stroke="rgba(111, 151, 255, 1)"
+                            stroke-width="3" />
+                        <text x="50" y="65" font-size="40" text-anchor="middle" fill="#ffffffff" font-weight="bold">99</text>
+                    </svg>
+                </div>
+                <div className="profile-menu">
+                    {menuItems.map((item) => (
+                        <div key={item.id} className={`menu-item ${item.id === activeId ? "active" : ""}`}
+                            onClick={() => setActiveId(item.id)}>
+                            <span className="menu-title">{item.title}</span>
+                            {item.count !== null && <span className="menu-badge">{item.count}</span>}
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div className='right-menu-block-friends'>
+                <div className='menu-item'>
+                    <span className="menu-title">Друзі</span>
+                    <span className="menu-badge">10</span>
+                </div>
+            </div>
+        </div>
+    </>
 }

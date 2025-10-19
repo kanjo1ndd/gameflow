@@ -34,6 +34,7 @@
 
 .block-info-profile {
     display: flex;
+    justify-content: space-between;
 }
 
 .image-profile {
@@ -67,4 +68,148 @@
     font-size: 0.833vw;
     line-height: 100%;
     letter-spacing: 0%;
+}
+
+.description-profile {
+    color: white;
+
+    padding-top: 4vw;
+    width: 31.042vw;
+    font-weight: 400;
+    font-size: 0.833vw;
+    line-height: 150%;
+    letter-spacing: -1%;
+}
+
+.button-edit-profile {
+    display: flex;
+    background-color: rgba(4, 96, 117, 1);
+    color: white;
+    border: none;
+    outline: none;
+    height: max-content;
+
+    padding: 0.55vw 1.25vw;
+    margin-top: 2vw;
+    gap: 0.75vw;
+    border-radius: 1.042vw;
+    font-weight: 600;
+    font-size: 1.042vw;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
+.button-edit-profile:hover {
+    filter: brightness(0.9);
+}
+
+/* Менюшка профиля */
+
+.right-menu-block {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-color: rgba(0, 66, 82, 1);
+
+    margin-top: 2vw;
+    padding: 1vw 1.25vw 1vw 1.25vw;
+    border-radius: 1.042vw;
+    width: 18.125vw;
+}
+
+.level-profile {
+    display: flex;
+    align-items: center;
+    color: white;
+
+    gap: 1vw;
+    margin-bottom: 0.75vw;
+    font-weight: 700;
+    font-size: 1.25vw;
+    line-height: 110.00000000000001%;
+    letter-spacing: 0%;
+}
+
+.hex {
+    width: 2.5vw;
+    height: 2.5vw;
+}
+
+.profile-menu {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+
+    gap: 0.25vw
+}
+
+.menu-item {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+
+    padding: 0.5vw 0vw;
+}
+
+.menu-item::before {
+    content: "";
+    position: absolute;
+    left: -0.65vw;
+    right: -0.65vw;
+    top: 0;
+    bottom: 0;
+    background-color: transparent;
+    border-radius: 8px;
+    z-index: 0;
+    transition: background-color 0.2s ease;
+}
+
+.menu-item.active::before {
+    background-color: rgba(55, 195, 255, 0.25);
+}
+
+.menu-item:hover::before {
+    background-color: rgba(55, 195, 255, 0.1);
+}
+
+.menu-title {
+    color: white;
+
+    z-index: 1;
+    font-weight: 700;
+    font-size: 1.042vw;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
+.menu-badge {
+    color: rgba(204, 248, 255, 0.65);
+    background-color: rgba(55, 195, 255, 0.25);
+    height: max-content;
+
+    z-index: 1;
+    padding: 0.15vw 0.75vw;
+    border-radius: 1.042vw;
+    font-weight: 700;
+    font-size: 0.8vw;
+    line-height: 125%;
+    letter-spacing: -1%;
+}
+
+.menu-badge:hover {
+    color: white;
+}
+
+.right-menu-block-friends {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-color: rgba(0, 66, 82, 1);
+
+    margin-top: 2vw;
+    padding: 1vw 1.25vw 1vw 1.25vw;
+    border-radius: 1.042vw;
+    width: 18.125vw;
 }
