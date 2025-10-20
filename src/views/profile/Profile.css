@@ -74,6 +74,7 @@
     color: white;
 
     padding-top: 4vw;
+    margin-bottom: 3vw;
     width: 31.042vw;
     font-weight: 400;
     font-size: 0.833vw;
@@ -212,4 +213,110 @@
     padding: 1vw 1.25vw 1vw 1.25vw;
     border-radius: 1.042vw;
     width: 18.125vw;
+}
+
+.block-profile-friend {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.avatar-nickname-friend {
+    display: flex;
+    align-items: center;
+    color: white;
+
+    gap: 1vw;
+    margin-top: 0.75vw;
+    font-weight: 700;
+    font-size: 0.833vw;
+    line-height: 125%;
+    letter-spacing: -1%;
+}
+
+.hex-friend {
+    margin-top: 0.75vw;
+    width: 1.75vw;
+    height: 1.75vw;
+}
+
+.image-profile-friend {
+    background-color: black;
+
+    border-radius: 50%;
+    width: 2.5vw;
+    height: 2.5vw;
+}
+
+/* Главный раздел */
+
+.block-icons {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    color: white;
+    background-color: rgba(0, 66, 82, 1);
+
+    width: 100%;
+    margin-top: 1vw;
+    border-radius: 1.042vw;
+    padding: 1.25vw;
+}
+
+.title-block {
+    color: white;
+
+    font-weight: 700;
+    font-size: 1.25vw;
+    line-height: 110.00000000000001%;
+    letter-spacing: 0%;
+    margin-bottom: 1vw;
+}
+
+.block-for-icons-count {
+    display: flex;
+}
+
+.block-count-icons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 47, 61, 1);
+    color: rgba(204, 248, 255, 0.65);
+
+    width: 10.417vw;
+    height: 5.938vw;
+    border-radius: 0.625vw;
+    font-weight: 400;
+    font-size: 1.042vw;
+    line-height: 120%;
+    letter-spacing: -1%;
+
+}
+
+.count-icons {
+    color: white;
+
+    font-weight: 700;
+    font-size: 2.083vw;
+    line-height: 125%;
+    letter-spacing: 0%;
+}
+
+.block-for-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 44.375vw;
+    padding: 0px 3.048vw 0px 3.048vw;
+}
+
+.image-icon {
+    background-color: black;
+
+    width: 5.729vw;
+    height: 5.729vw;
 }

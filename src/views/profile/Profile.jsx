@@ -41,6 +41,7 @@ export default function Profile() {
                     <div className='description-profile'>
                         У пошуках нових пригод! Кожен новий рівень – це можливість пережити незабутні моменти та здобути новий досвід.
                     </div>
+                    <MainPartProfile />
                 </div>
                 <MenuProfile />
             </div>
@@ -63,7 +64,9 @@ export function MenuProfile() {
         { id: 9, title: "Рецензії", count: 100 },
     ];
 
-    const [activeId, setActiveId] = useState(1)
+    const [activeId, setActiveId] = useState(1);
+
+    const friends = [1, 2];
 
     return <>
         <div>
@@ -91,6 +94,42 @@ export function MenuProfile() {
                 <div className='menu-item'>
                     <span className="menu-title">Друзі</span>
                     <span className="menu-badge">10</span>
+                </div>
+                {friends.map((_, index) => (
+                    <div className='block-profile-friend' key={index}>
+                        <div className='avatar-nickname-friend'>
+                            <div className='image-profile-friend'></div>
+                            Nickname
+                        </div>
+                        <svg className="hex-friend" viewBox="0 0 100 100">
+                            <polygon points="50,3 97,27 97,73 50,97 3,73 3,27"
+                                fill="none"
+                                stroke="rgba(255, 189, 111, 1)"
+                                strokeWidth="6" />
+                            <text x="50" y="65" fontSize="40" textAnchor="middle" fill="#ffffffff" fontWeight="bold">99</text>
+                        </svg>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </>
+}
+
+export function MainPartProfile() {
+    return <>
+        <div className='block-icons'>
+            <div className='title-block'>Галерея значків</div>
+            <div className='block-for-icons-count'>
+                <div className='block-count-icons'>
+                    <div className='count-icons'>5</div>
+                    Значків
+                </div>
+                <div className='block-for-icons'>
+                    <div className='image-icon' />
+                    <div className='image-icon' />
+                    <div className='image-icon' />
+                    <div className='image-icon' />
+                    <div className='image-icon' />
                 </div>
             </div>
         </div>
