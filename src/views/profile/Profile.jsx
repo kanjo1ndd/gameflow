@@ -3,6 +3,7 @@ import Header from '../main/header/Header';
 import { useEffect, useState, useContext } from "react";
 import { AppContext } from '../../AppContext';
 import './Profile.css'
+import { AllButtonComments } from '../buttonComments/ButtonComments';
 
 export default function Profile() {
 
@@ -116,6 +117,13 @@ export function MenuProfile() {
 }
 
 export function MainPartProfile() {
+
+    const items = [
+        { count: 1234, label: 'Ігор' },
+        { count: 121, label: 'DLC' },
+        { count: 2564, label: 'Бажаних' }
+    ];
+
     return <>
         <div className='block-icons'>
             <div className='title-block'>Галерея значків</div>
@@ -132,6 +140,74 @@ export function MainPartProfile() {
                     <div className='image-icon' />
                 </div>
             </div>
+        </div>
+
+        <div className='block-icons'>
+            <div className='title-block'>Колекція ігор</div>
+            <div className='block-for-count-games'>
+                {items.map((item, index) => (
+                    <div className='block-count-icons' key={index}>
+                        <div className='count-icons'>{item.count}</div>
+                        {item.label}
+                    </div>
+                ))}
+            </div>
+            <div className='block-for-image-games'>
+                <div className='image-game'/>
+                <div className='image-game'/>
+                <div className='image-game'/>
+                <div className='image-game'/>
+            </div>
+        </div>
+
+        <div className='block-icons'>
+            <div className='title-block'>Галерея обговорень</div>
+            <div className='block-for-all-discussions'>
+                <div className='block-main-discussions'>
+                    <div className='title-discussions'>Title</div>
+                    <div className='text-discussions'>
+                        Я грав у Nuka world dlc, коли потрапив у дитяче королівство, все було добре, поки я не потрапив до Освальда в кінотеатрі, усе було добре, поки я не помер, це спричинило початок квестів Освальда, і я завершив розважальний будинок, але коли я повернувся в theater «Катсцена» Освальда знову почалася, і тепер я не можу вбити його чи почати квест знову. чи варто мені просто перезавантажувати попереднє збереження та почати все спочатку?
+                    </div>
+                    <div className='image-discussion' />
+                    <AllButtonComments />
+                </div>
+                <div className='block-discussions'>
+                    <div className='title-discussions'>Title</div>
+                    <div className='text-discussions'>
+                        Який з них вам більше сподобався? Яка гра на вашу думку краща?
+                    </div>
+                    <AllButtonComments />
+                </div>
+                <div className='block-next-discussions'>+ 5</div>
+            </div>
+        </div>
+
+        <div className='block-icons'>
+            <div className='title-block'>Галерея скріншотів</div>
+            <div className='block-for-image-screenshots'>
+                <div className='main-image-screenshot' />
+                <div className='image-screenshot' />
+                <div className='image-screenshot' />
+                <div className='last-image-screenshot'>+ 5</div>
+            </div>
+        </div>
+
+        <div className='block-icons'>
+            <div className='title-block'>Галерея відео</div>
+            <div className='block-for-image-screenshots'>
+                <div className='main-image-screenshot' />
+                <div className='image-screenshot' />
+                <div className='image-screenshot' />
+                <div className='last-image-screenshot'>+ 5</div>
+            </div>
+        </div>
+
+        <div className='block-icons'>
+            <div className='title-block'>Галерея рецензій</div>
+        </div>
+
+        <div className='block-icons'>
+            <div className='title-block'>Галерея гайдів</div>
         </div>
     </>
 }
