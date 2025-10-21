@@ -59,6 +59,7 @@
     letter-spacing: 0%;
 }
 
+
 .li:hover {
     filter: brightness(0.85);
 }
@@ -240,7 +241,7 @@
 }
 
 .profile-img-head {
-    border-radius: 1.5vw;
+    border-radius: 2vw;
     width: 2.708vw;
     height: 2.708vw;
 }
@@ -303,3 +304,12 @@
 .nickname:hover {
     filter: brightness(1.10);
 }
+
+.burger-menu-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+.burger-menu-open{
+        display: none;
+}    

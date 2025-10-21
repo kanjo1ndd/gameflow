@@ -1,6 +1,7 @@
 .content-sign-in {
     display: flex;
     position: relative;
+    z-index: 4;
 
     width: 100;
 }

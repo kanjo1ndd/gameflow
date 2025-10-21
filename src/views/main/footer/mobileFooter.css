@@ -5,6 +5,7 @@
     display: flex;
     justify-content: center;
     background: rgba(0, 47, 61, 1);
+    z-index: 4;
     }
     .footer{
         display: flex;

@@ -1,5 +1,6 @@
 import './SignUp.css'
 import './SignIn.css'
+import './mobileSingUp.css'
 import Header from "../main/header/Header";
 import { AppContext } from '../../AppContext';
 import Footer from '../main/footer/Footer';

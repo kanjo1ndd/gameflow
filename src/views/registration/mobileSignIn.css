@@ -1,0 +1,252 @@
+@media(max-width: 390px) {
+
+    .content-sign-in {
+        display: flex;
+        position: relative;
+        z-index: 4;
+
+        width: 100%;
+        height: 200vw;
+        padding-top: 13vw;
+    }
+
+    .background-image {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        background-image: url('/image-reg.png');
+        background-size: cover;
+        background-position: center;
+
+        margin-top: 4.688vw;
+        width: 100%;
+        height: 100%;
+    }
+
+    .block-sign-in {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        flex-direction: column;
+        background-color: rgba(0, 47, 61, 1);
+
+        border-radius: 2vw;
+        margin-top: 30vw;
+        height: 50%;
+        width: 90%;
+        padding: 5vw;
+    }
+
+    .block-authorization {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        flex-direction: column;
+        gap:2vw;
+
+        width: 100%;
+        margin-top: 5vw;
+    }
+
+    .authorization-text {
+        display: flex;
+        justify-content: center;
+        color: white;
+
+        margin-bottom: 2vw;
+        font-weight: 600;
+        font-size: 4vw;
+        line-height: 140%;
+    }
+
+    .form-authozation {
+        color: white;
+
+        font-weight: 700;
+        font-size: 3vw;
+        line-height: 105%;
+    }
+
+    .input-authozation {
+        background-color: rgba(0, 20, 31, 0.4);
+        border: 1px solid rgba(4, 96, 117, 1);
+        outline: none;
+        width: 90%;
+        margin-bottom: 1%;
+        margin-left: 2vw;
+        font-size: 4vw;
+        border-radius: 2vw;
+    }
+
+    .block-authorization input {
+        color: rgba(204, 248, 255, 0.65);
+        padding: 1vw;
+        padding-left: 2vw;
+    }
+
+    .block-authorization input::placeholder {
+        color: rgba(204, 248, 255, 0.65);
+    }
+
+    .remember-dont-password {
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 3vw; 
+    }
+
+    .remember {
+        display: flex;
+        align-items: center;
+        color: rgba(241, 253, 255, 0.8);
+
+        gap: 1.5vw;
+        font-weight: 600;
+        font-size: 2.5vw;
+        line-height: 125%;
+    }
+
+    .dont-rememberr {
+        color: white;
+        cursor: pointer;
+
+        font-weight: 600;
+        font-size: 2.5vw;
+        line-height: 125%;
+        letter-spacing: 0%;
+    }
+
+    .dont-rememberr:hover {
+        color: rgba(73, 255, 222, 1);
+    }
+
+    .button-signup {
+        display: flex;
+        position: relative;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .button-continue {
+        background-color: rgba(36, 229, 194, 1);
+        color: black;
+        outline: none;
+        border: none;
+        width: max-content;
+
+        border-radius: 2vw;
+        font-weight: 600;
+        font-size: 3vw;
+        line-height: 120%;
+        letter-spacing: 0%;
+        cursor: pointer;
+        width: 50%;
+        height: 8vw;
+        margin-top: 6vw;
+        margin-bottom: 1vw;
+
+    }
+
+    .button-continue:hover {
+        filter: brightness(1.1);
+    }
+
+    .none-account {
+        display: flex;
+        color: rgba(204, 248, 255, 0.65);
+
+        gap: 0.2vw;
+        margin-top: 2vw;
+        font-weight: 400;
+        font-size: 2vw;
+        line-height: 115%;
+        letter-spacing: -1%;
+    }
+
+    .continue-sign-up {
+        cursor: pointer;
+
+        color: rgba(36, 229, 194, 1);
+    }
+
+    .continue-sign-up:hover {
+        filter: brightness(1.25);
+    }
+
+
+    /* Для валидации */
+
+    .form-errors {
+        display: flex;
+
+        margin-bottom: 1vw;
+    }
+
+    .form-errors span {
+        display: flex;
+
+        gap: 1vw;
+        color: rgba(255, 165, 153, 1);
+        font-size: 2vw;
+    }
+
+    .input-error {
+        border: 0.1vw solid rgba(255, 165, 153, 1) !important;
+        border-radius: 1.146vw !important;
+    }
+
+    .input-authozation.input-error {
+        margin-bottom:1vw;
+    }
+
+    /* checkbox */
+
+    .custom-checkboxs {
+        position: relative;
+        display: inline-block;
+        width: 2.5vw;
+        height: 2.5vw;
+    }
+
+    .custom-checkboxs input {
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .checkmarks {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2.5vw;
+        height: 2.5vw;
+        border: 0.1vw solid #00ffc8;
+        border-radius: 0.4vw;
+        background-color: #00343d;
+        transition: 0.2s;
+    }
+
+    .custom-checkboxs input:checked + .checkmarks {
+        background-color: #00343d;
+        border-color: #00ffc8;
+    }
+
+    .checkmarks::after {
+        content: "";
+        position: absolute;
+        display: none;
+        left: 0.4vw;
+        width: 0.45vw;
+        height: 0.9vw;
+        border: solid #00ffc8;
+        border-width: 0 0.2vw 0.2vw 0;
+        transform: rotate(45deg);
+    }
+
+    .custom-checkboxs input:checked + .checkmarks::after {
+        display: block;
+    }
+}

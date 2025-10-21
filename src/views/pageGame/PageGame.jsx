@@ -44,7 +44,7 @@ export default function PageGame() {
             <div className="left-block-right-menu">
                 <div className="left-block-game-page">
                     <div className="name-game-page">{product.name}</div>
-                    <div className="main-image-page-game" />
+                    <img className="main-image-page-game" src={product.imagesCsv} alt={product.name} />
                     <div className="showcase-game-page">
                         {Array.from({ length: 6 }).map((_, i) => (
                             <div key={i} className="showcase-image-game-page" />

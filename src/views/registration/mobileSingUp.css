@@ -1,0 +1,223 @@
+@media(max-width: 390px) {
+
+.content-sign-up {
+    display: flex;
+        position: relative;
+        z-index: 4;
+
+        width: 100%;
+        height: 200vw;
+        padding-top: 13vw;
+}
+
+.background-image-sign-up {
+     display: flex;
+        position: relative;
+        justify-content: center;
+        background-image: url('/image-reg.png');
+        background-size: cover;
+        background-position: center;
+
+        margin-top: 4.688vw;
+        width: 100%;
+        height: 100%;
+}
+
+.block-registration {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(0, 47, 61, 1);
+
+    border-radius: 2vw;
+    height: 90%;
+    width: 90%;
+    padding: 5vw;
+}
+
+.registration-inputs {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    gap: 1vw;
+}
+
+.for-inputs {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+
+.input-registration {
+    background-color: rgba(0, 20, 31, 0.4);
+    border: 1px solid rgba(4, 96, 117, 1);
+    box-shadow: none;
+    font-size: 3vw;
+    border-radius: 1.146vw;
+    margin-bottom: 0;
+}
+
+.for-inputs input {
+    color: rgba(204, 248, 255, 0.65);
+    padding: 0.7vw;
+    padding-left: 2vw;
+    width: 80%;
+    box-sizing: border-box;
+    height: 7vw;
+}
+
+.for-inputs input::placeholder {
+    color: rgba(204, 248, 255, 0.65);
+}
+
+.agree {
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.8);
+
+    margin-bottom: 4vw;
+    gap: 1vw;
+    font-weight: 400;
+    font-size: 3vw;
+    line-height: 125%;
+    letter-spacing: -1%;
+}
+
+.terms-of-use {
+    color: rgba(36, 229, 194, 1);
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-style: solid;
+    gap:2vw;
+
+    font-weight: 700;
+    font-size: 3vw;
+    line-height: 125%;
+    letter-spacing: 0%;
+    text-decoration-thickness: 0%;
+}
+
+.terms-of-use:hover {
+    filter: brightness(1.25);
+}
+.none-account {
+    display: flex;
+    justify-content: center;
+    gap: 1vw;
+    margin-top: 4vw;
+    font-weight: 400;
+    font-size: 3vw;
+    line-height: 125%;
+    letter-spacing: -1%;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Страны */
+
+.react-selects__control {
+    border: none !important;
+    outline: none !important;
+    color: rgba(204, 248, 255, 0.65) !important;
+    background-color: rgba(0, 20, 31, 0.4) !important;
+    border: 1px solid rgba(4, 96, 117, 1) !important;
+    box-shadow: none !important;
+    transition: none !important;
+    
+    min-height: max-content !important;
+    height: max-content !important;
+    border-radius: 1.146vw !important;
+    padding: 0.5vw !important;
+    padding-left: 1vw !important;
+    width: 27.042vw !important;
+    font-size: 2vw !important;
+}
+ 
+.react-selects__placeholder {
+  color: rgba(204, 248, 255, 0.65) !important;
+}
+
+.react-selects__control--is-focused {
+    box-shadow: none !important;
+    border: none !important;
+    border: 1px solid rgba(4, 96, 117, 1) !important;
+}
+  
+.react-selects__value-container {
+    margin: 0 !important;
+    padding: 0 !important;
+    color: rgba(204, 248, 255, 0.65) !important;
+}
+  
+.react-selects__input-container {
+    margin: 0 !important;
+    padding: 0 !important;
+    color: rgba(204, 248, 255, 0.65) !important;
+}
+  
+.react-selects__input {
+    margin: 0 !important;
+    padding: 0 !important;
+    color: rgba(204, 248, 255, 0.65) !important;
+}
+
+.react-selects__single-value {
+    margin: 0 !important;
+    padding: 0 !important;
+    color: rgba(204, 248, 255, 0.65) !important;
+}
+
+.react-selects__indicators {
+  display: none !important;
+}
+
+.react-selects__indicator-separator {
+    display: none !important;
+}
+  
+.react-selects__menu {
+    background-color: rgba(0, 20, 31, 0.7) !important;
+    color: rgba(204, 248, 255, 0.65) !important;
+    font-size: 3vw !important;
+    border-radius: 0.347vw !important;
+    z-index: 10 !important;
+    width: 100% !important;
+}
+  
+.react-selects__option {
+    cursor: pointer !important;
+    padding: 0.6vw 1vw !important;
+    color: rgba(204, 248, 255, 0.65) !important;
+}
+  
+.react-selects__option--is-focused {
+    background-color: rgba(96, 105, 118, 0.2) !important;
+    color: rgba(204, 248, 255, 0.65) !important;
+}
+  
+.react-selects__option--is-selected {
+    background-color: rgba(96, 105, 118, 0.4) !important;
+    color: rgba(204, 248, 255, 0.65) !important;
+}
+  
+.react-selects__indicator svg {
+    display: none;
+}
+
+.react-select--errors .react-selects__control {
+    border: 0.069vw solid rgba(255, 165, 153, 1) !important;
+}
+
+.react-select--errors .react-selects__control--is-focused {
+    border: 0.069vw solid rgba(255, 165, 153, 1) !important;
+}
+/* ////////////////////////////////////////////////////////// */
+
+/* Иконка даты */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    padding: 0px 0.5vw;
+    cursor: pointer;
+    font-size: 5vw;
+}
+}
