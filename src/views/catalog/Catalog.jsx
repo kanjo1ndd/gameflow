@@ -39,13 +39,49 @@ export default function Catalog() {
 }
 
 export function ViewRow({ products }) {
-    return <>
-        <div className='block-views-row'>
-            {products.map((product, index) => (
-                <BlockViewRow key={index} product={product} />
-            ))}
+    const ITEMS_PER_PAGE = 12;
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const totalPages = Math.ceil(products.length / ITEMS_PER_PAGE);
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const currentItems = products.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
+    const getVisiblePages = () => {
+        const pages = [];
+        if (currentPage > 1) pages.push(currentPage - 1);
+        pages.push(currentPage);
+        if (currentPage < totalPages) pages.push(currentPage + 1);
+        return pages;
+    };
+
+    const handlePageChange = (page) => {
+        if (page < 1 || page > totalPages) return;
+        setCurrentPage(page);
+    };
+
+    return (
+        <div>
+            <div className="block-views-row">
+                {currentItems.map((product, index) => (
+                    <BlockViewRow key={index} product={product} />
+                ))}
+            </div>
+
+            {totalPages > 1 && (
+                <div className="pagination">
+                    {getVisiblePages().map((page) => (
+                        <button
+                            key={page}
+                            className={`page-button ${page === currentPage ? "active" : ""}`}
+                            onClick={() => handlePageChange(page)}
+                        >
+                            {page}
+                        </button>
+                    ))}
+                </div>
+            )}
         </div>
-    </>;
+    );
 }
 
 export function BlockViewRow({ product }) {
@@ -80,13 +116,49 @@ export function BlockViewRow({ product }) {
 }
 
 export function ViewColumn({ products }) {
-    return <>
-        <div className='block-views-column'>
-            {products.map((product, index) => (
-                <BlockViewColumn key={index} product={product} />
-            ))}
+    const ITEMS_PER_PAGE = 12;
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const totalPages = Math.ceil(products.length / ITEMS_PER_PAGE);
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const currentItems = products.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
+    const getVisiblePages = () => {
+        const pages = [];
+        if (currentPage > 1) pages.push(currentPage - 1);
+        pages.push(currentPage);
+        if (currentPage < totalPages) pages.push(currentPage + 1);
+        return pages;
+    };
+
+    const handlePageChange = (page) => {
+        if (page < 1 || page > totalPages) return;
+        setCurrentPage(page);
+    };
+
+    return (
+        <div>
+            <div className="block-views-column">
+                {currentItems.map((product, index) => (
+                    <BlockViewColumn key={index} product={product} />
+                ))}
+            </div>
+            
+            {totalPages > 1 && (
+                <div className="pagination">
+                    {getVisiblePages().map((page) => (
+                        <button
+                            key={page}
+                            className={`page-button ${page === currentPage ? "active" : ""}`}
+                            onClick={() => handlePageChange(page)}
+                        >
+                            {page}
+                        </button>
+                    ))}
+                </div>
+            )}
         </div>
-    </>;
+    );
 }
 
 export function BlockViewColumn({ product }) {

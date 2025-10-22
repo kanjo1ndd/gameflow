@@ -104,3 +104,37 @@
     line-height: 120%;
     letter-spacing: 0%;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 1.5vw;
+    gap: 0.6vw;
+}
+
+.page-button {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.15vw solid rgba(4, 96, 117, 1);
+    color: white;
+    border-radius: 50%;
+    width: 2.2vw;
+    height: 2.2vw;
+    font-size: 1vw;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.1s ease;
+}
+
+.page-button.active {
+    background-color: rgba(4, 96, 117, 1);
+    color: rgba(36, 229, 194, 1);
+    transform: scale(1.1);
+}
+
+.page-button:hover:not(.active) {
+    background-color: rgba(0, 188, 212, 0.2);
+}

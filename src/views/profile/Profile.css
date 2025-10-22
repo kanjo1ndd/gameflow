@@ -443,3 +443,161 @@
     border-radius: 0.833vw;
     margin: 0.75vw 0px 0px 0px;
 }
+
+.block-name-date-game {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+
+    width: 100%;
+    margin-bottom: 0.75vw;
+}
+
+.name-date-game {
+    display: flex;
+    align-items: center;
+
+    gap: 0.75vw;
+}
+
+.name-avatar-game {
+    display: flex;
+    align-items: center;
+    background-color: rgba(4, 96, 117, 1);
+
+    font-weight: 700;
+    font-size: 0.833vw;
+    line-height: 125%;
+    letter-spacing: -1%;
+    border-radius: 1.042vw;
+    padding-right: 1vw;
+}
+
+.image-avatar-game {
+    background-color: black;
+    width: 1.875vw;
+    height: 1.875vw;
+
+    margin-right: 0.75vw;
+    border-radius: 50%;
+}
+
+.date-game {
+    color: rgba(204, 248, 255, 0.65);
+
+    font-weight: 400;
+    font-size: 0.729vw;
+    line-height: 114.99999999999999%;
+    letter-spacing: -1%;
+}
+
+.block-guide {
+    display: flex;
+    justify-content: space-between;
+}
+
+.image-guide {
+    background-color: black;
+
+    width: 10.417vw;
+    border-radius: 1.042vw;
+}
+
+.title-description-guide {
+    display: flex;
+    flex-direction: column;
+
+    width: 40.2vw;
+}
+
+.next-title-description-guide {
+    display: flex;
+    flex-direction: column;
+
+    width: 31.2vw;
+}
+
+.description-guide {
+    color: rgb(255, 255, 255, 0.9);
+
+    font-weight: 400;
+    font-size: 0.833vw;
+    line-height: 150%;
+    letter-spacing: -1%;
+}
+
+.block-main-comment {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-color: rgba(0, 47, 61, 1);
+
+    width: 100%;
+    border-radius: 0.625vw;
+    margin-bottom: 0.75vw;
+}
+
+.block-comment {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-color: rgba(0, 47, 61, 1);
+
+    border-radius: 0.625vw;
+    width: 45.2vw;
+}
+
+.image-comment {
+    background-color: black;
+
+    width: 100%;
+    height: 13.333vw;
+    border-radius: 0.625vw 0.625vw 0px 0px;
+}
+
+.bi-three-dots {
+    font-size: 1.25vw;
+}
+
+.title-comment {
+    display: flex;
+    justify-content: space-between;
+
+    font-weight: 700;
+    font-size: 1.25vw;
+    line-height: 110.00000000000001%;
+    letter-spacing: 0%;
+    padding: 1vw;
+}
+
+.rating-block-profile {
+    padding: 0px 1vw;
+}
+
+.description-comment {
+    color: rgb(255, 255, 255, 0.9);
+
+    font-weight: 400;
+    font-size: 0.833vw;
+    line-height: 150%;
+    letter-spacing: -1%;
+    padding: 1vw 1vw 0px 1vw;
+}
+
+.comments-date-reaction {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0px 1vw 1vw 1vw;
+}
+
+.date-comments {
+    color: rgba(204, 248, 255, 0.65);
+
+    font-weight: 400;
+    font-size: 0.729vw;
+    line-height: 114.99999999999999%;
+    letter-spacing: -1%;
+    padding-top: 1vw;
+}

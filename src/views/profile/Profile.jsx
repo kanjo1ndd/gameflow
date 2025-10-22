@@ -164,6 +164,7 @@ export function MainPartProfile() {
             <div className='title-block'>Галерея обговорень</div>
             <div className='block-for-all-discussions'>
                 <div className='block-main-discussions'>
+                    <HeadInBlocks />
                     <div className='title-discussions'>Title</div>
                     <div className='text-discussions'>
                         Я грав у Nuka world dlc, коли потрапив у дитяче королівство, все було добре, поки я не потрапив до Освальда в кінотеатрі, усе було добре, поки я не помер, це спричинило початок квестів Освальда, і я завершив розважальний будинок, але коли я повернувся в theater «Катсцена» Освальда знову почалася, і тепер я не можу вбити його чи почати квест знову. чи варто мені просто перезавантажувати попереднє збереження та почати все спочатку?
@@ -172,6 +173,7 @@ export function MainPartProfile() {
                     <AllButtonComments />
                 </div>
                 <div className='block-discussions'>
+                    <HeadInBlocks />
                     <div className='title-discussions'>Title</div>
                     <div className='text-discussions'>
                         Який з них вам більше сподобався? Яка гра на вашу думку краща?
@@ -204,10 +206,95 @@ export function MainPartProfile() {
 
         <div className='block-icons'>
             <div className='title-block'>Галерея рецензій</div>
+            <div className='block-for-all-discussions'>
+                <div className='block-main-comment'>
+                    <div className='image-comment' />
+                    <div className='title-comment'>Title <i className="bi bi-three-dots" /></div>
+                    <RatingStarsProfile />
+                    <div className='description-comment'>
+                        Посланий шукати зниклого мільярдера на віддаленому острові, ви опинитеся в пеклі, заповненому канібалами. Створюйте, будуйте та боріться за виживання, поодинці чи з друзями, у цьому жахливому новому симуляторі виживання у відкритому світі.
+                    </div>
+                    <div className='comments-date-reaction'>
+                        <AllButtonComments />
+                        <div className='date-comments'>21.02.2023</div>
+                    </div>
+                </div>
+                <div className='block-comment'>
+                    <div className='image-comment' />
+                    <div className='title-comment'>Title <i className="bi bi-three-dots" /></div>
+                    <RatingStarsProfile />
+                    <div className='description-comment'>
+                        Приміряйте на себе роль вбивці чудовищ і відправляйтесь у шлях: від ролевих приєднань до карткових боїв. Оставте свій слід у світі «Ведьмака».
+                    </div>
+                    <div className='comments-date-reaction'>
+                        <AllButtonComments />
+                        <div className='date-comments'>21.02.2023</div>
+                    </div>
+                </div>
+                <div className='block-next-discussions'>+ 5</div>
+            </div>
         </div>
 
         <div className='block-icons'>
             <div className='title-block'>Галерея гайдів</div>
+            <div className='block-for-all-discussions'>
+                <div className='block-main-discussions'>
+                    <HeadInBlocks />
+                    <div className='block-guide'>
+                        <div className='image-guide' />
+                        <div className='title-description-guide'>
+                            <div className='title-discussions'>Title</div>
+                            <div className='description-guide'>
+                                У цьому посібнику я покажу, як отримати повний набір силової броні X-01, це досить легко, і це найміцніша силова броня в грі.
+                            </div>
+                        </div>
+                    </div>
+                    <AllButtonComments />
+                </div>
+                <div className='block-discussions'>
+                    <HeadInBlocks />
+                    <div className='block-guide'>
+                        <div className='image-guide' />
+                        <div className='next-title-description-guide'>
+                            <div className='title-discussions'>Title</div>
+                            <div className='description-guide'>
+                                Це посібник для початківців Requiem, як я, щоб спростити вибір збірки.
+                            </div>
+                        </div>
+                    </div>
+                    <AllButtonComments />
+                </div>
+                <div className='block-next-discussions'>+ 5</div>
+            </div>
         </div>
     </>
+}
+
+export function HeadInBlocks() {
+    return <>
+        <div className='block-name-date-game'>
+            <div className='name-date-game'>
+                <div className='name-avatar-game'><div className='image-avatar-game' />Game123</div>
+                <div className='date-game'>25.02.2024</div>
+            </div>
+            <div>
+                <i className="bi bi-three-dots" />
+            </div>
+        </div>
+    </>
+}
+
+export function RatingStarsProfile({ rating = 5 }) {
+    return (
+        <div className="rating-block-profile">
+            <div className="stars">
+                {Array.from({ length: 5 }).map((_, i) => (
+                    <i
+                        key={i}
+                        className={`bi bi-star-fill ${i < Math.round(rating) ? "active" : ""}`}
+                    />
+                ))}
+            </div>
+        </div>
+    );
 }
