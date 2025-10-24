@@ -1,11 +1,14 @@
 import Footer from '../main/footer/Footer';
 import Header from '../main/header/Header';
 import { useEffect, useState, useContext } from "react";
+import { useNavigate, useLocation} from 'react-router-dom'
 import { AppContext } from '../../AppContext';
 import './Profile.css'
 import { AllButtonComments } from '../buttonComments/ButtonComments';
 
 export default function Profile() {
+
+    const navigate = useNavigate();
 
     const [userData, setUserData] = useState({});
     const { request, token } = useContext(AppContext);
@@ -37,7 +40,7 @@ export default function Profile() {
                             {userData.userName ?? 'Nickname'}
                             <div className='text-online'>онлайн</div>
                         </div>
-                        <button className='button-edit-profile'><i class="bi bi-pencil" /> Редагувати профіль</button>
+                        <button className='button-edit-profile' onClick={() => navigate('/Settings')} ><i class="bi bi-pencil" /> Редагувати профіль</button>
                     </div>
                     <div className='description-profile'>
                         У пошуках нових пригод! Кожен новий рівень – це можливість пережити незабутні моменти та здобути новий досвід.

@@ -1,0 +1,71 @@
+.content-settings {
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+
+    width: 100%;
+}
+
+.blocks-left-menu-right-content {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+
+    width: 76.25vw;
+    margin-top: 7vw;
+}
+
+.block-left-menu-settings {
+    background-color: rgba(0, 66, 82, 1);
+    display: flex;
+    flex-direction: column;
+    
+    padding: 1.25vw;
+    width: 18.125vw;
+    border-radius: 1.042vw;
+}
+
+.block-choose-left-menu {
+    color: white;
+    
+    font-weight: 600;
+    font-size: 0.833vw;
+    line-height: 125%;
+    letter-spacing: 0%;
+}
+
+/* .block-choose-left-menu:hover {
+    
+} */
+
+.input-search-settings {
+    outline: none;
+    border: 0.124vw solid rgba(4, 96, 117, 1);
+    background-color: rgba(0, 20, 31, 0.4);
+    color: rgba(204, 248, 255, 0.65);
+    
+    border-radius: 1.146vw;
+    margin-bottom: 0.5vw;
+    font-weight: 400;
+    font-size: 0.833vw;
+    line-height: 125%;
+    letter-spacing: -1%;
+    padding: 0.4vw 0.85vw;
+}
+
+.input-search-settings::placeholder {
+    color: rgba(204, 248, 255, 0.65);
+
+    font-weight: 400;
+    font-size: 0.833vw;
+    line-height: 125%;
+    letter-spacing: -1%;
+}
+
+.block-right-content {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+

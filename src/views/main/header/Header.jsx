@@ -132,7 +132,7 @@ export default function Header() {
                 </div>
             )}
 
-            {location.pathname !== '/SignIn' && location.pathname !== '/SignUp' && location.pathname !== '/Profile' && (
+            {location.pathname !== '/SignIn' && location.pathname !== '/SignUp' && location.pathname !== '/Profile' && location.pathname !== '/Settings' && (
                 <div className="head-bottom">
                     <div className='input-category'>
                         <input type="text" placeholder="Пошук у Крамниці..." className='input-header'/>

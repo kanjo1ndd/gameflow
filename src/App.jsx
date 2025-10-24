@@ -9,6 +9,7 @@ import Catalog from './views/catalog/Catalog'
 import PageGame from './views/pageGame/PageGame'
 import Characteristics from './views/pageGame/Characteristics'
 import Profile from './views/profile/Profile'
+import Settings from './views/settings/Settings'
 
 
 
@@ -54,6 +55,7 @@ function App() {
         <Route path="/Profile" element={<Profile />} />
         <Route path="/Game/:id" element={<PageGame />} />
         <Route path="/Game/:id/Characteristics" element={<Characteristics />} />
+        <Route path="/Settings" element={<Settings />} />
       </Routes>
     </AppContext.Provider>
    )
