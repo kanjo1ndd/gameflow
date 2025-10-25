@@ -6,6 +6,11 @@ import { AppContext } from "../../AppContext";
 import './PageGame.css'
 import '../main/content/Content.css'
 import '../filters/Filters.css'
+import './CarouselGame.jsx'
+import './CarouselGame.css'
+import './mobilePageGame.css'
+import { GameActive } from "./CarouselGame.jsx";
+
 
 export default function PageGame() {
     const { id } = useParams();
@@ -44,12 +49,9 @@ export default function PageGame() {
             <div className="left-block-right-menu">
                 <div className="left-block-game-page">
                     <div className="name-game-page">{product.name}</div>
-                    <img className="main-image-page-game" src={product.imagesCsv} alt={product.name} />
-                    <div className="showcase-game-page">
-                        {Array.from({ length: 6 }).map((_, i) => (
-                            <div key={i} className="showcase-image-game-page" />
-                        ))}
-                    </div>
+                    <GameActive Gameimages={product.imagesCsv ? product.imagesCsv.split(',').map((url) => (
+                        <img className="main-image-page-game" src={url} alt={product.name} />
+                    )) : []} lenImg={product.imagesCsv ? product.imagesCsv.split(',').length : 0} />
                     <div className="category-game-page">
                         {Array.from({ length: 3 }).map((_, i) => (
                             <div key={i} className="text-category-game-page">

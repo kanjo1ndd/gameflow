@@ -1,0 +1,219 @@
+@media (max-width: 390px) {
+    .left-block-right-menu {
+       flex-direction: column;
+       align-items: center;
+       height: 95%;
+       width: 95%;
+       gap: 4vw;
+    }
+    .content-page-game {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 4vw;
+        padding-bottom: 20vw;
+    }
+    .carousel-images-game {
+        width: 100%;
+        height: auto;
+        margin-top: 2vw;
+    }
+    .main-image-page-game {
+        width: 98%;
+        height: auto;
+        border-radius: 3vw;
+    }
+    .button-images-games-carouseles {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+
+    margin-top: .3vw;
+    width: 100%;
+    }
+    .button-left-carousel-game,.button-right-carousel-game{
+        display: none;
+    }
+    .slides-container-game {
+    display: flex;
+    width: 98%;
+    height: 100%;
+    align-items: center;
+    margin-top: 1vw;
+    }
+    .button-images-game {
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+
+        width: 98%;
+    }
+
+    .button-image-game {
+        border: none;
+        cursor: pointer;
+        
+        padding: 0;
+        margin: 0;
+        border-radius: 1.5vw;
+        height: 10vw;
+        width: 17vw;
+    }
+
+    .button-image-game.active {
+        border: 0.208vw solid rgb(7, 136, 140);
+    }
+    .text-category-game-page {
+        font-size: 4vw;
+        margin-top: 3vw;
+        margin-bottom: 2vw;
+        width: auto;
+        text-align: center;
+        border-radius: 3vw;
+        margin-right: 2vw;
+
+        padding: 1vw 2vw 1.3vw 2vw;
+    }
+    .block-menu-game-page {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         height: auto;
+         width: 100%;
+         gap: 4vw;
+    }
+    .pre-description {
+        font-size: 3.5vw;
+        margin-top: 2vw;
+        margin-bottom: 2vw;
+        width: 95%;
+    }
+    .chevron-down{
+        width: 100%;
+        height: 6vw;
+    }
+    .set-game-page{
+        width: 100%;
+        height: auto;
+        margin-top: 3vw;
+        margin-bottom: 3vw;
+        gap: 3vw;
+    }
+    .name-set-game-page{
+        font-size: 4.4vw;
+        font-weight: 400;
+    }
+    .block-set-game-page{
+        width: 100%;
+        height: auto;
+        gap: 3vw;
+        margin-bottom: 3vw;
+        font-size: 3.4vw;
+        font-weight: 400;
+        letter-spacing: .2vw;
+        padding: 2vw;
+    }
+    .contents-text{
+        margin-top: 2vw;
+        margin-bottom: 1vw;
+        font-size: 3.6vw;
+        line-height: 5vw;
+    }
+    .contents-set-game-page{
+        font-size: 3.2vw;
+        line-height: 4.5vw;
+        margin-left: 5vw;
+        font-weight: 300;
+    }
+    .price-button-game-page{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3vw;
+        margin-top: 3vw;
+    }
+    .price-game-page{
+        width: 100%;
+        font-size: 4vw;
+        font-weight: 600;
+    }
+    .button-basket{
+        width: 100%;
+        height: 10vw;
+        font-size: 4vw;
+        border-radius: 2vw;
+        border-radius: 3.5vw;
+    }
+    .button-name-game-page{
+        width: 100%;
+        padding: 2vw;
+    }
+    .name-game-pages{
+        font-size: 4.4vw;
+        font-weight: 600;
+        margin-bottom: 2vw;}
+
+
+    .dlc-set-game-page{
+        width: 100%;
+        height: auto;
+        gap: 3vw;
+        margin-bottom: 3vw;
+    }
+    .bi.bi-chevron-right{  
+       color: rgb(219, 227, 227);
+    }
+    .text-dls{
+        font-size: 4vw;
+        font-weight: 400;
+        color: rgb(64, 193, 193);
+    }
+    .block-dlc-game-page{
+        display: flex;
+        flex-direction: column;
+        gap: 3vw;
+        padding: 2vw;
+        border-radius: 3vw;
+        font-size: 3.4vw;
+        line-height: 4.5vw;
+        font-weight: 300;
+    }
+    .button-comment{
+        width: 50%;
+        height: 10vw;
+        font-size: 4vw;
+        border-radius: 3.5vw;
+    }
+    .block-sort-game-page{
+        width: 100%;
+        height: auto;
+        gap: 3vw;
+        margin-bottom: 3vw;
+    }
+    .sorting-text{
+        font-size: 4vw;
+        font-weight: 400;
+    }
+    .sorting-text-active{
+        font-size: 4vw;
+        font-weight: 600;
+        color: rgb(64, 193, 193);
+    }
+    .sorting-menu{
+        display: flex;
+        width: auto;
+        height: auto;
+        gap: 3vw;
+        padding: 2vw;
+        border-radius: 2vw;
+        z-index: 5;
+        overflow-x: auto;
+        margin-left: 18vw;
+    }
+    .sorting-option{
+        font-size: 3vw;
+    }
+
+
+}   
