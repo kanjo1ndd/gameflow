@@ -20,24 +20,12 @@
     background-color: rgba(0, 66, 82, 1);
     display: flex;
     flex-direction: column;
+    height: max-content;
     
     padding: 1.25vw;
     width: 18.125vw;
     border-radius: 1.042vw;
 }
-
-.block-choose-left-menu {
-    color: white;
-    
-    font-weight: 600;
-    font-size: 0.833vw;
-    line-height: 125%;
-    letter-spacing: 0%;
-}
-
-/* .block-choose-left-menu:hover {
-    
-} */
 
 .input-search-settings {
     outline: none;
@@ -51,7 +39,7 @@
     font-size: 0.833vw;
     line-height: 125%;
     letter-spacing: -1%;
-    padding: 0.4vw 0.85vw;
+    padding: 0.5vw 0.85vw;
 }
 
 .input-search-settings::placeholder {
@@ -63,9 +51,248 @@
     letter-spacing: -1%;
 }
 
+.settings-menu {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+
+    gap: 0.35vw;
+}
+
+.block-choose-left-menu {
+    display: flex;
+    position: relative;
+    align-items: center;
+    cursor: pointer;
+
+    padding: 0.25vw 0vw;
+    margin-left: 1vw;
+    gap: 1vw;
+}
+
+.settings-menu .bi {
+    color: white;
+    font-size: 1.25vw;
+}
+
+.menu-settings-title {
+    color: white;
+    
+    font-weight: 600;
+    font-size: 0.833vw;
+    line-height: 125%;
+    letter-spacing: 0%;
+}
+
+.block-choose-left-menu::before {
+    content: "";
+    position: absolute;
+    left: -1vw;
+    right: -0.1vw;
+    top: 0;
+    bottom: 0;
+    background-color: transparent;
+    border-radius: 8px;
+    z-index: 0;
+    transition: background-color 0.2s ease;
+}
+
+.block-choose-left-menu.active::before {
+    background-color: rgba(55, 195, 255, 0.25);
+}
+
+.block-choose-left-menu:hover::before {
+    background-color: rgba(55, 195, 255, 0.1);
+}
+
+/* Правая часть контента */
+
+/* Редактирование профиля */
+
 .block-right-content {
     display: flex;
     position: relative;
     flex-direction: column;
+    background-color: rgba(0, 47, 61, 1);
+
+    border-radius: 1.042vw;
+    width: 56.875vw;
 }
 
+.main-image-right-content {
+    display: flex;
+    position: relative;
+    background-color: black;
+
+    width: 100%;
+    height: 9.01vw;
+    border-radius: 1.042vw 1.042vw 0px 0px;
+}
+
+.button-edit-image {
+    display: flex;
+    position: absolute;
+    cursor: pointer;
+    background-color: white;
+
+    right: 1.25vw;
+    bottom: 1.25vw;
+    padding: 0.15vw 0.5vw;
+    border-radius: 50%;
+}
+
+.button-edit-image:hover {
+    background-color: rgba(4, 96, 117, 1);
+}
+
+.button-edit-image .bi-images {
+    color: rgb(0, 0, 0);
+
+    font-size: 1.1vw;
+}
+
+.blocks-info-profile-settings {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+
+    padding: 1.25vw;
+}
+
+.block-info-profile-settings {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+.image-profile-settings {
+    display: flex;
+    position: relative;
+    background-color: black;
+
+    border-radius: 50%;
+    width: 9.375vw;
+    height: 9.375vw;
+}
+
+.button-edit-image-profile {
+    display: flex;
+    position: absolute;
+    cursor: pointer;
+    background-color: rgba(4, 96, 117, 1);
+
+    border-radius: 50%;
+    right: 0;
+    bottom: 0;
+    padding: 0.15vw 0.5vw;
+}
+
+.button-edit-image-profile:hover {
+    filter: brightness(0.8);
+}
+
+.button-edit-image-profile .bi-images {
+    color: white;
+
+    font-size: 1.1vw;
+}
+
+.block-edit-profile {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    width: 43.75vw;
+}
+
+.block-name-input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vw;
+}
+
+.text-input-for-edit {
+    color: white;
+
+    font-weight: 700;
+    font-size: 0.833vw;
+    line-height: 125%;
+    letter-spacing: -1%;
+}
+
+.input-for-edit {
+    background-color: rgba(0, 20, 31, 0.4);
+    border: 0.124vw solid rgba(4, 96, 117, 1);
+    color: white;
+    outline: none;
+
+    border-radius: 1.146vw;
+    width: 21.354vw;
+    padding: 0.5vw 0.75vw;
+    font-weight: 400;
+    font-size: 0.833vw;
+    line-height: 125%;
+    letter-spacing: -1%;
+}
+
+.input-for-edit::placeholder,
+.input-for-edit-about-me::placeholder {
+    color: rgba(204, 248, 255, 0.65);
+}
+
+.input-for-edit-about-me {
+    background-color: rgba(0, 20, 31, 0.4);
+    border: 0.124vw solid rgba(4, 96, 117, 1);
+    color: white;
+    outline: none;
+
+    border-radius: 1.146vw;
+    width: 43.75vw;
+    padding: 0.5vw 0.75vw;
+    font-weight: 400;
+    font-size: 0.833vw;
+    line-height: 125%;
+    letter-spacing: -1%;
+}
+
+.buttons-save-cancel {
+    display: flex;
+    position: relative;
+    justify-content: right;
+    align-items: center;
+
+    margin-top: 12.5vw;
+    gap: 2vw;
+}
+
+.button-save-edit {
+    background-color: rgba(36, 229, 194, 1);
+    color: black;
+    outline: none;
+    border: none;
+
+    border-radius: 1.042vw;
+    padding: 0.5vw 1.25vw;
+    font-weight: 600;
+    font-size: 0.833vw;
+    line-height: 125%;
+    letter-spacing: 0%;
+}
+
+.button-save-edit:hover {
+    filter: brightness(1.1);
+}
+
+.button-remove-edit {
+    color: rgba(255, 165, 153, 1);
+    cursor: pointer;
+
+    font-weight: 600;
+    font-size: 0.833vw;
+    line-height: 125%;
+    letter-spacing: 0%;
+}
+
+.button-remove-edit:hover {
+    color: aqua;
+}

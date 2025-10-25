@@ -54,7 +54,7 @@ export default function Header() {
                         <button className='button-sign-in' onClick={() => navigate('/SignIn')}>Увійти</button>
                     </> : <>
                         <div className='right-part-head'>
-                            <button><i className='bi bi-gear' ></i></button>
+                            <button  onClick={() => navigate('/Settings')}><i className='bi bi-gear'></i></button>
                             <button><i className='bi bi-bell'></i></button>
                             <div className='avatar-head' onClick={() => setIsMenuOpen((prev) => !prev)}><img className='profile-img-head' src={userData.avatarUrl && userData.avatarUrl !== 'https://localhost:7202/Admin/Image/'
                                         ? userData.avatarUrl : '/unknownUser.jpg'}/>
