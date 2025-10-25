@@ -6,6 +6,7 @@ import { AppContext } from "../../AppContext";
 import { HeaderPageGame, MenuGamePage } from './PageGame';
 import './Characteristics.css'
 import './PageGame.css'
+import './mobileCharacteristics.css';
 
 export default function Characteristics() {
 

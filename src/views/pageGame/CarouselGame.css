@@ -1,0 +1,126 @@
+
+.slides-container-game {
+    display: flex;
+    width: 56.875vw;
+    height: 100%;
+    align-items: center;
+}
+
+.carousel-game {
+    display: flex;
+    position: relative;
+    align-items: center;
+
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 0.042vw;
+}
+.button-images-games-carouseles {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+
+    margin-top: .3vw;
+    width: 76.25vw;
+}
+
+.button-left-carousel-game {
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    border: none;
+    cursor: pointer;
+    color: rgb(5, 50, 47);
+
+    font-size: 1vw;
+    height: 1.75vw;
+    width: 1.75vw;
+    border-radius: 2vw;
+    top: 33%;
+    left: 8.5vw;
+    z-index: 1;
+    padding: 0;
+    box-shadow: inset 0 0 0.5vw rgba(0, 0, 0, 0.2);
+}
+
+.button-right-carousel-game {
+    background-color: rgb(255, 255, 255);
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    color: rgb(5, 50, 47);
+
+    top: 33%;
+    font-size: 1vw;
+    height: 1.75vw;
+    width: 1.75vw;
+    border-radius: 2vw;
+    right: 8.5vw;
+    z-index: 1;
+    padding: 0;
+    box-shadow: inset 0 0 0.5vw rgba(0, 0, 0, 0.2);
+}
+
+.button-left-carousel-game:hover,
+.button-right-carousel-game:hover {
+    background-color: rgb(73, 255, 222);
+    color: rgb(0, 47, 61);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+
+.carousel-container-images {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-images-game {
+    margin-bottom: 0.5vw;
+    border-radius: 1.042vw;
+    width: 56.875vw;
+    height: 22vw;
+}
+
+.button-images-game {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+
+    width: 86.25vw;
+}
+
+.button-image-game {
+    border: none;
+    cursor: pointer;
+    
+    padding: 0;
+    margin: 0;
+    border-radius: 0.225vw;
+    height: 4vw;
+    width: 8.5vw;
+}
+
+.button-image-game.active {
+    border: 0.208vw solid rgb(7, 136, 140);
+}
+
+.title-category .bi-chevron-right,
+.right {
+    cursor: pointer;
+    color: white;
+
+    font-size: 0.8vw;
+}
+
+.title-category .bi-chevron-right:hover,
+.right:hover {
+    color: rgba(73, 255, 222, 1);
+}

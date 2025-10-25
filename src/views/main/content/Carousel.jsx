@@ -25,7 +25,7 @@ const Carousel = ({ game, len }) => {
     useEffect(() => {
       const timer = setInterval(() => {
       handleNext();
-      }, 12000);
+      }, 8000);
 
       return () => clearInterval(timer);
     }, [index]);
@@ -70,7 +70,7 @@ export function CarouselVertical({ game, len }) {
     useEffect(() => {
       const timer = setInterval(() => {
       handleNext();
-      }, 5000);
+      }, 3000);
 
       return () => clearInterval(timer);
     }, [index]);
