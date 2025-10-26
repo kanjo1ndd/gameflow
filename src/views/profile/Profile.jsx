@@ -40,10 +40,10 @@ export default function Profile() {
                             {userData.userName ?? 'Nickname'}
                             <div className='text-online'>онлайн</div>
                         </div>
-                        <button className='button-edit-profile' onClick={() => navigate('/Settings')} ><i class="bi bi-pencil" /> Редагувати профіль</button>
+                        <button className='button-edit-profile' onClick={() => navigate('/Settings')} ><i className="bi bi-pencil" /> Редагувати профіль</button>
                     </div>
                     <div className='description-profile'>
-                        У пошуках нових пригод! Кожен новий рівень – це можливість пережити незабутні моменти та здобути новий досвід.
+                        {userData.aboutUser ?? 'Hello World'}
                     </div>
                     <MainPartProfile />
                 </div>
@@ -76,7 +76,7 @@ export function MenuProfile() {
         <div>
             <div className='right-menu-block'>
                 <div className='level-profile'>Рівень
-                    <svg class="hex" viewBox="0 0 100 100">
+                    <svg className="hex" viewBox="0 0 100 100">
                         <polygon points="50,3 97,27 97,73 50,97 3,73 3,27"
                             fill="none"
                             stroke="rgba(111, 151, 255, 1)"

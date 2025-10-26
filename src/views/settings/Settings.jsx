@@ -13,7 +13,7 @@ export default function Settings() {
         <Header />
         <div className='content-settings'>
             <div className='blocks-left-menu-right-content'>
-                <LeftMenu />
+                <LeftMenu activeId={activeId} setActiveId={setActiveId} />
                 <div className='right-content-menu'>
                     {activeId === 1 && <GeneralSettings />}
                     {activeId === 2 && <PasswordMenu />}
@@ -63,9 +63,12 @@ export function GeneralSettings() {
     const [aboutUser, setAboutUser] = useState('');
     const [country, setCountry] = useState(null);
     const [preview, setPreview] = useState('');
+    const [avatarImg, setAvatarImg] = useState(null);
     const [errors, setErrors] = useState({});
     const [initialData, setInitialData] = useState({});
+    const fileInputRef = useRef(null);
 
+    // Валидация
     const validate = () => {
         const newErrors = {};
         if (!username.trim()) newErrors.username = "(Ім'я користувача обов’язкове)";
@@ -74,7 +77,7 @@ export function GeneralSettings() {
         return newErrors;
     };
 
-    // 🔹 Загрузка данных
+    // Загрузка данных пользователя
     useEffect(() => {
         if (!token) {
             setInitialData({});
@@ -93,7 +96,7 @@ export function GeneralSettings() {
             .catch(console.error);
     }, [token]);
 
-    // 🔹 Сохранение
+    // Сохранение
     const handleSave = () => {
         const validationErrors = validate();
         setErrors(validationErrors);
@@ -103,22 +106,56 @@ export function GeneralSettings() {
         request("/api/user/" + input)
             .then(() => console.log("Профіль оновлено"))
             .catch(console.error);
+
+        if (avatarImg) {
+            const formData = new FormData();
+            formData.append("formFile", avatarImg);
+
+            request("/api/user/setAvatar/", {
+                method: "POST",
+                body: formData,
+            })
+                .then((response) => {
+                    console.log("Аватар оновлено");
+                    if (response.data?.avatarUrl) {
+                        setPreview(response.data.avatarUrl);
+                    }
+                })
+                .catch(console.error);
+        }
     };
 
-    // 🔹 Отмена изменений
+    // Отмена
     const handleCancel = () => {
         setUsername(initialData.userName || "");
         setEmail(initialData.email || "");
         setAboutUser(initialData.aboutUser || "");
         setCountry(countryOptions.find((c) => c.label === initialData.country) || null);
         setPreview(initialData.avatarUrl || "");
+        setAvatarImg(null);
         setErrors({});
+    };
+
+    // Логика загрузки аватарки
+    const handleUploadClick = () => {
+        fileInputRef.current.click();
+    };
+
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        if (file && file.type.startsWith("image/")) {
+            const reader = new FileReader();
+            reader.onloadend = () => setPreview(reader.result);
+            reader.readAsDataURL(file);
+            setAvatarImg(file);
+        }
+        event.target.value = null;
     };
 
     return (
         <div className="block-right-content">
             <div className="main-image-right-content">
-                <div className="button-edit-image">
+                <div className="button-edit-image" onClick={handleUploadClick}>
                     <i className="bi bi-images" />
                 </div>
             </div>
@@ -126,7 +163,21 @@ export function GeneralSettings() {
             <div className="blocks-info-profile-settings">
                 <div className="block-info-profile-settings">
                     <div className="image-profile-settings">
-                        <div className="button-edit-image-profile">
+                        <img className="img-avatar-profile"
+                            src={
+                                preview && preview !== "https://localhost:7202/Admin/Image/"
+                                    ? preview
+                                    : "/unknownUser.jpg"
+                            }
+                        />
+                        <input
+                            type="file"
+                            accept="image/*"
+                            style={{ display: "none" }}
+                            ref={fileInputRef}
+                            onChange={handleFileChange}
+                        />
+                        <div className="button-edit-image-profile" onClick={handleUploadClick}>
                             <i className="bi bi-images" />
                         </div>
                     </div>
@@ -139,6 +190,7 @@ export function GeneralSettings() {
                             <input
                                 className={`input-for-edit ${errors.username ? "input-error" : ""}`}
                                 value={username}
+                                placeholder="Nickname"
                                 onChange={(e) => setUsername(e.target.value)}
                             />
                         </div>
@@ -150,17 +202,22 @@ export function GeneralSettings() {
                             <input
                                 className={`input-for-edit ${errors.email ? "input-error" : ""}`}
                                 value={email}
+                                placeholder="example@gmail.com"
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
 
-                        <div className="block-name-input">
+                        <div className="block-name-textarea">
                             <div className="text-input-for-edit">Про себе</div>
-                            <input
+                            <textarea
                                 className="input-for-edit-about-me"
                                 value={aboutUser}
-                                onChange={(e) => setAboutUser(e.target.value)}
+                                onChange={(e) => {
+                                    if (e.target.value.length <= 100) setAboutUser(e.target.value);
+                                }}
+                                maxLength={100}
                             />
+                            <div className="char-counter">{aboutUser.length}/100</div>
                         </div>
                     </div>
                 </div>
@@ -180,24 +237,49 @@ export function GeneralSettings() {
 
 export function PasswordMenu() {
     return <>
-
+        <div className="block-right-content-password">
+            <div className="block-content-password">
+                <div className='title-content-password'>Зміна паролю</div>
+                <div className='list-rules-password'>
+                    <nav>
+                        <li>Не використовуйте жодного з останніх 5 паролів</li>
+                        <li>Використовуйте 7+ символів</li>
+                        <li>Використовуйте принаймні 1 літеру</li>
+                        <li>Використовуйте принаймні 1 цифру</li>
+                        <li>Без пробілів</li>
+                    </nav>
+                </div>
+                <div className='block-for-input-password'>
+                    Старий пароль
+                    <input placeholder='Введіть ваш поточний пароль...' className='input-for-password' />
+                </div>
+                <div className='block-for-input-password'>
+                    Новий пароль
+                    <input placeholder='Введіть новий пароль...' className='input-for-password' />
+                    <input placeholder='Повторіть новий пароль...' className='input-for-password' />
+                </div>
+                <div className='block-for-button-save-edit-password'>
+                    <button className='button-save-for-edit-password'>Зберегти</button>
+                </div>
+            </div>
+        </div>
     </>
 }
 
 export function Notification() {
     return <>
-    
+        <div className="block-right-content">Уведомления</div>;
     </>
 }
 
 export function Wallet() {
     return <>
-    
+        <div className="block-right-content">Парольйцайца</div>;
     </>
 }
 
 export function DeleteAccount() {
     return <>
-    
+        <div className="block-right-content">Парцупцуполь</div>;
     </>
 }

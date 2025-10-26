@@ -168,7 +168,6 @@
 .image-profile-settings {
     display: flex;
     position: relative;
-    background-color: black;
 
     border-radius: 50%;
     width: 9.375vw;
@@ -243,11 +242,13 @@
 .input-for-edit-about-me {
     background-color: rgba(0, 20, 31, 0.4);
     border: 0.124vw solid rgba(4, 96, 117, 1);
-    color: white;
+    color: rgba(241, 253, 255, 0.9);
     outline: none;
+    resize: none;
 
     border-radius: 1.146vw;
     width: 43.75vw;
+    height: 4.375vw;
     padding: 0.5vw 0.75vw;
     font-weight: 400;
     font-size: 0.833vw;
@@ -295,4 +296,129 @@
 
 .button-remove-edit:hover {
     color: aqua;
+}
+
+.block-name-textarea {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+
+    gap: 0.5vw;
+    margin-top: 1.5vw;
+}
+
+.char-counter {
+    position: absolute;
+    color: rgba(204, 248, 255, 0.65);
+    
+    right: 0;
+    font-weight: 400;
+    font-size: 0.625vw;
+    line-height: 120%;
+    letter-spacing: -1%;
+}
+
+.img-avatar-profile {
+    width: 100%;
+    border-radius: 50%;
+}
+
+/* Смена пароля */
+
+.block-right-content-password {
+    display: flex;
+    justify-content: center;
+
+    width: 56.875vw;
+}
+
+.block-content-password {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 47, 61, 1);
+
+    width: 31.042vw;
+    border-radius: 1.042vw;
+    padding: 1.25vw;
+}
+
+.title-content-password {
+    display: flex;
+    justify-content: center;
+    color: white;
+
+    font-weight: 700;
+    font-size: 1.25vw;
+    line-height: 110.00000000000001%;
+    letter-spacing: 0%;
+}
+
+.list-rules-password {
+    color: rgba(241, 253, 255, 0.9);
+    background-color: rgba(55, 195, 255, 0.12);
+
+    font-weight: 400;
+    font-size: 0.833vw;
+    line-height: 150%;
+    letter-spacing: -1%;
+    border-radius: 0.833vw;
+    padding: 1vw;
+    margin-top: 1.5vw;
+    margin-bottom: 1.5vw;
+}
+
+.block-for-input-password {
+    display: flex;
+    flex-direction: column;
+    color: white;
+
+    margin-bottom: 1vw;
+    gap: 0.5vw;
+    font-weight: 700;
+    font-size: 0.833vw;
+    line-height: 125%;
+    letter-spacing: -1%;
+}
+
+.input-for-password {
+    background-color: rgba(0, 20, 31, 0.4);
+    border: 0.124vw solid rgba(4, 96, 117, 1);
+    color: white;
+    outline: none;
+
+    border-radius: 1.146vw;
+    width: 100%;
+    padding: 0.5vw 0.75vw;
+    font-weight: 400;
+    font-size: 0.833vw;
+    line-height: 125%;
+    letter-spacing: -1%;
+}
+
+.input-for-password::placeholder {
+    color: rgba(204, 248, 255, 0.65);
+}
+
+.block-for-button-save-edit-password {
+    display: flex;
+    justify-content: center;
+}
+
+.button-save-for-edit-password {
+    outline: none;
+    border: none;
+    background-color: rgba(36, 229, 194, 1);
+    color: black;
+    width: max-content;
+
+    border-radius: 1.042vw;
+    font-weight: 600;
+    font-size: 0.833vw;
+    line-height: 125%;
+    letter-spacing: 0%;
+    padding: 0.5vw 1.25vw;
+}
+
+.button-save-for-edit-password:hover {
+    filter: brightness(0.9);
 }
