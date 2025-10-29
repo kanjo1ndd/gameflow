@@ -49,7 +49,7 @@ export default function PageGame() {
             <div className="left-block-right-menu">
                 <div className="left-block-game-page">
                     <div className="name-game-page">{product.name}</div>
-                    <GameActive Gameimages={product.imagesCsv ? product.imagesCsv.split(',').map((url) => (
+                    <GameActive Gameimages={product.horisontalImages ? product.horisontalImages.split(',').map((url) => (
                         <img className="main-image-page-game" src={url} alt={product.name} />
                     )) : []} lenImg={product.imagesCsv ? product.imagesCsv.split(',').length : 0} />
                     <div className="category-game-page">
@@ -188,7 +188,7 @@ export function MenuGamePage({ product }) {
     return <>
         <div className="block-menu-game-page">
             <div className="rating-game-menu">5.0 <RatingStars /></div>
-            <div className="right-image-game-menu" />
+            <img className="right-image-game-menu" src={product.horisontalImages} />
             <div className="price-game-menu">
                 {product.price !== "-" && (
                     hasDiscount ? (

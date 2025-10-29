@@ -311,7 +311,7 @@
 }
 
 .image-recommended {
-    background-color: black;
+    cursor: pointer;
 
     border-radius: 0.833vw 0.833vw 0px 0px;
     width: 100%;
