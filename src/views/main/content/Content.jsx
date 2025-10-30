@@ -25,7 +25,7 @@ export default function Content() {
             <div className='title-category'>Рекомендовані вам <i className="bi bi-chevron-right" /></div>
             <Recommended products={products} />
             <div className='title-category'>До 100₴ <i className="bi bi-chevron-right" /></div>
-            <RecommendedTo />
+            <RecommendedTo products={products} />
             <BlockListGames />
         </div>
     </>;

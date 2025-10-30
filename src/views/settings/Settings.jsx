@@ -289,8 +289,12 @@ export function Wallet() {
                 </div>
             </div>
 
-            <div className='block-right-'>
-
+            <div className='block-right-for-input-balance'>
+                <div className='title-for-input-balance'>Поповнення балансу</div>
+                <div className='block-input-replenish'>
+                    <input className='input-replenish' placeholder='Сума' type='number' min='1' />
+                    <button className='button-replenish'>Поповнити</button>
+                </div>
             </div>
         </div>
     </>

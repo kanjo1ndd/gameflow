@@ -96,7 +96,7 @@ export function BlockViewRow({ product }) {
 
     return <>
         <div className='block-view-row' onClick={() => navigate(`/Game/${product.id}`)}>
-            <img className='image-block-view-row' src={product.imagesCsv} />
+            <img className='image-block-view-row' src={product.verticalImages} />
             <div className='name-game'>{product.name}</div>
             <div className="price-game">
                 {product.price !== "-" && (
