@@ -188,7 +188,7 @@ export function MenuGamePage({ product }) {
     return <>
         <div className="block-menu-game-page">
             <div className="rating-game-menu">5.0 <RatingStars /></div>
-            <img className="right-image-game-menu" src={product.horisontalImages} />
+            <img className="right-image-game-menu" src={product.imagesCsv} />
             <div className="price-game-menu">
                 {product.price !== "-" && (
                     hasDiscount ? (

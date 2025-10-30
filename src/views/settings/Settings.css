@@ -422,3 +422,82 @@
 .button-save-for-edit-password:hover {
     filter: brightness(0.9);
 }
+
+/* Оповещения */
+
+.title-content-notification {
+    color: rgba(241, 253, 255, 1);
+
+    font-family: Manrope;
+    font-weight: 700;
+    font-size: 1.042vw;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
+.block-right-content-notification {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-color: rgba(0, 47, 61, 1);
+
+    border-radius: 1.042vw;
+    width: 56.875vw;
+    padding: 1.25vw;
+}
+
+/* Кошелек */
+
+.block-right-content-wallet {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    border-radius: 1.042vw;
+    width: 56.875vw;
+}
+
+.block-content-wallet {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 66, 82, 1);
+
+    border-radius: 1.042vw;
+    width: 31.042vw;
+    padding: 6.5vw 5vw;
+}
+
+.block-wallet {
+    display: flex;
+    align-items: center;
+
+    gap: 1vw;
+}
+
+.bi-wallet2 {
+    color: white;
+
+    font-size: 3vw;
+}
+
+.text-wallet {
+    color: rgba(204, 248, 255, 0.65);
+
+    font-weight: 700;
+    font-size: 1.042vw;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+
+.money-wallet {
+    color: white;
+
+    font-weight: 700;
+    font-size: 1.875vw;
+    line-height: 125%;
+    letter-spacing: 0%;
+}
