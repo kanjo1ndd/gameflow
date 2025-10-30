@@ -25,7 +25,7 @@ export default function Content() {
             <div className='title-category'>Рекомендовані вам <i className="bi bi-chevron-right" /></div>
             <Recommended products={products} />
             <div className='title-category'>До 100₴ <i className="bi bi-chevron-right" /></div>
-            <RecommendedTo />
+            <RecommendedTo products={products} />
             <BlockListGames />
         </div>
     </>;
@@ -107,7 +107,7 @@ export function SpecialOffers({ products }) {
                     <div key={i} className="block-in-special-offers"
                         onClick={ hasProducts ? () => navigate(`/Game/${product.id}`) : undefined }>
                     {product.horisontalImages ? (
-                        <img className="image-special-offers" src={product.horisontalImages}/>
+                        <img className="image-special-offers" src={product.imagesCsv}/>
                     ) : (
                         <div className="image-special-offers placeholder" />
                     )}
@@ -164,8 +164,8 @@ export function Recommended({ products }) {
                     return (
                         <div key={i} className='block-in-recommended'
                             onClick={ hasProducts ? () => navigate(`/Game/${product.id}`) : undefined }>
-                            {product.imagesCsv ? (
-                                <img className="image-recommended" src={product.imagesCsv} />
+                            {product.verticalImages ? (
+                                <img className="image-recommended" src={product.verticalImages} />
                             ) : (
                                 <div className="image-recommended placeholder" />
                             )}
@@ -197,37 +197,54 @@ export function Recommended({ products }) {
     );
 }
 
-export function RecommendedTo() {
-    const Rlen = 10;
+export function RecommendedTo({ products }) {
+    const navigate = useNavigate();
+    const Rlen = products && products.length ? products.length : 10;
+    const hasProducts = Array.isArray(products) && products.length > 0;
 
     
-    const RSlides = Array.from({ length: Rlen }).map((_, index) => {
+     const RSlides = Array.from({ length: Rlen }).map((_, index) => {
+        const NextIndex = (index + 1) % Rlen;
+        const Next2Index = (index + 2) % Rlen;
+        const Next3Index = (index + 3) % Rlen;
 
-        let NextIndex= (index >= Rlen - 1) ? 0 : (index + 1);
-        let Next2Index= (NextIndex >= Rlen - 1) ? 0 :( NextIndex + 1);
-        let Next3Index= (Next2Index >= Rlen - 1) ? 0 :( Next2Index + 1);
+        const indices = [index, NextIndex, Next2Index, Next3Index];
+
         return (
             <>
-                <div key={index} className='block-in-recommended-to'>
-                    <div className='image-recommended'style={index%2===0 ? { backgroundColor: 'pink' } : { backgroundColor: 'brown' }} />
-                    <div className='name-game'>Name</div>
-                    <div className='price-game'>9999₴</div>
-                </div>
-                <div key={NextIndex} className='block-in-recommended-to'>
-                    <div className='image-recommended'style={NextIndex%2===0 ? { backgroundColor: 'pink' } : { backgroundColor: 'brown' }} />
-                    <div className='name-game'>Name</div>
-                    <div className='price-game'>9999₴</div>
-                </div>
-                <div key={Next2Index} className='block-in-recommended-to'>
-                    <div className='image-recommended' style={Next2Index%2===0 ? { backgroundColor: 'pink' } : { backgroundColor: 'brown' }} />
-                    <div className='name-game'>Name</div>
-                    <div className='price-game'>9999₴</div>
-                </div>
-                <div key={Next3Index} className='block-in-recommended-to'>
-                    <div className='image-recommended' style={Next3Index%2===0 ? { backgroundColor: 'pink' } : { backgroundColor: 'brown' }} />
-                    <div className='name-game'>Name</div>
-                    <div className='price-game'>9999₴</div>
-                </div>
+                {indices.map((i) => {
+                    const product = products[i] || { name: "Нет данных", price: "9999", horisontalImages: null, action: null };
+
+                    const hasDiscount = product.action && product.action.amount > 0;
+                    const discountedPrice = hasDiscount
+                        ? Math.round(product.price - (product.price * product.action.amount) / 100)
+                        : product.price;
+
+                    return (
+                        <div key={i} className='block-in-recommended-to'
+                            onClick={ hasProducts ? () => navigate(`/Game/${product.id}`) : undefined }>
+                            {product.verticalImages ? (
+                                <img className="image-recommended" src={product.verticalImages} />
+                            ) : (
+                                <div className="image-recommended placeholder" />
+                            )}
+                            <div className='name-game'>{product.name}</div>
+                            <div className='price-game'>
+                                {product.price !== "-" && (
+                                    hasDiscount ? (
+                                        <>
+                                            <div className='discount-game'>-{product.action.amount}%</div>
+                                            <div>{discountedPrice}₴</div>
+                                            <div className="old-price-discount">{product.price}₴</div>
+                                        </>
+                                    ) : (
+                                        <span>{product.price}₴</span>
+                                    )
+                                )}
+                            </div>
+                        </div>
+                    );
+                })}
             </>
         );
     });
