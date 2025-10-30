@@ -164,8 +164,8 @@ export function Recommended({ products }) {
                     return (
                         <div key={i} className='block-in-recommended'
                             onClick={ hasProducts ? () => navigate(`/Game/${product.id}`) : undefined }>
-                            {product.imagesCsv ? (
-                                <img className="image-recommended" src={product.imagesCsv} />
+                            {product.verticalImages ? (
+                                <img className="image-recommended" src={product.verticalImages} />
                             ) : (
                                 <div className="image-recommended placeholder" />
                             )}
@@ -239,8 +239,8 @@ export function RecommendedTo() {
                             className="block-in-recommended-to"
                             onClick={hasProducts ? () => navigate(`/Game/${product.id}`) : undefined}
                         >
-                            {product.imagesCsv ? (
-                                <img className="image-recommended" src={product.imagesCsv} alt={product.name} />
+                            {product.verticalImages ? (
+                                <img className="image-recommended" src={product.verticalImages} alt={product.name} />
                             ) : (
                                 <div className="image-recommended placeholder" />
                             )}
