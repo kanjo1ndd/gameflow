@@ -236,24 +236,45 @@ export function Recommended({ products }) {
     );
 }
 
-export function RecommendedTo({ products }) {
+export function RecommendedTo() {
+    const [products, setProducts] = useState([]);
+    const { request } = useContext(AppContext);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        request("/api/shop/cheapestProducts")
+            .then(data => setProducts(data))
+            .catch(err => console.error(err));
+    }, []);
+
     const Rlen = products && products.length ? products.length : 10;
     const hasProducts = Array.isArray(products) && products.length > 0;
 
+<<<<<<< HEAD
     
      const RSlides = Array.from({ length: Rlen }).map((_, index) => {
         const NextIndex = (index + 2) % Rlen;
         const Next2Index = (index + 3) % Rlen;
         const Next3Index = (index + 4) % Rlen;
         const Next4Index = (index + 5) % Rlen;
+=======
+    const RSlides = Array.from({ length: Rlen }).map((_, index) => {
+        const NextIndex = (index + 1) % Rlen;
+        const Next2Index = (index + 2) % Rlen;
+        const Next3Index = (index + 3) % Rlen;
+>>>>>>> 4f14f8191640912ff7767f6c76339bb7bf4616a7
 
         const indices = [NextIndex, Next2Index, Next3Index, Next4Index];
 
         return (
             <>
                 {indices.map((i) => {
-                    const product = products[i] || { name: "Нет данных", price: "9999", horisontalImages: null, action: null };
+                    const product = products[i] || { 
+                        name: "Нет данных", 
+                        price: "-", 
+                        imagesCsv: null, 
+                        action: null 
+                    };
 
                     const hasDiscount = product.action && product.action.amount > 0;
                     const discountedPrice = hasDiscount
@@ -261,19 +282,24 @@ export function RecommendedTo({ products }) {
                         : product.price;
 
                     return (
-                        <div key={i} className='block-in-recommended-to'
-                            onClick={ hasProducts ? () => navigate(`/Game/${product.id}`) : undefined }>
+                        <div
+                            key={i}
+                            className="block-in-recommended-to"
+                            onClick={hasProducts ? () => navigate(`/Game/${product.id}`) : undefined}
+                        >
                             {product.verticalImages ? (
-                                <img className="image-recommended" src={product.verticalImages} />
+                                <img className="image-recommended" src={product.verticalImages} alt={product.name} />
                             ) : (
                                 <div className="image-recommended placeholder" />
                             )}
-                            <div className='name-game'>{product.name}</div>
-                            <div className='price-game'>
+
+                            <div className="name-game">{product.name}</div>
+
+                            <div className="price-game">
                                 {product.price !== "-" && (
                                     hasDiscount ? (
                                         <>
-                                            <div className='discount-game'>-{product.action.amount}%</div>
+                                            <div className="discount-game">-{product.action.amount}%</div>
                                             <div>{discountedPrice}₴</div>
                                             <div className="old-price-discount">{product.price}₴</div>
                                         </>
@@ -289,11 +315,11 @@ export function RecommendedTo({ products }) {
         );
     });
 
-    return <>
-        <div className='recommended-to'>
+    return (
+        <div className="recommended-to">
             <Carousel game={RSlides} len={Rlen} />
         </div>
-    </>;
+    );
 }
 
 export function ListGamesVertical({ products}) {
@@ -321,6 +347,7 @@ export function ListGamesVertical({ products}) {
 
             return (
             <>
+<<<<<<< HEAD
                 {[StartIndex, NextIndex, NextNextIndex].map((i) => {
                     const product = displayedItems[i];
 
@@ -354,6 +381,23 @@ export function ListGamesVertical({ products}) {
                         </div>
                     );
                 })}
+=======
+                <div key={index} className='block-list-game'>
+                    <div className='image-list-game' style={{ backgroundColor: (index % 2 === 0) ? 'lightred' : 'lightblue' }} />
+                    <div className='name-game'>Name</div>
+                    <div className='price-game'>9999₴</div>
+                </div>
+                <div key={NextIndex} className='block-list-game'>
+                    <div className='image-list-game' style={{ backgroundColor: (NextIndex % 2 === 0) ? 'pink' : 'lightblue' }} />
+                    <div className='name-game'>Name</div>
+                    <div className='price-game'>9999₴</div>
+                </div>
+                <div key={Next2Index} className='block-list-game'>
+                    <div className='image-list-game' style={{ backgroundColor: (Next2Index % 2 === 0) ? 'pink' : 'blue' }} />
+                    <div className='name-game'>Name</div>
+                    <div className='price-game'>9999₴</div>
+                </div>
+>>>>>>> 4f14f8191640912ff7767f6c76339bb7bf4616a7
             </>
             );
     });

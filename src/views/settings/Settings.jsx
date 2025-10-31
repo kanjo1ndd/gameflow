@@ -268,18 +268,40 @@ export function PasswordMenu() {
 
 export function Notification() {
     return <>
-        <div className="block-right-content">Уведомления</div>;
+        <div className="block-right-content-notification">
+            <div className='title-content-notification'>Беззвучні сповіщення</div>
+        </div>
     </>
 }
 
 export function Wallet() {
     return <>
-        <div className="block-right-content">Парольйцайца</div>;
+        <div className="block-right-content-wallet">
+            <div className="block-content-wallet">
+                <div className='block-wallet'>
+                    <i className="bi bi-wallet2" />
+                    <div className='text-wallet'>
+                        Мій баланс
+                        <div className='money-wallet'>
+                            999.50₴
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className='block-right-for-input-balance'>
+                <div className='title-for-input-balance'>Поповнення балансу</div>
+                <div className='block-input-replenish'>
+                    <input className='input-replenish' placeholder='Сума' type='number' min='1' />
+                    <button className='button-replenish'>Поповнити</button>
+                </div>
+            </div>
+        </div>
     </>
 }
 
 export function DeleteAccount() {
     return <>
-        <div className="block-right-content">Парцупцуполь</div>;
+        <div className="block-right-content">Парцупцуполь</div>
     </>
 }
