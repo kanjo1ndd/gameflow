@@ -4,11 +4,14 @@ import Carousel, { CarouselVertical } from './Carousel';
 import BannerCarousel, { BannerActive } from './BannerCarousel';
 import { useEffect, useState, useContext } from "react";
 import { AppContext } from "../../../AppContext.jsx";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useViewTransitionState } from "react-router-dom";
+import { i } from 'framer-motion/client';
+import { random } from 'lodash';
 
 export default function Content() {
 
     const [products, setProduct] = useState([]);
+    const [categories, setCategories] = useState([]);
     const { request } = useContext(AppContext);
 
     useEffect (() => {
@@ -17,45 +20,80 @@ export default function Content() {
         .catch(j => console.error(j));
     }, []);
 
+    useEffect (() => {
+        request("/api/shop/categories")
+        .then(data => setCategories(data))
+        .catch(j => console.error(j));
+    }, []);
+
     return <>
         <div className='content'>
-            <MainBanner />
+            <MainBanner products={products} />
             <div className='title-category'>Особливі пропозиції <i className="bi bi-chevron-right" /></div>
             <SpecialOffers products={products} />
             <div className='title-category'>Рекомендовані вам <i className="bi bi-chevron-right" /></div>
             <Recommended products={products} />
             <div className='title-category'>До 100₴ <i className="bi bi-chevron-right" /></div>
             <RecommendedTo products={products} />
-            <BlockListGames />
+            <BlockListGames categories={categories} products={products} />
         </div>
     </>;
 }
 
-export function MainBanner() {
+export function MainBanner({products}) {
+    const navigate = useNavigate();
+
+
+    const hasProducts = Array.isArray(products) && products.length > 0;
+    const fallbackCount = 5;
+
+    const displayedItems = hasProducts
+        ? products
+        : Array.from({ length: fallbackCount }).map((_, i) => ({
+            id: i,
+            name: "Нет данных",
+            price: "990",
+            horisontalImages: null,
+            action: null,
+        }));
     
-    const Sllen = 9;
-    const Imglen = 10;
+    const Sllen = displayedItems.length;
 
     const Slides = Array.from({ length: Sllen }).map((_, index) => {
-        return (
+        const product= displayedItems[index];
+        const imagesUrls = product.horisontalImages ? product.horisontalImages.split(',') : [];
+        const uniqueImagesUrls = Array.from(new Set(imagesUrls));
+        uniqueImagesUrls[0] = product.imagesCsv;
+        const lenImgUrls = uniqueImagesUrls.length;
+
+        const hasDiscount = product.action && product.action.amount > 0;
+        const discountedPrice = hasDiscount
+                    ? Math.round(product.price - (product.price * product.action.amount) / 100)
+                    : product.price;
+
+        return (    
             <>
-            <div key={index} className='main-image'>
+            <div key={index} className='main-image' >
                 <div className='image-in-main-banner'  >
-                    <BannerActive images={Array.from({ length: Imglen }).map((_, i) => ``)} lenImg={Imglen} />
+                    <BannerActive images={uniqueImagesUrls} lenImg={lenImgUrls} />
                 </div>
                 <div className='block-price-name'>
-                    <div className='title-mobile'>Avatar: Frontiers of Pandora</div> 
-                    <div className='block-price'>
-                        <div className='block-discount-price'>
-                            <div className='discount'>-40%</div> <div className='price'>911₴</div> <div className='old-price'>1519₴</div>
-                        </div>
-                        <div className='time-discount'>Знижка діє до 24.06.2024 10:00</div>
+                    <div className='title-mobile'>{product.name}</div> 
+                    <div className='block-price'onClick={ hasProducts ? () => navigate(`/Game/${product.id}`) : undefined }>
+                        {product.price !== "-" && (
+                            hasDiscount ? (
+                                <div className='block-discount-price'>
+                                    <div className='discount'>-{product.action.amount}%</div> <div className='price'>{discountedPrice}₴</div> <div className='old-price'>{product.price}₴</div>
+                                </div>
+                            ) : (
+                                <div className='price'>{product.price}₴</div>
+                            )
+                        )}
                     </div>
-                    <div className='block-name'>
-                        <div className='title'>Avatar: Frontiers of Pandora</div> 
-                            
-                        <div className='description'>Avatar: Frontiers of Pandora™ — це пригодницька гра від першої особи, 
-                            де події розгортаються на західному кордоні. </div>
+                    <div className='block-name'onClick={ hasProducts ? () => navigate(`/Game/${product.id}`) : undefined }>
+                        <div className='title'>{product.name}</div> 
+
+                        <div className='description'>{product.description}</div>
                     </div>
                 </div>
                 
@@ -106,7 +144,7 @@ export function SpecialOffers({ products }) {
                 return (
                     <div key={i} className="block-in-special-offers"
                         onClick={ hasProducts ? () => navigate(`/Game/${product.id}`) : undefined }>
-                    {product.horisontalImages ? (
+                    {product.imagesCsv ? (
                         <img className="image-special-offers" src={product.imagesCsv}/>
                     ) : (
                         <div className="image-special-offers placeholder" />
@@ -145,11 +183,12 @@ export function Recommended({ products }) {
     const hasProducts = Array.isArray(products) && products.length > 0;
 
     const RSlides = Array.from({ length: Rlen }).map((_, index) => {
-        const NextIndex = (index + 1) % Rlen;
-        const Next2Index = (index + 2) % Rlen;
-        const Next3Index = (index + 3) % Rlen;
+        const NextIndex = (index + 4) % Rlen;
+        const Next2Index = (index + 5) % Rlen;
+        const Next3Index = (index + 6) % Rlen;
+        const Next4Index = (index + 7) % Rlen;
 
-        const indices = [index, NextIndex, Next2Index, Next3Index];
+        const indices = [NextIndex, Next2Index, Next3Index, Next4Index];
 
         return (
             <>
@@ -204,11 +243,12 @@ export function RecommendedTo({ products }) {
 
     
      const RSlides = Array.from({ length: Rlen }).map((_, index) => {
-        const NextIndex = (index + 1) % Rlen;
-        const Next2Index = (index + 2) % Rlen;
-        const Next3Index = (index + 3) % Rlen;
+        const NextIndex = (index + 2) % Rlen;
+        const Next2Index = (index + 3) % Rlen;
+        const Next3Index = (index + 4) % Rlen;
+        const Next4Index = (index + 5) % Rlen;
 
-        const indices = [index, NextIndex, Next2Index, Next3Index];
+        const indices = [NextIndex, Next2Index, Next3Index, Next4Index];
 
         return (
             <>
@@ -256,33 +296,66 @@ export function RecommendedTo({ products }) {
     </>;
 }
 
-export function ListGamesVertical() {
-    const CatGamesLen = 13;
+export function ListGamesVertical({ products}) {
+   const navigate = useNavigate();
 
+    const hasProducts = Array.isArray(products) && products.length > 0;
+    const fallbackCount = 5;
+
+    const displayedItems = hasProducts
+        ?  products
+        : Array.from({ length: fallbackCount }).map((_, i) => ({
+            id: i,
+            name: "Нет данных",
+            price: "990",
+            horisontalImages: null,
+            action: null,
+        }));
+
+    const CatGamesLen = displayedItems.length;
+    const ceng=0;
     const CatGamesSlides = Array.from({ length: CatGamesLen }).map((_, index) => {
+        const StartIndex=index+ceng;
+        const NextIndex = (StartIndex + 1) % CatGamesLen;
+        const NextNextIndex = (StartIndex + 2) % CatGamesLen;
 
-        let NextIndex= (index >= CatGamesLen - 1) ? 0 : (index + 1);
-        let Next2Index= (NextIndex >= CatGamesLen - 1) ? 0 :( NextIndex + 1);
-
-        return (
+            return (
             <>
-                <div key={index} className='block-list-game'>
-                    <div className='image-list-game' style={{ backgroundColor: (index % 2 === 0) ? 'lightred' : 'lightblue' }} />
-                    <div className='name-game'>Name {index}</div>
-                    <div className='price-game'>9999₴</div>
-                </div>
-                <div key={NextIndex} className='block-list-game'>
-                    <div className='image-list-game' style={{ backgroundColor: (NextIndex % 2 === 0) ? 'pink' : 'lightblue' }} />
-                    <div className='name-game'>Name {NextIndex}</div>
-                    <div className='price-game'>9999₴</div>
-                </div>
-                <div key={Next2Index} className='block-list-game'>
-                    <div className='image-list-game' style={{ backgroundColor: (Next2Index % 2 === 0) ? 'pink' : 'blue' }} />
-                    <div className='name-game'>Name {Next2Index}</div>
-                    <div className='price-game'>9999₴</div>
-                </div>
+                {[StartIndex, NextIndex, NextNextIndex].map((i) => {
+                    const product = displayedItems[i];
+
+                    const hasDiscount = product.action && product.action.amount > 0;
+                    const discountedPrice = hasDiscount
+                        ? Math.round(product.price - (product.price * product.action.amount) / 100)
+                        : product.price;
+
+                    return (
+                        <div key={i} className="block-list-game"
+                            onClick={ hasProducts ? () => navigate(`/Game/${product.id}`) : undefined }>
+                        {product.horisontalImages ? (
+                            <img className="image-list-game" src={product.imagesCsv}/>
+                        ) : (
+                            <div className="image-list-game placeholder" />
+                        )}
+                            <div className="name-game">{product.name}</div>
+                            <div className="price-game">
+                                {product.price !== "-" && (
+                                hasDiscount ? (
+                                    <>
+                                    <div className='discount-game'>-{product.action.amount}%</div>
+                                    <div>{discountedPrice}₴</div>
+                                    <div className="old-price-discount">{product.price}₴</div>
+                                    </>
+                                ) : (
+                                    <span>{product.price}₴</span>
+                                )
+                                )}
+                            </div>
+                        </div>
+                    );
+                })}
             </>
-        );
+            );
     });
 
     return <>
@@ -292,29 +365,41 @@ export function ListGamesVertical() {
     </>;
 }
 
-export function BlockListGames() {
-    const LGlen = 10;
+export function BlockListGames({ categories, products }) {
+    const hasCategories = Array.isArray(categories) && categories.length > 0;
+    const fallbackCount = 7;
 
-    const Slides = Array.from({ length: LGlen }).map((_, index) => {
-        let NextIndex= (index >= LGlen - 1) ? 0 : (index + 1);
-        let NextNextIndex= (NextIndex >= LGlen - 1) ? 0 :( NextIndex + 1);
+    const displayedItems = hasCategories
+        ? categories
+        : Array.from({ length: fallbackCount }).map((_, i) => ({
+            id: i,
+            name: `Хіти продажів  ${i + 1}`,
+            price: "990",
+            imagesCsv: null,
+            action: null,
+        }));
+
+    const LGlen = displayedItems.length;
+
+   const Slides = Array.from({ length: LGlen }).map((_, index) => {
+        const NextIndex = (index + 1) % LGlen;
+        const NextNextIndex = (index + 2) % LGlen;
 
         return (
             <>
-            <div className='block-for-hit'>
-                <div key={index} className='list-game'>
-                    <div className='title-list-game'>Хіти продажу {index} <i className="bi bi-chevron-right right" /></div>
-                    <ListGamesVertical />
-                </div>
-                <div key={NextIndex} className='list-game'>
-                    <div className='title-list-game' >Хіти продажу {NextIndex} <i className="bi bi-chevron-right right" /></div>
-                    <ListGamesVertical />
-                </div>
-                <div key={NextNextIndex} className='list-game'>
-                    <div className='title-list-game'>Хіти продажу {NextNextIndex} <i className="bi bi-chevron-right right" /></div>
-                    <ListGamesVertical />
-                </div>
-            </div>
+            {[index, NextIndex, NextNextIndex].map((i) => {
+                const category = displayedItems[i];
+
+
+                return (
+                    <div key={i} className='block-for-hit'>
+                        <div className='list-game'>
+                            <div className='title-list-game'>{category?.name} <i className="bi bi-chevron-right right" /></div>
+                            <ListGamesVertical products={products}  />
+                        </div>
+                    </div>
+                );
+            })}
             </>
         );
     });

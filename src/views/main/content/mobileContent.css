@@ -380,7 +380,14 @@
             margin: 1.5vw 1vw 0 1vw;
             box-sizing: border-box;
         }
-
+        .slides-container{
+            gap:0.7vw;
+        }
+        .block-for-hit{
+            margin-right: 0vw;
+            padding-left: 0vw;
+            padding-right: 0vw;
+        }
         .image-list-game {
             background-color: black;
 

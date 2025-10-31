@@ -46,6 +46,7 @@ export function BannerActive({ images,lenImg }) {
     const [index, setIndex] = useState(0);
 
     const LenCont = lenImg;
+    
 
     const goToSlide = (slideIndex) => {
       setIndex(slideIndex);
@@ -54,8 +55,8 @@ export function BannerActive({ images,lenImg }) {
     return (
         <>
         <div className="carousel-container-images">
-            <div className="carousel-images" style={index%2===0 ? { backgroundColor: 'red' } :index%3===0 ? { backgroundColor: 'green' } :index===0 ? { backgroundColor: 'red' } : { backgroundColor: 'darkgray' }}>
-                    {React.Children.toArray(images)[index]}
+            <div className="carousel-images" >
+              <img className='carousel-images-start' src={React.Children.toArray(images)[index]} alt="" />
             </div>
             <div className="button-images-carouseles">
                 {Array.from({ length: LenCont }).map((_, i) => (

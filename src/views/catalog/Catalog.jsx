@@ -173,7 +173,7 @@ export function BlockViewColumn({ product }) {
 
     return <>
         <div className='block-view-column' onClick={() => navigate(`/Game/${product.id}`)}>
-            <img className='image-block-view-column' src={product.horisontalImages} />
+            <img className='image-block-view-column' src={product.imagesCsv} />
             <div className='name-price-view-column'>{product.name} 
                 <div className="price-game-column">
                     {product.price !== "-" && (

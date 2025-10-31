@@ -12,7 +12,7 @@ import './mobilePageGame.css'
 import { GameActive } from "./CarouselGame.jsx";
 
 
-export default function PageGame() {
+export default function PageGame(){
     const { id } = useParams();
     const [product, setProduct] = useState([]);
     const { request } = useContext(AppContext);
@@ -42,6 +42,11 @@ export default function PageGame() {
         setIsMenuOpen(false);
     };
 
+    const imagesUrls = product.horisontalImages ? product.horisontalImages.split(',') : [];
+        const uniqueImagesUrls = Array.from(new Set(imagesUrls));
+        uniqueImagesUrls[0] = product.imagesCsv;
+        const lenImgUrls = uniqueImagesUrls.length;
+
     return <>
         <Header />
         <div className="content-page-game">
@@ -49,9 +54,7 @@ export default function PageGame() {
             <div className="left-block-right-menu">
                 <div className="left-block-game-page">
                     <div className="name-game-page">{product.name}</div>
-                    <GameActive Gameimages={product.horisontalImages ? product.horisontalImages.split(',').map((url) => (
-                        <img className="main-image-page-game" src={url} alt={product.name} />
-                    )) : []} lenImg={product.imagesCsv ? product.imagesCsv.split(',').length : 0} />
+                    <GameActive Gameimages={uniqueImagesUrls} lenImg={lenImgUrls}  />
                     <div className="category-game-page">
                         {Array.from({ length: 3 }).map((_, i) => (
                             <div key={i} className="text-category-game-page">
@@ -178,6 +181,10 @@ export function HeaderPageGame() {
 export function MenuGamePage({ product }) {
 
     const [isFavorite, setIsFavorite] = useState(false);
+     const imagesUrls = product.horisontalImages ? product.horisontalImages.split(',') : [];
+
+     const uniqueImagesUrls = Array.from(new Set(imagesUrls));
+        uniqueImagesUrls[0] = product.imagesCsv;
 
     const hasDiscount = product.action && product.action.amount > 0;
 
@@ -188,7 +195,7 @@ export function MenuGamePage({ product }) {
     return <>
         <div className="block-menu-game-page">
             <div className="rating-game-menu">5.0 <RatingStars /></div>
-            <img className="right-image-game-menu" src={product.horisontalImages} />
+            <img className="right-image-game-menu" src={uniqueImagesUrls[5]} />
             <div className="price-game-menu">
                 {product.price !== "-" && (
                     hasDiscount ? (
