@@ -20,11 +20,13 @@ export default function Content() {
         .catch(j => console.error(j));
     }, []);
 
-    useEffect (() => {
+        useEffect (() => {
         request("/api/shop/categories")
         .then(data => setCategories(data))
         .catch(j => console.error(j));
     }, []);
+
+    
 
     return <>
         <div className='content'>
@@ -236,35 +238,27 @@ export function Recommended({ products }) {
     );
 }
 
-export function RecommendedTo() {
-    const [products, setProducts] = useState([]);
-    const { request } = useContext(AppContext);
+export function RecommendedTo({ products }) {
+    // const [products, setProducts] = useState([]);
+    // const { request } = useContext(AppContext);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        request("/api/shop/cheapestProducts")
-            .then(data => setProducts(data))
-            .catch(err => console.error(err));
-    }, []);
+    // useEffect(() => {
+    //     request("/api/shop/cheapestProducts")
+    //         .then(data => setProducts(data))
+    //         .catch(err => console.error(err));
+    // }, []);
 
-    const Rlen = products && products.length ? products.length : 10;
-    const hasProducts = Array.isArray(products) && products.length > 0;
+const Rlen = products && products.length ? products.length : 10;
+const hasProducts = Array.isArray(products) && products.length > 0;
 
-<<<<<<< HEAD
-    
-     const RSlides = Array.from({ length: Rlen }).map((_, index) => {
-        const NextIndex = (index + 2) % Rlen;
-        const Next2Index = (index + 3) % Rlen;
-        const Next3Index = (index + 4) % Rlen;
-        const Next4Index = (index + 5) % Rlen;
-=======
-    const RSlides = Array.from({ length: Rlen }).map((_, index) => {
-        const NextIndex = (index + 1) % Rlen;
-        const Next2Index = (index + 2) % Rlen;
-        const Next3Index = (index + 3) % Rlen;
->>>>>>> 4f14f8191640912ff7767f6c76339bb7bf4616a7
+const RSlides = Array.from({ length: Rlen }).map((_, index) => {
+    const NextIndex = (index + 1) % Rlen;
+    const Next2Index = (index + 2) % Rlen;
+    const Next3Index = (index + 3) % Rlen;
+    const Next4Index = (index + 4) % Rlen;
 
-        const indices = [NextIndex, Next2Index, Next3Index, Next4Index];
+    const indices = [NextIndex, Next2Index, Next3Index, Next4Index];
 
         return (
             <>
@@ -322,7 +316,7 @@ export function RecommendedTo() {
     );
 }
 
-export function ListGamesVertical({ products}) {
+export function ListGamesVertical({ products }) {
    const navigate = useNavigate();
 
     const hasProducts = Array.isArray(products) && products.length > 0;
@@ -345,73 +339,58 @@ export function ListGamesVertical({ products}) {
         const NextIndex = (StartIndex + 1) % CatGamesLen;
         const NextNextIndex = (StartIndex + 2) % CatGamesLen;
 
+
+    return (
+    <>
+        {[StartIndex, NextIndex, NextNextIndex].map((i) => {
+            const product = displayedItems[i];
+
+            const hasDiscount = product.action && product.action.amount > 0;
+            const discountedPrice = hasDiscount
+                ? Math.round(product.price - (product.price * product.action.amount) / 100)
+                : product.price;
+
             return (
-            <>
-<<<<<<< HEAD
-                {[StartIndex, NextIndex, NextNextIndex].map((i) => {
-                    const product = displayedItems[i];
-
-                    const hasDiscount = product.action && product.action.amount > 0;
-                    const discountedPrice = hasDiscount
-                        ? Math.round(product.price - (product.price * product.action.amount) / 100)
-                        : product.price;
-
-                    return (
-                        <div key={i} className="block-list-game"
-                            onClick={ hasProducts ? () => navigate(`/Game/${product.id}`) : undefined }>
-                        {product.horisontalImages ? (
-                            <img className="image-list-game" src={product.imagesCsv}/>
+                <div key={i} className="block-list-game"
+                    onClick={ hasProducts ? () => navigate(`/Game/${product.id}`) : undefined }>
+                {product.horisontalImages ? (
+                    <img className="image-list-game" src={product.imagesCsv}/>
+                ) : (
+                    <div className="image-list-game placeholder" />
+                )}
+                    <div className="name-game">{product.name}</div>
+                    <div className="price-game">
+                        {product.price !== "-" && (
+                        hasDiscount ? (
+                            <>
+                            <div className='discount-game'>-{product.action.amount}%</div>
+                            <div>{discountedPrice}₴</div>
+                            <div className="old-price-discount">{product.price}₴</div>
+                            </>
                         ) : (
-                            <div className="image-list-game placeholder" />
+                            <span>{product.price}₴</span>
+                        )
                         )}
-                            <div className="name-game">{product.name}</div>
-                            <div className="price-game">
-                                {product.price !== "-" && (
-                                hasDiscount ? (
-                                    <>
-                                    <div className='discount-game'>-{product.action.amount}%</div>
-                                    <div>{discountedPrice}₴</div>
-                                    <div className="old-price-discount">{product.price}₴</div>
-                                    </>
-                                ) : (
-                                    <span>{product.price}₴</span>
-                                )
-                                )}
-                            </div>
-                        </div>
-                    );
-                })}
-=======
-                <div key={index} className='block-list-game'>
-                    <div className='image-list-game' style={{ backgroundColor: (index % 2 === 0) ? 'lightred' : 'lightblue' }} />
-                    <div className='name-game'>Name</div>
-                    <div className='price-game'>9999₴</div>
+                    </div>
                 </div>
-                <div key={NextIndex} className='block-list-game'>
-                    <div className='image-list-game' style={{ backgroundColor: (NextIndex % 2 === 0) ? 'pink' : 'lightblue' }} />
-                    <div className='name-game'>Name</div>
-                    <div className='price-game'>9999₴</div>
-                </div>
-                <div key={Next2Index} className='block-list-game'>
-                    <div className='image-list-game' style={{ backgroundColor: (Next2Index % 2 === 0) ? 'pink' : 'blue' }} />
-                    <div className='name-game'>Name</div>
-                    <div className='price-game'>9999₴</div>
-                </div>
->>>>>>> 4f14f8191640912ff7767f6c76339bb7bf4616a7
-            </>
             );
+        })}
+    </>
+    );
     });
 
-    return <>
-        <div className='list-games-vertical'>
+    return (
+        <div className="list-games-vertical">
             <CarouselVertical game={CatGamesSlides} len={CatGamesLen} />
         </div>
-    </>;
+    );
 }
 
 export function BlockListGames({ categories, products }) {
     const hasCategories = Array.isArray(categories) && categories.length > 0;
     const fallbackCount = 7;
+
+
 
     const displayedItems = hasCategories
         ? categories
