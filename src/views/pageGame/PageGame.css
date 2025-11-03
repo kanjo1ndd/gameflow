@@ -326,6 +326,7 @@
     border-radius: 1.042vw;
     height: 7.552vw;
     width: 18.125vw;
+    object-fit: cover;
 }
 
 .rating-game-menu {

@@ -9,7 +9,7 @@ import '../filters/Filters.css'
 import './CarouselGame.jsx'
 import './CarouselGame.css'
 import './mobilePageGame.css'
-import { GameActive } from "./CarouselGame.jsx";
+import {CarouselGame} from "./CarouselGame.jsx";
 
 
 export default function PageGame(){
@@ -54,7 +54,7 @@ export default function PageGame(){
             <div className="left-block-right-menu">
                 <div className="left-block-game-page">
                     <div className="name-game-page">{product.name}</div>
-                    <GameActive Gameimages={uniqueImagesUrls} lenImg={lenImgUrls}  />
+                    <CarouselGame Gameimages={uniqueImagesUrls} lenImg={lenImgUrls}  />
                     <div className="category-game-page">
                         {Array.from({ length: 3 }).map((_, i) => (
                             <div key={i} className="text-category-game-page">
